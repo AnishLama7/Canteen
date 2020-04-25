@@ -1,7 +1,7 @@
 <?php 
 
 	$config = [
-		'site_url' => 'http://localhost/canteen',
+		'site_url' => 'http://localhost/github/canteen',
 		'db_name' => 'canteen',
 		'db_host' => 'localhost',
 		'db_user' => 'root',
