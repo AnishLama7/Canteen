@@ -33,3 +33,15 @@ img {
 }
 
 
+#contact{
+	background-image: url("5.jpg");
+}
+h4{
+	color:darkorange;
+}
+a{
+	padding-right: 10px;
+	color:black;
+}
+
+

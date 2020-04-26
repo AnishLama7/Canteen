@@ -1,33 +1,11 @@
 <?php 
-session_start();
-$con = mysqli_connect('localhost', 'root');
-if($con){
-	//echo "Connection successful";
-}
-else{
-	echo "Connection failed";
-}
+	require_once 'includes/init.php';
+	$title = 'Contact';
+	require_once 'includes/db_functions.php';
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>dum</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<?php include 'link.php'?>
-	<style type="text/css">
-		#contact{
-			background-image: url("5.jpg");
-		}
-		h4{
-			color:darkorange;
-		}
-		a{
-			padding-right: 10px;
-			color:black;
-		}
-	</style>
-</head>
+
+<?php require 'templates/header.php'; ?>
+
 <body>
 	<!-- 1st part -->
 	<section style="background-color:darkorange;">
@@ -40,51 +18,7 @@ else{
 			</span>
 		</div>
 	</section>
-	<!-- nav -->
-	<section class="bg-dark">
-		<div class="container ">
-			<nav class="navbar navbar-expand-md navbar-dark">
-				<!-- Brand/logo -->
-				<a class="navbar-brand" href="home.php">
-					Online College <br>Canteen
-				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="collapsibleNavbar">
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link" href="home.php">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="about.php">About</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="menu.php">Menu</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#people">Catering Services</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#gallery">Food System</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="contact.php">
-								contact
-							</a>
-						</li>
-						<!-- style="color:rgba(255,255,255,.5); -->
-						<li class="ml-3 my-2">
-							<button class="bg-dark btn btn-primary" data-toggle="modal" data-target="#myModal">Log in</button>
-						</li>
-						<li class="ml-3 my-2">
-							<a href="signup.php" target="_blank"><button class="bg-dark btn btn-primary"> Sign Up </button></a>
-						</li>
-					</ul>
-				</div>		
-			</nav>
-		</div>
-	</section>
+	<?php require 'templates/nav.php'; ?>
 	<!-- modal part -->
 	<section class="container-fluid bg-dark text-light">
 		<div class="modal fade modal-m text-dark bg-dark" id="myModal">
@@ -208,16 +142,7 @@ else{
 			</div>	
 		</div>
 	</section>
-	<!-- footer -->
-	<div id="footer" class="bg-light p-5">
-		<div class="wrapper">
-			<div class="fwmark"></div>
-			<div class="text-right">
-				&copy; Copyright 2013 AJAS FOODS
-			</div>
-
-		</div>    
-	</div>
+	<?php require 'templates/footer.php'; ?>
 	<!-- modal part -->
 	<div>
 		<div class="modal" id="myModal1">

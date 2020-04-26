@@ -1,22 +1,4 @@
-<?php 
-session_start();
-if (!isset($_SESSION['user'])) {
-	header('location:home.php');
-}
-else{
-	echo 'welcome '. $_SESSION['user'];	
-}
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>INSIDE HOME</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<?php include 'link.php'?>
-</head>
-<body>
-	<!-- nav -->
+<!-- nav -->
 	<section class="bg-dark">
 		<div class="container">
 			<nav class="navbar navbar-expand-md navbar-dark">
@@ -30,13 +12,13 @@ else{
 				<div class="collapse navbar-collapse" id="collapsibleNavbar">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link" href="insideHome.php">Home</a>
+							<a class="nav-link" href="<?php echo url('home.php'); ?>">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="insideAbout.php">About</a>
+							<a class="nav-link" href="<?php echo url('about.php'); ?>">About</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="insideMenu.php">Menu</a>
+							<a class="nav-link" href="<?php echo url('menu.php'); ?>">Menu</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#people">Catering Services</a>
@@ -45,21 +27,14 @@ else{
 							<a class="nav-link" href="#gallery">Food System</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="insideContact.php">
+							<a class="nav-link" href="<?php echo url('contact.php'); ?>">
 								contact
 							</a>
 						</li>
 						<!-- style="color:rgba(255,255,255,.5); -->
-						<div class="mr-0">
-							<li class="ml-3 my-2">
-								<a href="logout.php" class="bg-dark btn btn-primary"> log out</a>
-							</li>
-						</div>
+						<?php require 'templates/navbar.php'; ?>
 					</ul>
 				</div>		
 			</nav>
 		</div>
 	</section>
-
-</body>
-</html>

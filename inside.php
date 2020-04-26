@@ -14,50 +14,7 @@ else{
 	<?php include 'link.php'?>
 </head>
 <body>
-	<!-- nav -->
-	<section class="bg-dark">
-		<div class="container">
-			<nav class="navbar navbar-expand-md navbar-dark">
-				<!-- Brand/logo -->
-				<a class="navbar-brand" href="home.php">
-					Online College <br>Canteen
-				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="collapsibleNavbar">
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link" href="insideHome.php">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="insideAbout.php">About</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="insideMenu.php">Menu</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#people">Catering Services</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#gallery">Food System</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="insideContact.php">
-								contact
-							</a>
-						</li>
-						<!-- style="color:rgba(255,255,255,.5); -->
-						<div class="mr-0">
-							<li class="ml-3 my-2">
-								<a href="logout.php" class="bg-dark btn btn-primary"> log out</a>
-							</li>
-						</div>
-					</ul>
-				</div>		
-			</nav>
-		</div>
-	</section>
+	<?php require 'templates/nav.php'; ?>
 	<!-- paragraph section -->
 	<section class="container">
 		<p>Online Canteen System is an online system developed by Team AJAS for different College's Canteen. Customers of Online canteen can place orders from the convenience of their Computers or mobile phones simply browsing Website. They can view the menu and their expense reports. Canteen's Admin can conveniently set menus and process orders and better manage the operations.</p>
