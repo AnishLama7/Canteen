@@ -1,6 +1,6 @@
 <?php 
 	require_once 'includes/init.php';
-	$title = 'Contact';
+	$title = 'About';
 	require_once 'includes/db_functions.php';
 ?>
 	<?php require 'templates/header.php'; ?>
@@ -47,10 +47,10 @@
 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		<div>
-			<img src="../images/1.jpg">
+			<img src="images/1.jpg">
 		</div>
 		<div class="mt-3">
-			<img src="../images/2.jpg">
+			<img src="images/2.jpg">
 		</div>
 	</section>
 	<!-- footer -->
