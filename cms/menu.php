@@ -14,7 +14,7 @@
 				<h1>Menu</h1>
 			</div>
 			<div class="col-auto mt-3">
-				<a href="<?php echo url('cms/menu_add.php'); ?>" class="btn btn-primary btn-sm" ><i class="fas fa-plus mr-2"></i>Add Food</a>
+				<a href="<?php echo url('cms/menu_add.php'); ?>" class="btn btn-primary btn-sm" ><i class="fas fa-plus mr-2"></i>Add menu</a>
 			</div>
 		</div>
 		<div class="row">
@@ -27,36 +27,55 @@
 						<tr>
 							<th>#</th>
 							<th>Food Name</th>
-							<th>Price</th>
+							<th>Slug</th>
 							<th>Food_Image</th>
 							<th>Type</th>
+<<<<<<< Updated upstream
 							<th>Food_category</th>
 							<th>Time</th>
+=======
+							<th>Created_at</th>
+							<th>Updated_at</th>
+							<th>Available no.</th>
+>>>>>>> Stashed changes
 						</tr>
 					</thead>
 						<?php 
-							$sql = "SELECT * FROM food ";
+							$sql = "SELECT * FROM menu ";
 							$result = db_query($con, $sql); 
 							
 							$n = 1;
 							if($result && db_num_rows($result) > 0):
 							?>
 
-							<?php while($food = db_fetch_assoc($result)): ?>
+							<?php while($menu = db_fetch_assoc($result)): ?>
 							<tr>
 								<td><?php echo $n++; ?></td>
-								<td><?php echo $food['fname']; ?></td>
-								<td><?php echo $food['price']; ?></td>
+								<td><?php echo $menu['name']; ?></td>
+								<td><?php echo $menu['slug']; ?></td>
+								<td><?php echo $menu['price']; ?></td>
 								<td>
-						 			<?php if(!is_null($food['image'])): ?>
-						 				<img src="<?php echo url('images/'.$food['image']); ?>" class = "img-fluid">
+						 			<?php if(!is_null($menu['image'])): ?>
+						 				<img src="<?php echo url('images/'.$menu['image']); ?>" class = "img-fluid">
 						 				<?php else: ?>
 						 					n/a
 						 			<?php endif; ?>
 						 		</td>
+<<<<<<< Updated upstream
 						 		<td><?php echo $food['type']; ?></td>
 						 		<td><?php echo $food['food_category']; ?></td>
 						 		<td><?php echo $food['time']; ?></td>
+=======
+						 		<td><?php echo $menu['type']; ?></td>
+						 		<td><?php echo $menu['created_at']; ?></td>
+						 		<td><?php echo $menu['updated_at']; ?></td>
+						 		<td><?php echo $menu['total']; ?></td>
+					
+						 		<td>
+						 			<a href="<?php echo url('cms/menu_edit.php?name='.$menu['fname']); ?>"><i class="fas fa-edit mr-3"></i></a>
+						 			<a href="<?php echo url('cms/menu_delete.php?name='.$menu['fname']); ?>" class="delete"><i  class="fas fa-trash"></i></a>
+						 		</td>
+>>>>>>> Stashed changes
 							</tr> 
 					</tbody>
 						<?php endwhile; ?>

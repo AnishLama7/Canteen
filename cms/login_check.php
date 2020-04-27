@@ -9,7 +9,7 @@
 
 		$password = sha1($password);
 
-		$sql = "SELECT * FROM canteen_user WHERE (username = '{$username}' OR email = '{$username}') AND password = '{$password}' ";
+		$sql = "SELECT * FROM users WHERE (username = '{$username}' OR email = '{$username}') AND password = '{$password}' ";
 
 		$result = db_query($con, $sql);
 

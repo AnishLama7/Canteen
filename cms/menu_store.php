@@ -6,7 +6,7 @@
 	if(!empty($_POST)) {
 		extract($_POST);
 
-		$sql = "INSERT INTO food SET fname ='{$fname}', price = '{$price}', type = '{$type}' " ;
+		$sql = "INSERT INTO menu SET name ='{$name}', slug = '{$slug}', price = '{price}', type = '{$type}', total = '{$total}' " ;
 
 		if(isset($_FILES['image']) && !empty($_FILES['image']) && $_FILES['image']['error'] == 0) {
 			$file = $_FILES['image'];
