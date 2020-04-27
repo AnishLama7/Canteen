@@ -27,11 +27,10 @@
 						<tr>
 							<th>#</th>
 							<th>Food Name</th>
+							<th>Slug</th>
 							<th>Price</th>
 							<th>Food_Image</th>
 							<th>Type</th>
-							<th>Food_category</th>
-							<th>Time</th>
 							<th>Available no.</th>
 						</tr>
 					</thead>

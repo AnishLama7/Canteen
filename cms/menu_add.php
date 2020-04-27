@@ -18,8 +18,13 @@
 			<div class="col-8 mx-auto">
 				<form method="POST" action="<?php echo url('cms/menu_store.php'); ?>" enctype = "multipart/form-data">
 					<div class="form-group">
-						<label for="fname">Food Name</label>
-						<input type="text" name="fname" id="fname" class="form-control" required>
+						<label for="name">Food Name</label>
+						<input type="text" name="name" id="name" class="form-control" required>
+					</div>
+
+					<div class="form-group">
+						<label for="slug">Slug</label>
+						<input type="text" name="slug" id="slug" class="form-control" required>
 					</div>
 
 					<div class="form-group">
