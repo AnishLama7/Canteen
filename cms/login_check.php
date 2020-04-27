@@ -9,14 +9,14 @@
 
 		$password = sha1($password);
 
-		$sql = "SELECT * FROM canteen_user WHERE (username = '{$username}' OR email = '{$username}') AND password = '{$password}' ";
+		$sql = "SELECT * FROM users WHERE (username = '{$username}' OR email = '{$username}') AND password = '{$password}' ";
 
 		$result = db_query($con, $sql);
 
 		if($result && db_num_rows($result) > 0) {
-			$cuser = db_fetch_assoc($result);
+			$user = db_fetch_assoc($result);
 
-			$_SESSION['cuser'] = $cuser;
+			$_SESSION['user'] = $user;
 
 			redirect(url('cms'));
 

@@ -4,7 +4,7 @@
 			<h1>Online Canteen</h1>
 		</div>
 		<div class="col-12 text-center">
-			 <i class="fas fa-user mr-2"></i><?php echo $_SESSION['cuser']['first_name'].' '.$_SESSION['cuser']['middle_name'].' '.$_SESSION['cuser']['last_name']; ?> <br>
+			 <i class="fas fa-user mr-2"></i><?php echo $_SESSION['user']['name']; ?> <br>
 			 <small>
 			 <a href="<?php echo url('cms/edit_profile.php'); ?>" title="Edit Profile"><i class="fas fa-edit"></i></a>
 
