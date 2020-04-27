@@ -19,11 +19,21 @@
 			}
 		}
 	</script>
-
-<body  class="bg-dark">
-	<div  class="container bg-light text-dark w-50 mt-5">
-		<form action="insert.php" method="POST" class="needs-validation" onsubmit="return matchpass()">
-			<h2 class="text-center">Sign Up</h2><hr width="25%" color="white">
+<style type="text/css">
+	h1{
+		color:darkorange;
+	}
+	.but{
+		background-color:darkorange;
+	}
+	label, span{
+		color: white;
+	}
+</style>
+<body  class="bg-secondary">
+	<div  class="container bg-dark mt-5 p-4 col-lg-6 col-md-8 col-12">
+		<form action="insert.php" method="POST" class="needs-validation w-75 mx-auto" onsubmit="return matchpass()">
+			<h1 class="text-center">Sign Up</h1><hr color="orange">
 			<div class="form-group"> 
 				<label for="fullname">Full Name:</label>
 				<input type="text" class="form-control" id="fullname" placeholder="Enter fullname" name="fullname" required>
@@ -89,8 +99,8 @@
 				</label>
 			</div>
 			<div class=" text-center">
-				<button type="submit" class="btn btn-primary mb-1" name="submit">Submit</button><br>
-				<button type="reset" name="res" value="reset" class="btn btn-primary mb-3">Reset</button>
+				<button type="submit" class="btn btn-secondary mb-1 but font-weight-bold" name="submit">Submit</button><br>
+				<button type="reset" name="res" value="reset" class="btn btn-secondary mb-3 but font-weight-bold">Reset</button>
 			</div>
 		</form>
 	</div>
