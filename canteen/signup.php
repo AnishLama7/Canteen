@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>sign</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<?php include 'link.php' ?>
+<?php 
+	require_once 'includes/init.php';
+	$title = 'Sign up';
+	require_once 'includes/db_functions.php';
+?>
+	<?php require 'templates/header.php'; ?>
+
 	<script type="text/javascript">
 		function matchpass(){
 			var firstPassword = document.myform.pwd.value;
@@ -19,7 +19,7 @@
 			}
 		}
 	</script>
-</head>
+
 <body  class="bg-dark">
 	<div  class="container bg-light text-dark w-50 mt-5">
 		<form action="insert.php" method="POST" class="needs-validation" onsubmit="return matchpass()">
