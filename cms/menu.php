@@ -32,6 +32,7 @@
 							<th>Type</th>
 							<th>Food_category</th>
 							<th>Time</th>
+							<th>Available no.</th>
 						</tr>
 					</thead>
 						<?php 
@@ -57,6 +58,11 @@
 						 		<td><?php echo $food['type']; ?></td>
 						 		<td><?php echo $food['food_category']; ?></td>
 						 		<td><?php echo $food['time']; ?></td>
+						 		<td></td>
+						 		<td>
+						 			<a href="<?php echo url('cms/menu_edit.php?name='.$food['fname']); ?>"><i class="fas fa-edit mr-3"></i></a>
+						 			<a href="<?php echo url('cms/menu_delete.php?name='.$food['fname']); ?>" class="delete"><i  class="fas fa-trash"></i></a>
+						 		</td>
 							</tr> 
 					</tbody>
 						<?php endwhile; ?>

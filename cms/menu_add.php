@@ -48,6 +48,16 @@
 					</div>
 
 					<div class="form-group">
+						<label for="total">Available Items</label>
+						<input type="text" name="total" id="total" class="form-control">
+					</div>
+
+					<div class="form-group">
+						<label for="updated_at">A</label>
+						<input type="time" name="updated_at" id="updated_at" class="form-control">
+					</div>
+
+					<div class="form-group">
 						<button type="submit" class="btn btn-primary">Save</button>
 					</div>
 
