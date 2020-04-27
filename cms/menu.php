@@ -29,45 +29,51 @@
 							<th>Food Name</th>
 							<th>Slug</th>
 							<th>Price</th>
-							<th>Food_Image</th>
+							<th>Food Image</th>
 							<th>Type</th>
 							<th>Available no.</th>
+							<th>Created_at</th>
+							<th>Updated_at</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 						<?php 
-							$sql = "SELECT * FROM food ";
+							$sql = "SELECT * FROM menu ";
 							$result = db_query($con, $sql); 
 							
 							$n = 1;
 							if($result && db_num_rows($result) > 0):
 							?>
 
-							<?php while($food = db_fetch_assoc($result)): ?>
+							<?php while($menu = db_fetch_assoc($result)): ?>
+							
 							<tr>
-								<td><?php echo $n++; ?></td>
-								<td><?php echo $food['fname']; ?></td>
-								<td><?php echo $food['price']; ?></td>
-								<td>
-						 			<?php if(!is_null($food['image'])): ?>
-						 				<img src="<?php echo url('images/'.$food['image']); ?>" class = "img-fluid">
+						 		<td><?php echo $n++; ?></td>
+						 		<td><?php echo $menu['name']; ?></td>
+						 		<td><?php echo $menu['slug']; ?></td>
+						 		<td><?php echo $menu['price']; ?></td>
+						 		<td>
+						 			<?php if(!is_null($menu['image'])): ?>
+						 				<img src="<?php echo url('images/'.$menu['image']); ?>" class = "img-fluid">
 						 				<?php else: ?>
 						 					n/a
 						 			<?php endif; ?>
 						 		</td>
-						 		<td><?php echo $food['type']; ?></td>
-						 		<td><?php echo $food['food_category']; ?></td>
-						 		<td><?php echo $food['time']; ?></td>
-						 		<td></td>
+
+						 		<td><?php echo ucfirst($menu['type']); ?></td>
+						 		<td><?php echo $menu['total']; ?></td>
+						 		<td><?php echo date('j M Y h:i:s A', strtotime($menu['created_at'])); ?></td>
+						 		<td><?php echo date('j M Y h:i:s A', strtotime($menu['updated_at'])); ?></td>
 						 		<td>
-						 			<a href="<?php echo url('cms/menu_edit.php?name='.$food['fname']); ?>"><i class="fas fa-edit mr-3"></i></a>
-						 			<a href="<?php echo url('cms/menu_delete.php?name='.$food['fname']); ?>" class="delete"><i  class="fas fa-trash"></i></a>
+						 			<a href="<?php echo url('cms/menu_edit.php?slug='.$menu['slug']); ?>"><i class="fas fa-edit mr-3"></i></a>
+						 			<a href="<?php echo url('cms/menu_delete.php?slug='.$menu['slug']); ?>" class="delete"><i  class="fas fa-trash"></i></a>
 						 		</td>
-							</tr> 
+						 	</tr>
 					</tbody>
 						<?php endwhile; ?>
 						<?php else: ?>
 						<tr>
-							<td colspan="6" class="text-center">No data found</td>
+							<td colspan="12" class="text-center">No data found</td>
 						</tr>	
 					<?php endif; ?>
 				</table>

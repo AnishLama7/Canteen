@@ -17,6 +17,9 @@
 				<li <?php echo $active == 'menu' ? 'class="active"' : ''; ?>>
 					<a href="<?php echo url('cms/menu.php'); ?>"></i>Menu</a>
 				</li>
+				<li <?php echo $active == 'order' ? 'class="active"' : ''; ?>>
+					<a href="<?php echo url('cms/order.php'); ?>"></i>Order</a>
+				</li>
 				<li <?php echo $active == 'comments' ? 'class="active"' : ''; ?>>
 					<a href="<?php echo url('cms/comments.php'); ?>"></i>Comments</a>
 				</li>

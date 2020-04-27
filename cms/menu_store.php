@@ -6,7 +6,10 @@
 	if(!empty($_POST)) {
 		extract($_POST);
 
-		$sql = "INSERT INTO food SET fname ='{$fname}', price = '{$price}', type = '{$type}' " ;
+		$now = date('Y-m-d H:i:s');
+		$user_id = $_SESSION['user']['id'];
+		$sql = "INSERT INTO menu SET name = '{$name}', slug = '{$slug}', price = '{$price}', user_id = '{$user_id}', created_at = '{$now}', updated_at = '{$now}', type = '{$type}', total = '{$total}' ";
+		
 
 		if(isset($_FILES['image']) && !empty($_FILES['image']) && $_FILES['image']['error'] == 0) {
 			$file = $_FILES['image'];
@@ -18,7 +21,6 @@
 
 			$sql .=", image = '{$filename}'";
 
-			var_dump($sql);
 		}
 
 		$result = db_query($con, $sql);
