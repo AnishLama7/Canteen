@@ -31,6 +31,7 @@
 							<th>Price</th>
 							<th>Food Image</th>
 							<th>Type</th>
+							<th>Food Category</th>
 							<th>Available no.</th>
 							<th>Created_at</th>
 							<th>Updated_at</th>
@@ -54,13 +55,14 @@
 						 		<td><?php echo $menu['price']; ?></td>
 						 		<td>
 						 			<?php if(!is_null($menu['image'])): ?>
-						 				<img src="<?php echo url('images/'.$menu['image']); ?>" class = "img-fluid">
+						 				<img src="<?php echo url('images/'.$menu['image']); ?>" class = "img-fluid" width="100" height="100">
 						 				<?php else: ?>
 						 					n/a
 						 			<?php endif; ?>
 						 		</td>
 
 						 		<td><?php echo ucfirst($menu['type']); ?></td>
+						 		<td></td>
 						 		<td><?php echo $menu['total']; ?></td>
 						 		<td><?php echo date('j M Y h:i:s A', strtotime($menu['created_at'])); ?></td>
 						 		<td><?php echo date('j M Y h:i:s A', strtotime($menu['updated_at'])); ?></td>
