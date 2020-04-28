@@ -4,7 +4,7 @@
 			<nav class="navbar navbar-expand-md navbar-dark">
 				<!-- Brand/logo -->
 				<a class="navbar-brand" href="home.php">
-					Online College <br>Canteen
+					<img src="images/finallogo.png" width="130px" height="60px">
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 					<span class="navbar-toggler-icon"></span>
