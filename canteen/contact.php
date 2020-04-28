@@ -3,9 +3,16 @@
 	$title = 'Contact';
 	require_once 'includes/db_functions.php';
 ?>
-
 <?php require 'templates/header.php'; ?>
-
+<style type="text/css">
+	#contact{
+	background-image: url("images/4.jpg");
+	background-repeat: no-repeat;
+	/*background-size: cover;*/	
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
+</style>
 <body>
 	<!-- 1st part -->
 	<section style="background-color:darkorange;">
@@ -20,7 +27,7 @@
 	</section>
 	<?php require 'templates/nav.php'; ?>
 	<!-- modal part -->
-	<section class="container-fluid bg-dark text-light">
+	<!-- <section class="container-fluid bg-dark text-light">
 		<div class="modal fade modal-m text-dark bg-dark" id="myModal">
 			<div class="modal-dialog modal-m">
 				<div class="modal-content">
@@ -46,7 +53,8 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
+
 	<!-- 3RD PART -->
 	<section id="contact">
 		<div class="container pt-5 pb-5">
@@ -57,23 +65,23 @@
 					<form>
 						<div class="form-row text">
 							<div class="col">
-								<input type="text" class="form-control bg-dark text-white mb-2" id="first" placeholder="First name" name="first">
+								<input type="text" class="form-control bg-dark text-white mb-2" id="first" placeholder="First name" name="first" required>
 							</div>
 							<div class="col">
-								<input type="text" class="form-control bg-dark text-white mb-2" id="last" placeholder="last name" name="last">
+								<input type="text" class="form-control bg-dark text-white mb-2" id="last" placeholder="last name" name="last" required>
 							</div>
 						</div>		
 						<div class="form-row mt-2">
 							<div class="col">
-								<input type="text" class="form-control bg-dark text-white mb-2" id="email" placeholder="email address" name="email">
+								<input type="text" class="form-control bg-dark text-white mb-2" id="email" placeholder="email address" name="email" required>
 							</div>
 							<div class="col">
-								<input type="number" class="form-control bg-dark text-white mb-2" id="phone" placeholder="phone number" name="phone">
+								<input type="number" class="form-control bg-dark text-white mb-2" id="phone" placeholder="phone number" name="phone" required>
 							</div>
 						</div>
 						<div class="form-row mt-2">
 							<div class="col">
-								<textarea placeholder="message" style="width:100%" class="bg-dark text-white mb-2"></textarea>
+								<textarea placeholder="message" style="width:100%" class="bg-dark text-white mb-2" required></textarea>
 							</div>
 						</div>
 						<div class="form-group form-check">
@@ -97,9 +105,9 @@
 						onlinecanteen@gmail.com
 					</p>
 					<div class="mt-4 pl-2">
-						<a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook-f"></i></a>
-						<a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a>
-						<a href="https://www.twitter.com"><i class="fa 	fa-twitter"></i></a>
+						<a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+						<a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+						<a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
 					</div>
 					<button type="button" class="btn btn-secondary mt-4" data-toggle="modal" data-target="#myModal1">
 						See on map
@@ -133,9 +141,9 @@
 						Phone: 01-4445566, 01-545165<br>
 						Email: onlinecanteen@gmail.com
 						<div class="pl-2">
-							<a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook-f"></i></a>
-							<a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a>
-							<a href="https://www.twitter.com"><i class="fa 	fa-twitter"></i></a>
+							<a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+							<a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+							<a href="https://www.twitter.com"><i class="fab	fa-twitter"></i></a>
 						</div>
 					</p>
 				</div>

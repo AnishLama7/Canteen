@@ -1,3 +1,8 @@
+<style type="text/css">
+	a{
+		font-size: 19px;
+	}
+</style>
 <!-- nav -->
 	<section class="bg-dark">
 		<div class="container">
@@ -28,11 +33,11 @@
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo url('contact.php'); ?>">
-								contact
+								Contact
 							</a>
 						</li>
 						<li class="ml-3 my-2">
-							<a href="<?php echo url('cms/login.php'); ?>"><button class="bg-dark btn btn-primary">Log in </button></a>
+							<a href="<?php echo url('cms/login.php'); ?>"><button class="bg-dark btn btn-primary">Log In </button></a>
 						</li>
 						<li class="ml-3 my-2">
 							<a href="signup.php" target="_blank"><button class="bg-dark btn btn-primary"> Sign Up </button></a>
