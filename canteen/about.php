@@ -6,7 +6,7 @@
 	<?php require 'templates/header.php'; ?>
 	<?php require 'templates/nav.php'; ?>
 	<!-- modal part -->
-	<section class="container-fluid bg-dark text-light">
+	<!-- <section class="container-fluid bg-dark text-light">
 		<div class="modal fade modal-m text-dark bg-dark" id="myModal">
 			<div class="modal-dialog modal-m">
 				<div class="modal-content">
@@ -32,7 +32,9 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
+	
+	<!-- guff dine part -->
 	<section class="container mt-1">
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

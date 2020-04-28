@@ -1,12 +1,18 @@
 <?php 
-	require_once 'includes/init.php';
-	$title = 'Home';
-	require_once 'includes/db_functions.php';
+require_once 'includes/init.php';
+$title = 'Home';
+require_once 'includes/db_functions.php';
 ?>
-	<?php require 'templates/header.php'; ?>
-	<?php require 'templates/nav.php'; ?>
-	<!-- modal part -->
-	<section class="container bg-dark text-light">
+<?php require 'templates/header.php'; ?>
+<?php require 'templates/nav.php'; ?>
+<style type="text/css">
+	.carousel-inner img {
+	width: 100%;
+	height: 100%;
+}
+</style>
+<!-- modal part -->
+	<!-- <section class="container bg-dark text-light">
 		<div class="modal fade modal-m text-dark bg-dark" id="myModal">
 			<div class="modal-dialog modal-m">
 				<div class="modal-content">
@@ -32,7 +38,8 @@
 				</div>
 			</div>
 		</div>
-	</section>	
+	</section> -->	
+
 	<!-- carousel part -->
 	<section class="container">
 		<div id="demo" class="carousel slide" data-ride="carousel">

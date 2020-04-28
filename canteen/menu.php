@@ -7,7 +7,7 @@
 	<?php require 'templates/header.php'; ?>
 	<?php require 'templates/nav.php'; ?>
 	<!-- modal part -->
-	<section class="container-fluid bg-dark text-light">
+	<!-- <section class="container-fluid bg-dark text-light">
 		<div class="modal fade modal-m text-dark bg-dark" id="myModal">
 			<div class="modal-dialog modal-m">
 				<div class="modal-content">
@@ -33,7 +33,8 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
+	
 	<!-- paragraph section -->
 	<section class="container">
 		<p>Online Canteen System is an online system developed by Team AJAS for different College's Canteen. Customers of Online canteen can place orders from the convenience of their Computers or mobile phones simply browsing Website. They can view the menu and their expense reports. Canteen's Admin can conveniently set menus and process orders and better manage the operations.</p>
