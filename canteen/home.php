@@ -85,7 +85,6 @@ require_once 'includes/db_functions.php';
 			</a>
 		</div>
 	</section>
-	<hr width="75%">
-	<?php include 'templates/footer.php'; ?>
+<?php include 'templates/footer.php'; ?>
 </body>
 </html>
