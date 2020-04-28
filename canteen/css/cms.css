@@ -3,7 +3,8 @@ body{
 }
 
 .side-nav{
-	background-color: #16a3e6;
+	background-color: black;
+	opacity: 0.8;
 	color: #ffffff;
 	min-height: 100vh;
 }
@@ -23,11 +24,11 @@ body{
 }
 
 .side-menu li:hover, .side-menu li:focus{
-	background-color: #54bbec;
+	background-color: orange;
 }
 
 .side-menu .active{
-	background-color: #2387b7;
+	background-color: darkorange;
 }
 
 .side-nav a{
@@ -46,3 +47,17 @@ body{
 .delete:hover, .delete:focus {
 	color: #dc3545;;
 }
+
+h1{
+		color:darkorange;
+	}
+	.but{
+		background-color:darkorange;
+	}
+	.bod{
+		background-image: url("../images/4.jpg");
+		background-repeat: no-repeat;
+/*		background-size: cover;
+*/		background-attachment: fixed;
+		background-size: 100% 100%
+

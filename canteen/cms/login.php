@@ -1,24 +1,9 @@
 <?php 
 require_once '../includes/init.php';
-$title = 'Online';
+$title = 'Login';
 require_once 'templates/header.php';
 ?>
-<style type="text/css">
-	h1{
-		color:darkorange;
-	}
-	.but{
-		background-color:darkorange;
-	}
-	.bod{
-		background-image: url("../images/4.jpg");
-		background-repeat: no-repeat;
-/*		background-size: cover;
-*/		background-attachment: fixed;
-background-size: 100% 100%;
 
-}
-</style>
 <body class="bg-secondary bod">
 	<div class="mx-auto bg-dark p-5 mt-5 col-lg-4 col-md-8 col-12" style="opacity:0.8">
 		<h1 class="text-center">Canteen Login</h1>

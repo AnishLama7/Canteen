@@ -9,12 +9,12 @@
 
 <div class="col">
 	<div class="col-12 bg-white my-3">
-		<div class="row">
+		<div class="row bg-dark" style="opacity:0.8">
 			<div class="col">
 				<h1>Menu</h1>
 			</div>
 			<div class="col-auto mt-3">
-				<a href="<?php echo url('cms/menu_add.php'); ?>" class="btn btn-primary btn-sm" ><i class="fas fa-plus mr-2"></i>Add Food</a>
+				<a href="<?php echo url('cms/menu_add.php'); ?>" class="btn btn-warning btn-sm" ><i class="fas fa-plus mr-2"></i>Add Food</a>
 			</div>
 		</div>
 		<div class="row">
