@@ -9,7 +9,7 @@
 
 <div class="col">
 	<div class="col-12 bg-white my-3">
-		<div class="row bg-dark" style="opacity:0.8">
+		<div class="row">
 			<div class="col">
 				<h1>Menu</h1>
 			</div>

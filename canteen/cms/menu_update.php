@@ -9,7 +9,7 @@
 
 		$now = date('Y-m-d H:i:s');
 
-		$sql = "UPDATE menu SET name = '{$name}', slug = '{$slug}', updated_at = '{$now}', type = '{$type}' ";
+		$sql = "UPDATE menu SET name = '{$name}', slug = '{$slug}', price = '{$price}',type = '{$type}', total = '{$total}', updated_at = '{$now}' ";
 
 		if(isset($_FILES['image']) && !empty($_FILES['image']) && $_FILES['image']['error'] == 0) {
 			$file = $_FILES['image'];
