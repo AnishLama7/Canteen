@@ -7,8 +7,8 @@
 
 	<script type="text/javascript">
 		function matchpass(){
-			var firstPassword = document.myform.pwd.value;
-			var secondPassword = document.myform.pwd1.value;
+			var firstPassword = document.myform.password1.value;
+			var secondPassword = document.myform.password2.value;
 			if(firstPassword==secondPassword){
 				// alert("password matched");
 				return true;
@@ -31,48 +31,52 @@
 	}
 </style>
 <body  class="bg-secondary">
+	<?php include_once 'cms/templates/message.php'; ?>
 	<div  class="container bg-dark mt-5 p-4 col-lg-6 col-md-8 col-12">
-		<form action="insert.php" method="POST" class="needs-validation w-75 mx-auto" onsubmit="return matchpass()">
+		<form action="<?php echo url('cms/sign_check.php'); ?>" method="POST" class="needs-validation w-75 mx-auto" onsubmit="return matchpass()">
 			<h1 class="text-center">Sign Up</h1><hr color="orange">
 			<div class="form-group"> 
-				<label for="fullname">Full Name:</label>
-				<input type="text" class="form-control" id="fullname" placeholder="Enter fullname" name="fullname" required>
+				<label for="name">Full Name:</label>
+				<input type="text" class="form-control" id="name" placeholder="Enter fullname" name="name" required>
 			</div>
+
 			<div class="form-group">
 				<div class="form-check-inline">
 					<span style="margin-right: 10px;">Sex:</span>
 					<label class="form-check-label" for="radio1">
-						<input type="radio" class="form-check-input" id="radio1" name="radio" value="M">Male
+						<input type="radio" class="form-check-input" id="radio1" name="sex" value="male">Male
 					</label>
 				</div>
 				<div class="form-check-inline">
 					<label class="form-check-label" for="radio2">
-						<input type="radio" class="form-check-input" id="radio2" name="radio" value="F">Female
+						<input type="radio" class="form-check-input" id="radio2" name="sex" value="female">Female
 					</label>
 				</div>
 				<div class="form-check-inline">
 					<label class="form-check-label" for="radio3">
-						<input type="radio" class="form-check-input" id="radio3" name="radio" value="O">Other
+						<input type="radio" class="form-check-input" id="radio3" name="sex" value="other">Other
 					</label>
 				</div>
 			</div>
+
 			<div class="form-group">
 				<div class="form-check-inline">
 					<label class="form-check-label" for="radio11">Faculty:
-						<input type="radio" class="form-check-input" id="radio11" name="radio1" value="CSIT">BSC CSIT
+						<input type="radio" class="form-check-input" id="radio11" name="faculty" value="CSIT">BSC CSIT
 					</label>
 				</div>
 				<div class="form-check-inline">
 					<label class="form-check-label" for="radio12">
-						<input type="radio" class="form-check-input" id="radio12" name="radio1" value="BBA">BBA
+						<input type="radio" class="form-check-input" id="radio12" name="faculty" value="BBA">BBA
 					</label>
 				</div>
 				<div class="form-check-inline">
 					<label class="form-check-label"  for="radio13">
-						<input type="radio" class="form-check-input" id="radio13" name="radio1" value="BCA">BCA
+						<input type="radio" class="form-check-input" id="radio13" name="faculty" value="BCA">BCA
 					</label>
 				</div>
 			</div>
+
 			<div class="form-group">
 				<label for="phone">Phone:</label>
 				<input type="number" class="form-control" id="phone" placeholder="Enter phone" name="phone" required>
@@ -83,15 +87,22 @@
 			</div>
 			<div class="form-group">
 				<label for="uname">Username:</label>
-				<input type="text" class="form-control" id="uname" placeholder="Enter new username" name="uname" required>
+				<input type="text" class="form-control" id="username" placeholder="Enter new username" name="username" required>
 			</div>
 			<div class="form-group">
-				<label for="pwd">Password:</label>
-				<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" required>
+				<label for="type">Type</label>
+				<select name="type" id="type" class="form-control" required>
+					<option value="student">Student</option>
+					<option value="staff">Staff</option>
+				</select>
 			</div>
 			<div class="form-group">
-				<label for="pwd1">Retype Password:</label>
-				<input type="password" class="form-control" id="pwd1" placeholder="Enter password" name="pwd1" required>
+				<label for="password1">Password:</label>
+				<input type="password" class="form-control" id="password1" placeholder="Enter password" name="password1" required>
+			</div>
+			<div class="form-group">
+				<label for="password2">Retype Password:</label>
+				<input type="password" class="form-control" id="password2" placeholder="Enter password" name="password2" required>
 			</div>
 			<div class="form-group form-check">
 				<label class="form-check-label">
