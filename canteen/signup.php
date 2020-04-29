@@ -7,9 +7,9 @@
 
 	<script type="text/javascript">
 		function matchpass(){
-			var firstPassword = document.myform.password1.value;
-			var secondPassword = document.myform.password2.value;
-			if(firstPassword==secondPassword){
+			var Pass1 = document.myform.password1.value;
+			var Pass2 = document.myform.password2.value;
+			if(Pass1==Pass2){
 				// alert("password matched");
 				return true;
 			}
@@ -34,8 +34,8 @@
 </style>
 
 <body  class="bg-secondary">
-	<?php include_once 'cms/templates/message.php'; ?>
 	<div  class="container bg-dark mt-5 p-4 col-lg-6 col-md-8 col-12">
+		<?php include_once 'cms/templates/message.php'; ?>
 		<form action="<?php echo url('cms/sign_check.php'); ?>" method="POST" class="needs-validation w-75 mx-auto" onsubmit="return matchpass()">
 			<h1 class="text-center">Sign Up</h1><hr color="orange">
 			<div class="form-group"> 
