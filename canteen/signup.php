@@ -20,21 +20,31 @@
 		}
 	</script>
 <style type="text/css">
-	h1{
-		color:darkorange;
-	}
-	.but{
-		background-color:darkorange;
-	}
-	label, span{
+	.bodd{
+	background-image: url("images/3.jpg");
+	background-repeat: no-repeat;
+	/*background-size: cover;*/	
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
+	/*span text lai white gareko ho*/
+	span{
 		color: white;
 	}
 </style>
+<<<<<<< HEAD
 <body  class="bg-secondary">
 	<?php include_once 'cms/templates/message.php'; ?>
 	<div  class="container bg-dark mt-5 p-4 col-lg-6 col-md-8 col-12">
 		<form action="<?php echo url('cms/sign_check.php'); ?>" method="POST" class="needs-validation w-75 mx-auto" onsubmit="return matchpass()">
 			<h1 class="text-center">Sign Up</h1><hr color="orange">
+=======
+<body  class="bg-secondary bodd">
+	<div  class="container bg-dark mt-5 p-4 col-lg-6 col-md-8 col-12" style="opacity:0.9">
+		<form action="insert.php" method="POST" style="width:85%" class="needs-validation mx-auto" onsubmit="return matchpass()">
+			<h1 class="text-center">Sign Up</h1>
+			<hr color="orange">
+>>>>>>> cddb21c05ddb802e0c817046df07fb4d59a6f787
 			<div class="form-group"> 
 				<label for="name">Full Name:</label>
 				<input type="text" class="form-control" id="name" placeholder="Enter fullname" name="name" required>
@@ -110,8 +120,8 @@
 				</label>
 			</div>
 			<div class=" text-center">
-				<button type="submit" class="btn btn-secondary mb-1 but font-weight-bold" name="submit">Submit</button><br>
-				<button type="reset" name="res" value="reset" class="btn btn-secondary mb-3 but font-weight-bold">Reset</button>
+				<button type="submit" class="but btn btn-secondary mb-1 font-weight-bold" name="submit">Submit</button><br>
+				<button type="reset" name="res" value="reset" class="but btn btn-secondary mb-3 font-weight-bold">Reset</button>
 			</div>
 		</form>
 	</div>

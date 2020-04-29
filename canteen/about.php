@@ -1,12 +1,12 @@
 <?php 
-	require_once 'includes/init.php';
-	$title = 'About';
-	require_once 'includes/db_functions.php';
+require_once 'includes/init.php';
+$title = 'About';
+require_once 'includes/db_functions.php';
 ?>
-	<?php require 'templates/header.php'; ?>
-	<?php require 'templates/nav.php'; ?>
-	<!-- modal part -->
-	<section class="container-fluid bg-dark text-light">
+<?php require 'templates/header.php'; ?>
+<?php require 'templates/nav.php'; ?>
+<!-- modal part -->
+	<!-- <section class="container-fluid bg-dark text-light">
 		<div class="modal fade modal-m text-dark bg-dark" id="myModal">
 			<div class="modal-dialog modal-m">
 				<div class="modal-content">
@@ -32,7 +32,9 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
+
+	<!-- guff dine part -->
 	<section class="container mt-1">
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -47,21 +49,12 @@
 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		<div>
-			<img src="images/1.jpg">
+			<img src="images/1.jpg" style="width: 100%; height: auto;">
 		</div>
 		<div class="mt-3">
-			<img src="images/2.jpg">
+			<img src="images/2.jpg" style="width: 100%; height: auto;">
 		</div>
 	</section>
-	<!-- footer -->
-	<div id="footer" class="bg-light p-5">
-		<div class="wrapper">
-			<div class="fwmark"></div>
-			<div class="text-right">
-				&copy; Copyright 2013 AJAS FOODS
-			</div>
-
-		</div>    
-	</div>
+	<?php include 'templates/footer.php'; ?>
 </body>
 </html>
