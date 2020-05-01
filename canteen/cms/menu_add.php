@@ -16,7 +16,7 @@
 			<?php include_once 'templates/message.php'; ?>
 
 			<div class="col-8 mx-auto">
-				<form method="POST" action="<?php echo url('cms/menu_store.php'); ?>" enctype = "multipart/form-data">
+				<form method="POST" action="<?php echo url('cms/menu_store.php');?>" enctype = "multipart/form-data">
 					<div class="form-group">
 						<label for="name">Food Name</label>
 						<input type="text" name="name" id="name" class="form-control" required>
