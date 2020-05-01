@@ -28,6 +28,9 @@
 	background-size: 100% 100%;
 }
 	/*span text lai white gareko ho*/
+	label {
+		color: white;
+	}
 	span{
 		color: white;
 	}
@@ -114,7 +117,8 @@
 			</div>
 			<div class=" text-center">
 				<button type="submit" class="but btn btn-secondary mb-1 font-weight-bold" name="submit">Submit</button><br>
-				<button type="reset" name="res" value="reset" class="but btn btn-secondary mb-3 font-weight-bold">Reset</button>
+				<button type="reset" name="reset" value="reset" class="but btn btn-secondary mb-3 font-weight-bold">
+				Reset</button>
 			</div>
 		</form>
 	</div>
