@@ -2,6 +2,9 @@
 
 	require_once '../includes/init.php';
 	require_once '../includes/db_connection.php';
+	require_once '../includes/canteen_check.php';
+	require_once '../includes/user_check.php';
+
 
 	if(isset($_GET['slug']) && !empty($_GET['slug'])) {
 		$slug = $_GET['slug'];

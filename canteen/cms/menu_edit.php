@@ -1,6 +1,8 @@
 <?php 
 	require_once '../includes/init.php';
 	require_once '../includes/db_connection.php';
+	require_once '../includes/canteen_check.php';
+	require_once '../includes/user_check.php';
 	$title = 'Edit Menu';
 	require_once 'templates/header.php';
 	$active = 'menu';
