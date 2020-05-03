@@ -39,7 +39,7 @@
 <body  class="bg-secondary">
 	<div  class="container bg-dark mt-5 p-4 col-lg-6 col-md-8 col-12">
 		<?php include_once 'cms/templates/message.php'; ?>
-		<form action="<?php echo url('cms/sign_check.php'); ?>" method="POST" class="needs-validation w-75 mx-auto" onsubmit="return matchpass()">
+		<form action="<?php echo url('cms/sign_check.php'); ?>" name="myform" method="POST" class="needs-validation w-75 mx-auto" onsubmit="return matchpass()">
 			<h1 class="text-center">Sign Up</h1><hr color="orange">
 			<div class="form-group"> 
 				<label for="name">Full Name:</label>
