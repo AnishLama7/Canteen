@@ -24,7 +24,7 @@ $active = 'menu';
 	.side-navi{
 		background-color: black;
 		opacity: 0.8;
-		height: 100vh;
+		min-height: 700px;
 			color: #ffffff;
 	}
 	.side-navi a{
@@ -33,11 +33,6 @@ $active = 'menu';
 .side-navi a{
 	padding: 5px 10px;
 	display: inline-block;
-}
-@media(max-width:770px){
-	.side-navi{
-		height: auto;
-	}
 }
 </style>
 <body>
