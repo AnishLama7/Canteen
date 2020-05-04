@@ -28,10 +28,7 @@
 	background-size: 100% 100%;
 }
 	/*span text lai white gareko ho*/
-	label {
-		color: white;
-	}
-	span{
+	label,span{
 		color: white;
 	}
 </style>
