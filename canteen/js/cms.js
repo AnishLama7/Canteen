@@ -1,5 +1,41 @@
 $(function() {
 
+	$('#confirm_password').on('change keyup', function(){
+		var npass = $('#new_password').val();
+		var cpass = $(this).val();
+		var opass = $('#old_password').val();
+
+		if(npass == cpass) {
+			document.querySelector('#confirm_password').setCustomValidity('');
+		}
+		else {
+			document.querySelector('#confirm_password').setCustomValidity('Password not confirmed.');
+		}
+
+
+		if(opass == '' || opass == null) {
+			document.querySelector('#old_password').setCustomValidity('Please fill out this field');
+		}
+		else {
+			document.querySelector('#old_password').setCustomValidity('');
+		}
+
+	});
+
+	$('#old_password').on('change keyup', function(){
+		var opass = $(this).val();
+
+		if(opass == '' || opass == null) {
+			document.querySelector('#old_password').setCustomValidity('Please fill out this field');
+		}
+		else {
+			document.querySelector('#old_password').setCustomValidity('');
+		}
+
+	});
+
+$(function() {
+
 	$('.delete').click(function(e) {
 		e.preventDefault();
 
@@ -18,6 +54,8 @@ $(function() {
 		readURL(this);
 	});
  
+});
+
 });
 
 function readURL(input) {
