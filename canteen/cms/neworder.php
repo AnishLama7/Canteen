@@ -1,7 +1,6 @@
 <?php 
 require_once '../includes/init.php';
 require_once '../includes/db_connection.php';
-require_once '../includes/canteen_check.php';
 require_once '../includes/user_check.php';
 $title = 'Menu';
 // require_once 'templates/header.php';
@@ -75,33 +74,31 @@ $active = 'menu';
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="nav mx-auto" role="tablist">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Lunch</a>
-              <div class="dropdown-menu">.
-                <a class="dropdown-item" data-toggle="pill" href="#lunch-veg">Veg</a>
-                <a class="dropdown-item" data-toggle="pill" href="#lunch-nonveg">Non-Veg</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Breakfast</a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" data-toggle="pill" href="#break-veg">Veg</a>
-                <a class="dropdown-item" data-toggle="pill" href="#break-nonveg">Non-Veg</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="pill" href="#special">Special Order</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Drinks</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Statement</a>
-            </li>
+       <nav class="col-12 navbar navbar-expand-lg navbar-dark bg-primary">
+    <button class="navbar-toggler" type="button" data-toggle = "collapse" data-target = "#navbarSupportedContent" aria-expanded = "false" arial-label = "Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <?php 
+          $sql = "SELECT name, slug FROM categories ";
+          $result = db_query($con, $sql);
+          if($result && db_num_rows($result) > 0):
+        ?>
+        <?php while($category = db_fetch_assoc($result)): ?>
+        <li class="nav-item">
+          <a class="nav-link  <?php echo $active == $category['slug'] ? 'active' : ' '; ?>" href="<?php echo url('category/'.$category['slug']); ?>"><?php echo $category['name']; ?></a>
+        </li>
+        <?php endwhile; ?>
+        <?php endif; ?>
+
             <li class="ml-3 my-2">
               <a href="<?php echo url('logout.php'); ?>"><button class="bg-dark btn btn-primary"> Log Out </button></a>
+            </li>
+
+            <li class="ml-3 my-2">
+              <a href="<?php echo url('cms/profile.php'); ?>"><button class="bg-dark btn btn-primary">My Profile</button></a>
             </li>
           </ul>
         </div>    
