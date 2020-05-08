@@ -10,7 +10,7 @@
 
 		$now = date('Y-m-d H:i:s');
 		$user_id = $_SESSION['user']['id'];
-		$sql = "INSERT INTO menu SET name = '{$name}', slug = '{$slug}', price = '{$price}', user_id = '{$user_id}', created_at = '{$now}', updated_at = '{$now}', type = '{$type}', total = '{$total}' ";
+		$sql = "INSERT INTO menu SET name = '{$name}', slug = '{$slug}', price = '{$price}',category_id = '{$category_id}', user_id = '{$user_id}', created_at = '{$now}', updated_at = '{$now}', type = '{$type}', total = '{$total}' ";
 		
 
 		if(isset($_FILES['image']) && !empty($_FILES['image']) && $_FILES['image']['error'] == 0) {

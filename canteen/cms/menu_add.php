@@ -51,6 +51,22 @@
 					</div>
 
 					<div class="form-group">
+						<label for="category_id">Food Category</label>
+						<select name="category_id" id="category_id" class="form-control" required>
+							<option value="">Select a category</option>
+							<?php 
+								$sql = "SELECT id, name FROM categories";
+								$result = db_query($con, $sql);
+								if($result && db_num_rows($result) > 0 ):
+							 ?>
+							 <?php while($category = db_fetch_assoc($result)): ?>
+							 <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
+							 <?php endwhile; ?>
+							 <?php endif; ?>
+						</select>
+					</div>
+
+					<div class="form-group">
 						<label for="total">Available Items</label>
 						<input type="text" name="total" id="total" class="form-control">
 					</div>

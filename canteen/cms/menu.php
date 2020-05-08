@@ -64,7 +64,12 @@
 						 		</td>
 
 						 		<td><?php echo ucfirst($menu['type']); ?></td>
-						 		<td></td>
+						 		<?php 
+						 			$qry = "SELECT name FROM categories WHERE id = '{$menu['category_id']}'";
+						 			$res = db_query($con, $qry);
+						 			$Category = db_fetch_assoc($res);
+						 		 ?>
+						 		<td><?php echo $Category['name']; ?></td>
 						 		<td><?php echo $menu['total']; ?></td>
 						 		<td><?php echo date('j M Y h:i:s A', strtotime($menu['created_at'])); ?></td>
 						 		<td><?php echo date('j M Y h:i:s A', strtotime($menu['updated_at'])); ?></td>

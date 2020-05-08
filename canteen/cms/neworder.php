@@ -1,10 +1,9 @@
 <?php 
 require_once '../includes/init.php';
 require_once '../includes/db_connection.php';
-require_once '../includes/user_check.php';
-$title = 'Menu';
+$title = 'Order';
 // require_once 'templates/header.php';
-$active = 'menu';
+$active = 'order';
 ?>
 <!DOCTYPE html>
 <html>
