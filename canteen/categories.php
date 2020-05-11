@@ -1,8 +1,20 @@
 <?php 
 	require_once 'includes/init.php';
  	require_once 'includes/db_connection.php';
-  $title = 'Home';
- ?>
+ 
+ $sql = "SELECT * FROM categories WHERE slug = '{$_GET['slug']}'";
+  $result = db_query($con, $sql);
+
+  if(!$result || db_num_rows($result) <= 0) {
+    die('Page not found.');
+  }
+
+  $cat = db_fetch_assoc($result);
+
+  $title = $cat['name'];
+
+  $active = $cat['slug'];
+  ?>
 
  <!DOCTYPE html>
  <html>
@@ -15,34 +27,28 @@
     a{
       color: white;
     }
-    .list-menu {
-  height: 150px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
   </style>
  </head>
 
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand"><img src="images/newlogo.png" width="60px" height="30px"></a>
+  <a class="navbar-brand"><img src="images/newlogo.png"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item  <?php echo $active == 'home' ? 'active' : ' '; ?>">
+      <li class="nav-item <?php echo $active == 'home' ? 'active' : ' '; ?>">
         <a class="nav-link" href="<?php echo url('order.php'); ?>"><i class="fas fa-home"></i></a>
       </li>
         <?php 
-          $sql = "SELECT name, slug FROM categories ";
+          $sql = "SELECT name, slug FROM categories";
           $result = db_query($con, $sql);
           if($result && db_num_rows($result) > 0):
         ?>
         <?php while($category = db_fetch_assoc($result)): ?>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo url('category/'.$category['slug']); ?>"><?php echo $category['name'];  ?></a>
+        <a class="nav-link <?php echo $active == $category['slug'] ? 'active' : ' '; ?>" href="<?php echo url('category/'.$category['slug']); ?>"><?php echo $category['name'];  ?></a>
       </li>
       <?php endwhile; ?>
       <?php endif; ?>
@@ -57,7 +63,7 @@
 </nav>
 
     <!-- Recommendation starts here -->
-<div class="container">
+<!-- <div class="container">
 <div class="row">
   <div class="col-sm-8">
         <div class="item active">
@@ -68,59 +74,23 @@
   </div>
 </div>
 <hr>
-</div>
+</div> -->
 <!-- Recommendation ends here -->
 
-<main class="row">
-  <div class="col-12 text-center">
+<div class="container text-center">    
   <h3>Today's Menu</h3>
   <br>
   <div class="row">
     <?php 
-      $sql = "SELECT * FROM menu LIMIT 0,10 ";
+      $sql = " SELECT * FROM menu AND EXITS(SELECT id FROM categories WHERE categories.slug = '{$_GET['slug']}') ";
       $result = db_query($con, $sql);
       if($result && db_num_rows($result) > 0 ): ?>
      <?php while( $menu = db_fetch_assoc($result)): ?>
 
-  <div class="col-3">  
-    <div class="row list-menu">
-      <div class="col-12">
-     <?php  if(!empty($menu['image'])): ?>
-      <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-responsive"  alt="Image">
-    <?php endif; ?>
-
-    <form action="<?php echo url('order_store.php'); ?>" style="text-align: center;">
-      <h4 class="card-title"><?php echo $menu['name']; ?></h4>
-
-      <div class="form-group">
-        <label>Price:<?php echo $menu['price']; ?> </label>
-      </div>
-
-       <div class="form-group">
-        <label for="type">Food Type:<?php echo $menu['type']; ?></label>
-      </div>
-
-      <div class="form-group">
-        <label>Available amount:<?php echo $menu['total']; ?> </label>
-      </div>
-
-      <div class="form-group">
-        <label>Your order amount:</label>
-        <input type ="number" size="">
-      </div>
-
-      <div class="form-group text-center" >
-        <button type="submit" class="btn btn-secondary mt-2 font-weight-bold">Order</button>
-      </div>
-
-      </form>
-    </div>
-    <?php endwhile; ?>
-    <?php endif; ?>
-  </div>
-</div>
-</main>
+      <?php endwhile; ?>
+      <?php endif; ?>
    
+  </div>
   <hr>
 </div>
 

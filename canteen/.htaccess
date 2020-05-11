@@ -1,0 +1,9 @@
+<IFModule mod_rewrite.c>
+	ReWriteEngine On
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+
+	RewriteRule ^category/([^/]+)?$ categories.php?slug=$1 [QSA]
+	RewriteRule ^category/([^/]+)/([^/]+)?$ categories.php?slug=$1&page=$2 [QSA]
+</IFModule>

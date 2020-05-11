@@ -1,26 +1,20 @@
 <?php 
-	require_once 'includes/init.php';
- 	require_once 'includes/db_connection.php';
+  require_once 'includes/init.php';
+  require_once 'includes/db_connection.php';
   $title = 'Home';
  ?>
 
  <!DOCTYPE html>
  <html>
  <head>
- 	<title> <?php echo $title; ?> - Order Page</title>
- 	<link rel="stylesheet" type="text/css" href="<?php echo url('css/bootstrap.css')?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
+  <title> <?php echo $title; ?> - Order Page</title>
+  <link rel="stylesheet" type="text/css" href="<?php echo url('css/bootstrap.css')?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
 
   <style type="text/css">
     a{
       color: white;
     }
-    .list-menu {
-  height: 150px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
   </style>
  </head>
 
@@ -32,8 +26,8 @@
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item  <?php echo $active == 'home' ? 'active' : ' '; ?>">
-        <a class="nav-link" href="<?php echo url('order.php'); ?>"><i class="fas fa-home"></i></a>
+      <li class="nav-item active">
+        <a class="nav-link" href="index.php">Home</a>
       </li>
         <?php 
           $sql = "SELECT name, slug FROM categories ";
@@ -46,6 +40,9 @@
       </li>
       <?php endwhile; ?>
       <?php endif; ?>
+       <li class="nav-item">
+        <a class="nav-link" href="#">Special order</a>
+      </li>
     </ul>
 
      <ul class="nav navbar-nav navbar-right">
@@ -71,8 +68,7 @@
 </div>
 <!-- Recommendation ends here -->
 
-<main class="row">
-  <div class="col-12 text-center">
+<div class="container text-center">    
   <h3>Today's Menu</h3>
   <br>
   <div class="row">
@@ -81,54 +77,39 @@
       $result = db_query($con, $sql);
       if($result && db_num_rows($result) > 0 ): ?>
      <?php while( $menu = db_fetch_assoc($result)): ?>
-
-  <div class="col-3">  
-    <div class="row list-menu">
-      <div class="col-12">
+  <div class="col-sm-3">  
      <?php  if(!empty($menu['image'])): ?>
-      <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-responsive"  alt="Image">
+      <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-responsive" style="width:100%" alt="Image">
     <?php endif; ?>
-
-    <form action="<?php echo url('order_store.php'); ?>" style="text-align: center;">
+    <form action="/action_page.php">
       <h4 class="card-title"><?php echo $menu['name']; ?></h4>
-
       <div class="form-group">
         <label>Price:<?php echo $menu['price']; ?> </label>
       </div>
-
-       <div class="form-group">
-        <label for="type">Food Type:<?php echo $menu['type']; ?></label>
-      </div>
-
       <div class="form-group">
         <label>Available amount:<?php echo $menu['total']; ?> </label>
       </div>
-
       <div class="form-group">
         <label>Your order amount:</label>
-        <input type ="number" size="">
+        <input type ="number">
       </div>
-
       <div class="form-group text-center" >
         <button type="submit" class="btn btn-secondary mt-2 font-weight-bold">Order</button>
       </div>
-
       </form>
-    </div>
     <?php endwhile; ?>
     <?php endif; ?>
   </div>
-</div>
-</main>
    
+  </div>
   <hr>
 </div>
 
  <body>
  
- 	<script type="text/javascript" src="<?php echo url('js/jquery.js')?>"></script>
-	<script type="text/javascript" src="<?php echo url('js/bootstrap.js')?>"></script>
-	<script type="text/javascript" src="<?php echo url('js/cms.js')?>"></script>
-	<script type="text/javascript" src="<?php echo url('js/all.js')?>"></script>
+  <script type="text/javascript" src="<?php echo url('js/jquery.js')?>"></script>
+  <script type="text/javascript" src="<?php echo url('js/bootstrap.js')?>"></script>
+  <script type="text/javascript" src="<?php echo url('js/cms.js')?>"></script>
+  <script type="text/javascript" src="<?php echo url('js/all.js')?>"></script>
  </body>
  </html>
