@@ -37,7 +37,7 @@
 	
 	<!-- paragraph section -->
 	<section class="container">
-		<p>Online Canteen System is an online system developed by Team AJAS for different College's Canteen. Customers of Online canteen can place orders from the convenience of their Computers or mobile phones simply browsing Website. They can view the menu and their expense reports. Canteen's Admin can conveniently set menus and process orders and better manage the operations.</p>
+		<p> Here, customer's can select the menu and can have their expense reports. Canteen's Admin can conveniently set menus and process orders and better manage the operations.</p>
 	</section>
 	<!-- menu item -->
 	<section class="container">
