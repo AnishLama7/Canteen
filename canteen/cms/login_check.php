@@ -18,7 +18,13 @@
 
 			$_SESSION['user'] = $user;
 
-			redirect(url('cms'));
+			if($_SESSION['user']['type']== 'student'){
+				redirect(url('order.php'));
+			}
+
+			else{
+				redirect(url('cms'));
+				}
 
 		}
 

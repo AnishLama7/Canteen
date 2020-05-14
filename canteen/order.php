@@ -1,26 +1,30 @@
 <?php 
-	require_once 'includes/init.php';
- 	require_once 'includes/db_connection.php';
+  require_once 'includes/init.php';
+  require_once 'includes/db_connection.php';
+  require_once 'includes/user_check.php';
   $title = 'Home';
  ?>
 
  <!DOCTYPE html>
  <html>
  <head>
- 	<title> <?php echo $title; ?> - Order Page</title>
- 	<link rel="stylesheet" type="text/css" href="<?php echo url('css/bootstrap.css')?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
+  <title> <?php echo $title; ?> - Order Page</title>
+  <link rel="stylesheet" type="text/css" href="<?php echo url('css/bootstrap.css')?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
 
   <style type="text/css">
     a{
       color: white;
     }
-    .list-menu {
+  /* .list-menu{
+    margin-bottom: 15px;
+}
+  .list-article {
   height: 150px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
+}*/
   </style>
  </head>
 
@@ -49,9 +53,10 @@
     </ul>
 
      <ul class="nav navbar-nav navbar-right">
-        <li  style="color: white;"><i class="fas fa-user-clock"></i>Time</li>
-        <li><a href="#"><i class="fas fa-user"></i> My profile</a></li>
-        <li><a href="<?php echo url('cms/logout.php'); ?>"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+      <li style="color: white;">&nbsp;&nbsp;<i class="fas fa-user"></i><?php echo $_SESSION['user']['name']; ?></li>
+      <li style="color: white;">&nbsp;&nbsp;<i class="fas fa-user-clock"></i><?php echo $_SESSION['logged_in_datetime'] = date("d M H:i:s"); ?></li>
+      <li><a href="#">&nbsp;&nbsp;<i class="fas fa-user"></i>Profile</a></li>
+      <li><a href="<?php echo url('cms/logout.php'); ?>"> &nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a></li>
       </ul>
   </div>
 </nav>
@@ -59,7 +64,7 @@
     <!-- Recommendation starts here -->
 <div class="container">
 <div class="row">
-  <div class="col-sm-8">
+  <div class="col">
         <div class="item active">
           <img src="images/alu.jpg" alt="Image" style="height: 250px; width: 250px;">
              <h3>Recommendation</h3>
@@ -71,27 +76,26 @@
 </div>
 <!-- Recommendation ends here -->
 
-<main class="row">
+<div class="row">
   <div class="col-12 text-center">
   <h3>Today's Menu</h3>
   <br>
-  <div class="row">
+   <div class="row">
     <?php 
       $sql = "SELECT * FROM menu LIMIT 0,10 ";
       $result = db_query($con, $sql);
       if($result && db_num_rows($result) > 0 ): ?>
      <?php while( $menu = db_fetch_assoc($result)): ?>
 
-  <div class="col-3">  
+  <div class="col">  
     <div class="row list-menu">
-      <div class="col-12">
+      <div class="col">
      <?php  if(!empty($menu['image'])): ?>
-      <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-responsive"  alt="Image">
+      <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-fluid" >
     <?php endif; ?>
-
-    <form action="<?php echo url('order_store.php'); ?>" style="text-align: center;">
-      <h4 class="card-title"><?php echo $menu['name']; ?></h4>
-
+            <h5 class="card-title text-center"><?php echo $menu['name']; ?></h5>
+     
+    
       <div class="form-group">
         <label>Price:<?php echo $menu['price']; ?> </label>
       </div>
@@ -111,24 +115,23 @@
 
       <div class="form-group text-center" >
         <button type="submit" class="btn btn-secondary mt-2 font-weight-bold">Order</button>
-      </div>
-
-      </form>
+      </div> 
     </div>
+</div>
+</div>
     <?php endwhile; ?>
     <?php endif; ?>
   </div>
 </div>
-</main>
-   
-  <hr>
 </div>
+
+ 
 
  <body>
  
- 	<script type="text/javascript" src="<?php echo url('js/jquery.js')?>"></script>
-	<script type="text/javascript" src="<?php echo url('js/bootstrap.js')?>"></script>
-	<script type="text/javascript" src="<?php echo url('js/cms.js')?>"></script>
-	<script type="text/javascript" src="<?php echo url('js/all.js')?>"></script>
+  <script type="text/javascript" src="<?php echo url('js/jquery.js')?>"></script>
+  <script type="text/javascript" src="<?php echo url('js/bootstrap.js')?>"></script>
+  <script type="text/javascript" src="<?php echo url('js/cms.js')?>"></script>
+  <script type="text/javascript" src="<?php echo url('js/all.js')?>"></script>
  </body>
  </html>
