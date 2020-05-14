@@ -36,18 +36,10 @@ require_once 'includes/db_functions.php';
 
 	<!-- guff dine part -->
 	<section class="container mt-1">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<p>Online Canteen System is an online system developed by Team AJAS for different College's Canteen. Customers of Online canteen can 	 place orders from the convenience of their Computers or mobile phones simply browsing Website.
+			Nowadays people don’t have much time to spend in canteen by just there and waiting in a queue to take their order. Many customers visit the canteen in their lunch break and recess so they have limited time to eat and return to their respective classes and works. So this Web Application helps them to save time and order food whenever they want without waiting in a queue again and again. 
+			Online Canteen System enables the end users to register online, read and select the food from e-menu card and order food online by just selecting the food that the user want to have from the e-menu using this website.
+		</p>
 		<div>
 			<img src="images/1.jpg" style="width: 100%; height: auto;">
 		</div>
