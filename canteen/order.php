@@ -9,8 +9,10 @@
  <html>
  <head>
   <title> <?php echo $title; ?> - Order Page</title>
+
   <link rel="stylesheet" type="text/css" href="<?php echo url('css/bootstrap.css')?>">
   <link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
+   <link rel="stylesheet" type="text/css" href="<?php echo url('css/cms.css')?>">
 
   <style type="text/css">
     a{
@@ -65,7 +67,7 @@
 <div class="container">
 <div class="row">
   <div class="col">
-        <div class="item active">
+        <div class="item active text-center">
           <img src="images/alu.jpg" alt="Image" style="height: 250px; width: 250px;">
              <h3>Recommendation</h3>
           </div>      
@@ -78,8 +80,7 @@
 
 <div class="row">
   <div class="col-12 text-center">
-  <h3>Today's Menu</h3>
-  <br>
+    <h3>Today's Menu</h3><br>
    <div class="row">
     <?php 
       $sql = "SELECT * FROM menu LIMIT 0,10 ";
@@ -87,16 +88,23 @@
       if($result && db_num_rows($result) > 0 ): ?>
      <?php while( $menu = db_fetch_assoc($result)): ?>
 
-  <div class="col">  
+  <div class="col-3">  
     <div class="row list-menu">
       <div class="col">
      <?php  if(!empty($menu['image'])): ?>
       <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-fluid" >
-    <?php endif; ?>
+      <?php endif; ?>
             <h5 class="card-title text-center"><?php echo $menu['name']; ?></h5>
      
-    
-      <div class="form-group">
+        <label>Price:<?php echo $menu['price']; ?> </label><br>
+        <label>Available:<?php echo $menu['total']; ?> </label><br>
+          <div class="qty mt-2">
+            <span class="minus bg-dark">-</span>
+            <input type="number" class="count" name="qty" value="0">
+            <span class="plus bg-dark">+</span>
+        </div>
+
+     <!--  <div class="form-group">
         <label>Price:<?php echo $menu['price']; ?> </label>
       </div>
 
@@ -111,7 +119,7 @@
       <div class="form-group">
         <label>Your order amount:</label>
         <input type ="number" size="">
-      </div>
+      </div> -->
 
       <div class="form-group text-center" >
         <button type="submit" class="btn btn-secondary mt-2 font-weight-bold">Order</button>
