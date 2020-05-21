@@ -1,8 +1,10 @@
 <?php 
   require_once 'includes/init.php';
   require_once 'includes/db_connection.php';
+  require_once 'includes/student_check.php';
   require_once 'includes/user_check.php';
   $title = 'Home';
+  $active = 'home';
  ?>
 
  <!DOCTYPE html>
@@ -57,8 +59,8 @@
      <ul class="nav navbar-nav navbar-right">
       <li style="color: white;">&nbsp;&nbsp;<i class="fas fa-user"></i><?php echo $_SESSION['user']['name']; ?></li>
       <li style="color: white;">&nbsp;&nbsp;<i class="fas fa-user-clock"></i><?php echo $_SESSION['logged_in_datetime'] = date("d M H:i:s"); ?></li>
-      <li><a href="#">&nbsp;&nbsp;<i class="fas fa-user"></i>Profile</a></li>
-      <li><a href="<?php echo url('cms/logout.php'); ?>"> &nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a></li>
+      <li><a href="<?php echo url('cms/profile.php'); ?>" title="My Profile">&nbsp;&nbsp;<i class="fas fa-user"></i></a></li>
+      <li> <a href="<?php echo url('cms/logout.php'); ?>" title="Logout" ><i class="fas fa-sign-out-alt"></i></a></li>
       </ul>
   </div>
 </nav>

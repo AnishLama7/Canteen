@@ -2,6 +2,7 @@
 	require_once '../includes/init.php';
 	$title = 'Sign up';
 	require_once '../includes/db_functions.php';
+	$active = 'edit profile';
 ?>
 <?php require '../templates/header.php'; ?>
 

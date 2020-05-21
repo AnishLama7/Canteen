@@ -36,7 +36,8 @@
 							<th>Action</th>
 						</tr>
 					</thead>
-						<!-- <?php 
+					<tbody>
+						<?php 
 							$sql = "SELECT * FROM menu ";
 							$result = db_query($con, $sql); 
 							
@@ -48,8 +49,9 @@
 							
 							<tr>
 						 		<td><?php echo $n++; ?></td>
+						 		<td></td>
 						 		<td><?php echo $menu['name']; ?></td>
-						 		<td><?php echo $menu['slug']; ?></td>
+						 		<td></td>
 						 		<td><?php echo $menu['price']; ?></td>
 						 		<td>
 						 			<?php if(!is_null($menu['image'])): ?>
@@ -61,11 +63,9 @@
 
 						 		<td><?php echo ucfirst($menu['type']); ?></td>
 						 		<td></td>
-						 		<td><?php echo $menu['total']; ?></td>
-						 		<td><?php echo date('j M Y h:i:s A', strtotime($menu['created_at'])); ?></td>
-						 		<td><?php echo date('j M Y h:i:s A', strtotime($menu['updated_at'])); ?></td>
+						 		<td></td>
 						 		<td>
-						 			<a href="<?php echo url('cms/menu_edit.php?slug='.$menu['slug']); ?>"><i class="fas fa-edit mr-3"></i></a>
+						 			<a href="<?php echo url('cms/menu_edit.php?slug='.$menu['slug']); ?>" class="ok" ><i class="fas fa-check mr-3"></i></a>
 						 			<a href="<?php echo url('cms/menu_delete.php?slug='.$menu['slug']); ?>" class="delete"><i  class="fas fa-trash"></i></a>
 						 		</td>
 						 	</tr>
@@ -75,7 +75,7 @@
 						<tr>
 							<td colspan="12" class="text-center">No data found</td>
 						</tr>	
-					<?php endif; ?> -->
+					<?php endif; ?>
 				</table>
 			</div>
 		</div>
