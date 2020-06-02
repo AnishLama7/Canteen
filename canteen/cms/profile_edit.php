@@ -7,22 +7,26 @@
 <?php require '../templates/header.php'; ?>
 
 <style type="text/css">
-	label, span{
+	label{
 		color: white;
 	}
 </style>
 
+<body>
 
-<body  class="bg-secondary">
-	<div  class="container bg-dark mt-5 p-4 col-lg-6 col-md-8 col-12">
-		<?php include_once 'templates/message.php'; ?>
-		<?php $user = $_SESSION['user']; ?>
+<div class="col">
+	<div class="col-12 bg-dark my-3">
+		<div class="row">
+			
+			<?php include_once 'templates/message.php'; ?>
+			<?php $user = $_SESSION['user']; ?>
 
-		<form action="<?php echo url('cms/profile_update.php'); ?>" name="myform" method="POST">
+			<div class="col-6 mx-auto">
+				<form action="<?php echo url('cms/profile_update.php'); ?>" name="myform" method="POST">
 			<h1 class="text-center">Edit My Profile</h1><hr color="orange">
 			<div class="form-group"> 
 				<label for="name">Full Name:</label>
-				<input type="text" class="form-control" id="name" placeholder="Enter fullname" name="name" value="<?php echo $user['name']; ?>" ?>">
+				<input type="text" class="form-control" id="name" placeholder="Enter fullname" name="name" value="<?php echo $user['name']; ?>" readonly>
 			</div>
 
 			<div class="form-group">
@@ -51,8 +55,20 @@
 				<button type="submit" class="but btn btn-secondary mb-1 font-weight-bold" name="submit">Save</button><br>
 			</div>
 		</form>
+				
+			</div>
+		</div>
 	</div>
+</div>
 
-	<?php include_once '../templates/footer.php'; ?>
+<div class="text-right">
+	&copy; Copyright 2013 AJAS FOODS
+</div>
+
+	<script type="text/javascript" src="<?php echo url('js/jquery.js')?>"></script>
+	<script type="text/javascript" src="<?php echo url('js/bootstrap.js')?>"></script>
+	<script type="text/javascript" src="<?php echo url('js/cms.js')?>"></script>
+	<script type="text/javascript" src="<?php echo url('js/all.js')?>"></script>
+
 </body>
 </html>

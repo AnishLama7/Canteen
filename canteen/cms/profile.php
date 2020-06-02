@@ -39,7 +39,7 @@
 					<div class="col-12 text-center my-2">
 						<i class="fas fa-user mr-2"></i><?php echo $_SESSION['user']['name']; ?> <br>
 						 <small>
-						 <a href="<?php echo url('cms/edit_profile.php'); ?>" title="Edit Profile"><i class="fas fa-edit"></i></a>
+						 <a href="<?php echo url('cms/profile_edit.php'); ?>" title="Edit Profile"><i class="fas fa-edit"></i></a>
 
 						 <a href="<?php echo url('cms/logout.php'); ?>" title="Logout" ><i class="fas fa-sign-out-alt"></i></a>
 						 </small>

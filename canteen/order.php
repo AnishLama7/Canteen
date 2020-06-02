@@ -33,7 +33,7 @@
  </head>
 
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand"><img src="images/newlogo.png" width="60px" height="30px"></a>
+  <a class="navbar-brand"><img src="<?php echo url('images/newlogo.png'); ?>" width="60px" height="30px"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -92,26 +92,23 @@
 
   <div class="col-3">  
     <div class="row list-menu">
+      <form>
       <div class="col">
      <?php  if(!empty($menu['image'])): ?>
       <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-fluid" >
       <?php endif; ?>
             <h5 class="card-title text-center"><?php echo $menu['name']; ?></h5>
      
-        <label>Price:<?php echo $menu['price']; ?> </label><br>
+       <!--  <label>Price:<?php echo $menu['price']; ?> </label><br>
         <label>Available:<?php echo $menu['total']; ?> </label><br>
           <div class="qty mt-2">
             <span class="minus bg-dark">-</span>
             <input type="number" class="count" name="qty" value="0">
             <span class="plus bg-dark">+</span>
-        </div>
+        </div> -->
 
-     <!--  <div class="form-group">
+     <div class="form-group">
         <label>Price:<?php echo $menu['price']; ?> </label>
-      </div>
-
-       <div class="form-group">
-        <label for="type">Food Type:<?php echo $menu['type']; ?></label>
       </div>
 
       <div class="form-group">
@@ -120,13 +117,14 @@
 
       <div class="form-group">
         <label>Your order amount:</label>
-        <input type ="number" size="">
-      </div> -->
+        <input type ="number">
+      </div>
 
       <div class="form-group text-center" >
         <button type="submit" class="btn btn-secondary mt-2 font-weight-bold">Order</button>
       </div> 
     </div>
+  </form>
 </div>
 </div>
     <?php endwhile; ?>
