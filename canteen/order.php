@@ -31,8 +31,11 @@
 }*/
   </style>
  </head>
-
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<body>
+  
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand"><img src="<?php echo url('images/newlogo.png'); ?>" width="60px" height="30px"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -66,7 +69,7 @@
 </nav>
 
     <!-- Recommendation starts here -->
-<div class="container">
+
 <div class="row">
   <div class="col">
         <div class="item active text-center">
@@ -77,7 +80,7 @@
   </div>
 </div>
 <hr>
-</div>
+
 <!-- Recommendation ends here -->
 
 <div class="row">
@@ -131,11 +134,11 @@
     <?php endif; ?>
   </div>
 </div>
-</div>
 
- 
+  </div>
 
- <body>
+</body>
+
  
   <script type="text/javascript" src="<?php echo url('js/jquery.js')?>"></script>
   <script type="text/javascript" src="<?php echo url('js/bootstrap.js')?>"></script>

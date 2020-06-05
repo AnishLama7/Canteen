@@ -1,4 +1,3 @@
-// For old pass and confirm pass
 $(function() {
 
 	$('#confirm_password').on('change keyup', function(){
@@ -35,8 +34,6 @@ $(function() {
 
 	});
 
-
-// for delete
 $(function() {
 
 	$('.delete').click(function(e) {
@@ -93,17 +90,3 @@ $(document).ready(function(){
 	});
 
 
-// For order ready
-$(function() {
-
-	$('.ok').click(function(e) {
-		e.preventDefault();
-
-		if(confirm('Your order is ready.')) {
-			var url = $(this).attr('href');
-
-			location.href = url;
-
-		}
-
-	});
