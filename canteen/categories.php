@@ -19,7 +19,7 @@
   <!DOCTYPE html>
  <html>
  <head>
-  <title> <?php echo $title; ?> - Order Page</title>
+  <title> Order <?php echo $title; ?></title>
   <link rel="stylesheet" type="text/css" href="<?php echo url('css/bootstrap.css')?>">
   <link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
 
@@ -29,6 +29,8 @@
     }
   </style>
  </head>
+ <body>
+  <div class="container-fluid">
 
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand"><img src="<?php echo url('images/newlogo.png'); ?>" width="60px" height="30px"></a>
@@ -60,31 +62,16 @@
       <li> <a href="<?php echo url('cms/logout.php'); ?>" title="Logout" >&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a></li>
       </ul>
 
-    
   </div>
 </nav>
-
-    <!-- Recommendation starts here -->
-<!-- <div class="container">
-<div class="row">
-  <div class="col-sm-8">
-        <div class="item active">
-          <img src="images/alu.jpg" alt="Image" style="height: 250px; width: 250px;">
-             <h3>Recommendation</h3>
-          </div>      
-        </div>
-  </div>
-</div>
-<hr>
-</div> -->
-<!-- Recommendation ends here -->
 
 <div class="row">
   <div class="col-12 text-center">
     <h3>Today's Menu</h3> <br>
+    <hr>
    <div class="row">
     <?php 
-      $sql = " SELECT * FROM menu AND EXITS(SELECT id FROM categories WHERE categories.slug = '{$_GET['slug']}')";
+      $sql = " SELECT * FROM menu " ;
       $result = db_query($con, $sql);
       if($result && db_num_rows($result) > 0 ): ?>
      <?php while( $menu = db_fetch_assoc($result)): ?>
@@ -110,9 +97,10 @@
   </div>
 </div>
 
+</div>
+</body>
 
 
- <body>
  
   <script type="text/javascript" src="<?php echo url('js/jquery.js')?>"></script>
   <script type="text/javascript" src="<?php echo url('js/bootstrap.js')?>"></script>
