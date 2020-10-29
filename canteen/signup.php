@@ -28,7 +28,7 @@
 	background-size: 100% 100%;
 }
 	/*span text lai white gareko ho*/
-	label,span{
+	label{
 		color: white;
 	}
 </style>
@@ -45,7 +45,7 @@
 
 			<div class="form-group">
 				<div class="form-check-inline">
-					<span style="margin-right: 10px;">Sex:</span>
+					<span style="margin-right: 10px; color: white">Sex:</span>
 					<label class="form-check-label" for="radio1">
 						<input type="radio" class="form-check-input" id="radio1" name="sex" value="male">Male
 					</label>

@@ -109,11 +109,13 @@
                 </label>
               </td>
 
-              <td><input type="number" class= "form-control" name="total" value="<?php echo $menu['total']; ?>" readonly></td>
-
               <td>
-                <input type="number" class="form-control" name="quantity">
+                <input type="number" class= "form-control" name="total" value="<?php echo $menu['total']; ?>" readonly>
               </td>
+
+             <td>
+               <input type="number" class="form-control" name="quantity">
+             </td>
 
               <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
 

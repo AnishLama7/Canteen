@@ -12,10 +12,17 @@
 		$now = date('Y-m-d H:i:s');
 		$user_id = $_SESSION['user']['id'];
 
-        $sql .= " INSERT INTO orders SET order_name = '{$order_name}', menu_id = '{$menu_id}', user_id = '{$user_id}', order_no = '{$order_no}', quantity = '{$quantity}', created_at = '{$now}'";
-        $result = db_query($con, $sql);
+        $sql = " INSERT INTO orders SET user_id = '{$user_id}', order_no = '{$order_no}', quantity = '{$quantity}', created_at = '{$now}', ";
+        
 
-         var_dump($sql);
+         if( $menu_id == $order['id']){
+         	$sql .= "menu_id = '{$order['id']}'";
+         }
+         else {
+         	return;
+         }
+
+         $result = db_query($con, $sql);
 		
        
        
@@ -26,7 +33,7 @@
 				'type' => 'success'
 			];
 
-			redirect(url('cms/neworder.php'));
+			redirect(url('cms/order.php'));
 		}
 		else {
 			$_SESSION['message'] = [
@@ -34,7 +41,7 @@
 				'type' => 'danger'
 			];
 
-			redirect(url('neworder.php'));
+			redirect(url('order.php'));
 			die;
 		}
 	}
@@ -46,6 +53,6 @@
 			'type' => 'danger'
 		];
 
-		redirect(url('neworder.php'));
+		redirect(url('order.php'));
 	}
  
