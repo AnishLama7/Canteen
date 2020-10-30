@@ -29,7 +29,7 @@
 							<th>Order Name</th>
 							<th>Order No</th>
 							<th>Price</th>
-							<th>Food Image</th>
+							<!-- <th>Food Image</th> -->
 							<th>Type</th>
 							<th>Food Category</th>
 							<th>Order Time</th>
@@ -53,20 +53,20 @@
 						 		<td><?php echo $menu['name']; ?></td>
 						 		<td></td>
 						 		<td><?php echo $menu['price']; ?></td>
-						 		<td>
+						 		<!-- <td>
 						 			<?php if(!is_null($menu['image'])): ?>
 						 				<img src="<?php echo url('images/'.$menu['image']); ?>" class = "img-fluid" width="100" height="100">
 						 				<?php else: ?>
 						 					n/a
 						 			<?php endif; ?>
-						 		</td>
+						 		</td> -->
 
 						 		<td><?php echo ucfirst($menu['type']); ?></td>
 						 		<td></td>
 						 		<td></td>
 						 		<td>
-						 			<a href="<?php echo url('cms/menu_edit.php?slug='.$menu['slug']); ?>" class="ok" ><i class="fas fa-check mr-3"></i></a>
-						 			<a href="<?php echo url('cms/menu_delete.php?slug='.$menu['slug']); ?>" class="delete"><i  class="fas fa-trash"></i></a>
+						 			<a href="<?php echo url('../order.php?slug='.$menu['slug']); ?>" class="ok" ><i class="fas fa-check mr-3"></i></a>
+						 			<a href="<?php echo url('cms/order_delete.php?slug='.$menu['slug']); ?>" class="delete"><i  class="fas fa-trash"></i></a>
 						 		</td>
 						 	</tr>
 					</tbody>

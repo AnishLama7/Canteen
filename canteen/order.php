@@ -51,12 +51,12 @@
         <?php endif; ?>
       </ul>
 
-       <ul class="nav navbar-nav navbar-right">
-        <li style="color: white;">&nbsp;&nbsp;<i class="fas fa-user"></i><?php echo $_SESSION['user']['name']; ?></li>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="<?php echo url('cms/profile.php'); ?>"title="My Profile"><i class="fas fa-user"></i></a></li>
+        <li style="color: white;"></i><?php echo $_SESSION['user']['name']; ?></li>
         <li style="color: white;">&nbsp;&nbsp;<i class="fas fa-user-clock"></i><?php echo $_SESSION['logged_in_datetime'] = date("d M H:i:s"); ?></li>
-        <li><a href="<?php echo url('cms/profile.php'); ?>" title="My Profile">&nbsp;&nbsp;<i class="fas fa-user"></i></a></li>
-        <li><a href="<?php echo url('cms/logout.php'); ?>" title="Logout" ><i class="fas fa-sign-out-alt"></i></a></li>
-        </ul>
+        <li> <a href="<?php echo url('cms/logout.php'); ?>" title="Logout" >&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a></li>
+    </ul>
     </div>
   </nav>
 
@@ -83,7 +83,7 @@
         $result = db_query($con, $sql);
         if($result && db_num_rows($result) > 0 ): ?>
        <?php while( $menu = db_fetch_assoc($result)): ?>
-        ?>
+        
             <tr>
              
               <td> 
