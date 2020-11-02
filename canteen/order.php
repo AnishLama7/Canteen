@@ -62,6 +62,20 @@
 
   <div class="container">
   <h1 class="page-header text-center">ORDER</h1>
+
+  <div class="row">
+    <div class="col-md-12">
+      <select id="typelist" class="btn btn-default">
+       <option selected>Select Your food type</option>
+       <?php 
+          $sql = "SELECT type FROM menu";
+          $result = db_query($con, $sql);
+         ?>
+</select>
+    </div>
+  </div>
+
+  
    
     <table class="table table-striped table-bordered">
       <thead>
@@ -137,6 +151,21 @@
 
   </div>
 </body>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#typelist").on('change', function(){
+      if($(this).val() == 0)
+      {
+        window.location = 'order.php';
+      }
+      else
+      {
+        window.location = 'order.php?menu['type']='+$(this).val();
+      }
+    });
+  });
+</script>
 
  
   <script type="text/javascript" src="<?php echo url('js/jquery.js')?>"></script>

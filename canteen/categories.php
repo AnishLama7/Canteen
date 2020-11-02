@@ -44,7 +44,7 @@
         <a class="nav-link" href="<?php echo url('order.php'); ?>"><i class="fas fa-home"></i></a>
       </li>
         <?php 
-          $sql = "SELECT name, slug FROM categories";
+          $sql = "SELECT name,slug FROM categories";
           $result = db_query($con, $sql);
           if($result && db_num_rows($result) > 0):
         ?>
@@ -71,10 +71,13 @@
     <hr>
    <div class="row">
     <?php 
-      $sql = " SELECT * FROM menu " ;
+      $sql = " SELECT * FROM menu WHERE category = '{$_GET['slug']}'" ;
       $result = db_query($con, $sql);
+
       if($result && db_num_rows($result) > 0 ): ?>
-     <?php while( $menu = db_fetch_assoc($result)): ?>
+     <?php while( $menu = db_fetch_assoc($result)):?>
+
+      
 
      <!--  <div class="col-3">
       <div class="row list-menu">

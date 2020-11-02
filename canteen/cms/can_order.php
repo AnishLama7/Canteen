@@ -65,8 +65,8 @@
 						 		<td></td>
 						 		<td></td>
 						 		<td>
-						 			<a href="<?php echo url('../order.php?slug='.$menu['slug']); ?>" class="ok" ><i class="fas fa-check mr-3"></i></a>
-						 			<a href="<?php echo url('cms/order_delete.php?slug='.$menu['slug']); ?>" class="delete"><i  class="fas fa-trash"></i></a>
+						 			<a href="<?php echo url('../order.php'); ?>" class="ok" ><i class="fas fa-check mr-3"></i></a>
+						 			<a href="<?php echo url('cms/canorder_delete.php?slug='.$menu['slug']); ?>" class="delete"><i  class="fas fa-trash"></i></a>
 						 		</td>
 						 	</tr>
 					</tbody>
@@ -84,6 +84,9 @@
 
 <?php 
 	require_once 'templates/footer.php';
+
+
+	// <a href="<?php echo url('../order.php?slug='.$menu['slug']); ?>" class="ok" ><i class="fas fa-check mr-3"></i></a>
 
  
 		

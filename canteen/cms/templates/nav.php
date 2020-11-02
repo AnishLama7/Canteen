@@ -21,7 +21,7 @@
 					<a href="<?php echo url('cms/category.php'); ?>"></i>Category</a>
 				</li>
 				<li <?php echo $active == 'order' ? 'class="active"' : ''; ?>>
-					<a href="<?php echo url('cms/order.php'); ?>"></i>Order</a>
+					<a href="<?php echo url('cms/can_order.php'); ?>"></i>Order</a>
 				</li>
 				<li <?php echo $active == 'comments' ? 'class="active"' : ''; ?>>
 					<a href="<?php echo url('cms/comments.php'); ?>"></i>Comments</a>

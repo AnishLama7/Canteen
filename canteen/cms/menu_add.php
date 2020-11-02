@@ -46,7 +46,6 @@
 						<select name="type" id="type" class="form-control" required>
 							<option value="veg">Veg</option>
 							<option value="non-veg">Non-Veg</option>
-							<option value="drinks">Drinks</option>
 						</select>
 					</div>
 
