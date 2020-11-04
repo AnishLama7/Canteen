@@ -2,6 +2,7 @@
 
 	require_once 'includes/init.php';
 	require_once 'includes/user_check.php';
+	require_once 'includes/student_check.php';
 	require_once 'includes/db_connection.php';
 
 
@@ -12,17 +13,12 @@
 		$now = date('Y-m-d H:i:s');
 		$user_id = $_SESSION['user']['id'];
 
-        $sql = " INSERT INTO orders SET user_id = '{$user_id}', order_no = '{$order_no}', quantity = '{$quantity}', created_at = '{$now}', ";
-        
-
-         if( $menu_id == $order['id']){
-         	$sql .= "menu_id = '{$order['id']}'";
-         }
-         else {
-         	return;
-         }
+        $sql = " INSERT INTO orders SET order_name = '{$menu['id']}', user_id = '{$user_id}', order_no = '{$order_no}', quantity = '{$quantity}', created_at = '{$now}', ";
 
          $result = db_query($con, $sql);
+
+         var_dump($sql);
+         die;
 		
        
        

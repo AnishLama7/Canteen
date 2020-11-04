@@ -45,7 +45,7 @@
           ?>
           <?php while($category = db_fetch_assoc($result)): ?>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo url('category/'.$category['slug']); ?>"><?php echo $category['name'];  ?></a>
+          <a class="nav-link" href="<?php echo url('category/'.$category['slug']); ?>"><?php echo $category['name']; ?></a>
         </li>
         <?php endwhile; ?>
         <?php endif; ?>
@@ -59,24 +59,43 @@
     </ul>
     </div>
   </nav>
-
-  <div class="container">
-  <h1 class="page-header text-center">ORDER</h1>
+  <br>
 
   <div class="row">
     <div class="col-md-12">
       <select id="typelist" class="btn btn-default">
-       <option selected>Select Your food type</option>
-       <?php 
-          $sql = "SELECT type FROM menu";
-          $result = db_query($con, $sql);
-         ?>
-</select>
+      <?php
+      
+        $sql="SELECT type FROM menu";
+          $result=db_query($con,$sql); 
+          while($menu = db_fetch_assoc($result)){
+          $menu_id = isset($_GET['menu']) ? $_GET['menu']: 0;
+          $selected = ($menu_id == $menu['type']) ? " selected" : "";
+          echo "<option$selected value=".$menu['type'].">".$menu['type']."</option>";
+        }
+      ?>
+      </select>
     </div>
   </div>
 
-  
-   
+ <!--  <select id="typelist" class="btn btn-default" style="color:orange">
+    <option>Select Your food type</option>
+    <option>VEG</option>
+    <option>NON-VEG</option>
+  </select> -->
+  <hr>
+
+  <div class="row">
+    <div class="col text-center">
+      <h1>Recommendation</h1>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+  <h1 class="page-header text-center">ORDER</h1>
+
     <table class="table table-striped table-bordered">
       <thead>
         <th>Food Name</th>
@@ -87,6 +106,7 @@
          <th>Available</th>
          <th>Quantity</th>
          <th>Time</th>
+         <th>Details</th>
       </thead>
       <tbody>
 
@@ -110,7 +130,7 @@
                  <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-fluid">
                  <?php endif; ?>
               </td>
-              <td class="text-right">&#x20A8; <?php echo number_format($menu['price'], 2); ?></td>
+              <td class="text-right">&#x20A8; <?php echo number_format($menu['price']); ?></td>
               <?php 
                   $qry = "SELECT name FROM categories WHERE id = '{$menu['category_id']}'";
                   $res = db_query($con, $qry);
@@ -133,7 +153,10 @@
 
               <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
 
-            </tr>
+             <td><a href="<?php echo url('details.php'); ?>"><i class="fas fa-eye" title="details"></i></a></td>
+
+           </tr>
+
 
           <?php endwhile; ?>
       </tbody>
@@ -155,19 +178,21 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $("#typelist").on('change', function(){
-      if($(this).val() == 0)
+      if($(this).val() == $menu['type'])
       {
         window.location = 'order.php';
       }
       else
       {
-        window.location = 'order.php?menu['type']='+$(this).val();
+        window.location = 'order.php?type='+$(this).val();
       }
     });
   });
 </script>
 
- 
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script type="text/javascript" src="<?php echo url('js/jquery.js')?>"></script>
   <script type="text/javascript" src="<?php echo url('js/bootstrap.js')?>"></script>
   <script type="text/javascript" src="<?php echo url('js/cms.js')?>"></script>
