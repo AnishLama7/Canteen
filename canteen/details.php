@@ -8,27 +8,37 @@
  <h1 style="text-align: center;">Order details</h1>
  <hr>
 
- <h5>Name:<?php echo $_SESSION['user']['name']; ?></h5>
- <h5>Date:<?php echo $_SESSION['logged_in_datetime'] = date("d M H:i:s"); ?></h5>
+ <style type="text/css">
+   b{
+    color: darkorange;
+   }
+ </style>
+
+ <h5><b>Name: </b><?php echo $_SESSION['user']['name']; ?></h5>
+ <h5><b>Date: </b><?php echo $_SESSION['logged_in_datetime'] = date("d M H:i:s"); ?></h5>
  <table class="table table-bordered table-striped">
    <thead>
      <th>Order Name</th>
      <th>Quantity</th>
-     <th>Total</th>
-     <th>Status</th>
+     <th>Price</th>
+    <th>Subtotal</th>
    </thead>
 
    <tbody>
-     <td>MOMO</td>
-     <td>2</td>
-     <td>200</td>
-     <td>ready</td>
+    <tr>
+       <td>MOMO</td>
+       <td>2</td>
+       <td>200</td>
+       <td></td>
+    </tr>
+
+    <tr>
+      <td colspan="3" class="text-right"><b>TOTAL</b></td>
+      <td class="text-right"></td>                    
+    </tr>
+
    </tbody>
  </table>
 
-
-     <!--  <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div> -->
 
 <?php require 'templates/footer.php'; ?>

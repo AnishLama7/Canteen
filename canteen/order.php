@@ -15,6 +15,7 @@
   <link rel="stylesheet" type="text/css" href="<?php echo url('css/bootstrap.css')?>">
   <link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
   <link rel="stylesheet" type="text/css" href="<?php echo url('css/cms.css')?>">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
  <style type="text/css">
    img{
@@ -66,10 +67,10 @@
       <select id="typelist" class="btn btn-default">
       <?php
       
-        $sql="SELECT type FROM menu";
+        $sql="SELECT DISTINCT type FROM menu";
           $result=db_query($con,$sql); 
           while($menu = db_fetch_assoc($result)){
-          $menu_id = isset($_GET['menu']) ? $_GET['menu']: 0;
+          $menu_id = isset($_GET['type']) ? $_GET['type']: 0;
           $selected = ($menu_id == $menu['type']) ? " selected" : "";
           echo "<option$selected value=".$menu['type'].">".$menu['type']."</option>";
         }
@@ -107,22 +108,30 @@
          <th>Quantity</th>
          <th>Time</th>
          <th>Details</th>
+         <th>Action</th>
       </thead>
       <tbody>
 
         <?php include_once 'cms/templates/message.php'; ?>
-         <form method="POST" action="<?php echo url('order_store.php'); ?>" enctype = "multipart/form-data">
+         
         <?php 
+        if (isset($_GET['type'])) {
+          $slug = ($_GET['type']);
+          $sql = "SELECT * FROM menu WHERe type='$slug' LIMIT 0,10 "; 
+        }else{
+
          $sql = "SELECT * FROM menu LIMIT 0,10 "; 
+        }
         $result = db_query($con, $sql);
         if($result && db_num_rows($result) > 0 ): ?>
        <?php while( $menu = db_fetch_assoc($result)): ?>
-        
+        <form method="POST" action="<?php echo url('order_store.php'); ?>" enctype = "multipart/form-data">
             <tr>
              
               <td> 
                 <label for="name">
                   <input type="text" name="name" class="form-control" value="<?php echo $menu['name']; ?>" readonly>
+                  <input type="hidden" name="order_id" value="<?php echo $menu['id']?> ">
                 </label>
               </td>
               <td>
@@ -148,28 +157,25 @@
               </td>
 
              <td>
-               <input type="number" class="form-control" name="quantity">
+               <input type="number" class="form-control" name="quantity" max="<?php echo $menu['total']; ?>">
              </td>
 
               <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
 
-             <td><a href="<?php echo url('details.php'); ?>"><i class="fas fa-eye" title="details"></i></a></td>
+             <td><a href="<?php echo url('details.php'); ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-info-circle" aria-hidden="true" title="details"></i></a></td>
+             <td>
+                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Order</button>
+             </td>
 
            </tr>
+  </form>
 
 
           <?php endwhile; ?>
       </tbody>
     </table>
   <?php endif; ?>
-
-  <div class="row">
-      <div class="col-md-2">
-        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Order</button>
-      </div>
-    </div>
     
-  </form>
 </div>
 
   </div>
@@ -178,7 +184,7 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $("#typelist").on('change', function(){
-      if($(this).val() == $menu['type'])
+      if($(this).val() == 0)
       {
         window.location = 'order.php';
       }
@@ -190,10 +196,12 @@
   });
 </script>
 
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script type="text/javascript" src="<?php echo url('js/jquery.js')?>"></script>
+ <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
   <script type="text/javascript" src="<?php echo url('js/bootstrap.js')?>"></script>
   <script type="text/javascript" src="<?php echo url('js/cms.js')?>"></script>
   <script type="text/javascript" src="<?php echo url('js/all.js')?>"></script>

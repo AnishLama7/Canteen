@@ -7,21 +7,19 @@
 
 
 	if(!empty($_POST)){
+		$menu = $_POST;
 		extract($_POST);
-		
+
 
 		$now = date('Y-m-d H:i:s');
 		$user_id = $_SESSION['user']['id'];
 
-        $sql = " INSERT INTO orders SET order_name = '{$menu['id']}', user_id = '{$user_id}', order_no = '{$order_no}', quantity = '{$quantity}', created_at = '{$now}', ";
+        $sql = " INSERT INTO orders SET order_name = '{$menu['name']}', user_id = '{$user_id}', order_no = '{$menu['order_no']}', quantity = '{$menu['quantity']}', created_at = '{$now}', menu_id='{$menu['order_id']}'";
 
          $result = db_query($con, $sql);
 
-         var_dump($sql);
-         die;
-		
-       
-       
+         
+      
 
 		if($result) {
 			$_SESSION['message'] = [
@@ -29,7 +27,7 @@
 				'type' => 'success'
 			];
 
-			redirect(url('cms/order.php'));
+			redirect(url('order.php'));
 		}
 		else {
 			$_SESSION['message'] = [
