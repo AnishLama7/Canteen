@@ -37,7 +37,7 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item  <?php echo $active == 'home' ? 'active' : ' '; ?>">
-          <a class="nav-link" href="<?php echo url('order.php'); ?>"><i class="fas fa-home"></i></a>
+          <a class="nav-link" href="<?php echo url('std_order.php'); ?>"><i class="fas fa-home"></i></a>
         </li>
           <?php 
             $sql = "SELECT name, slug FROM categories ";
@@ -96,6 +96,7 @@
 
   <div class="container">
   <h1 class="page-header text-center">ORDER</h1>
+  <p style="text-align:right;"><a href="<?php echo url('std_details.php') ?>" class="btn btn-dark">Order Details</a></p>
 
     <table class="table table-striped table-bordered">
       <thead>
@@ -107,7 +108,6 @@
          <th>Available</th>
          <th>Quantity</th>
          <th>Time</th>
-         <th>Details</th>
          <th>Action</th>
       </thead>
       <tbody>
@@ -125,7 +125,7 @@
         $result = db_query($con, $sql);
         if($result && db_num_rows($result) > 0 ): ?>
        <?php while( $menu = db_fetch_assoc($result)): ?>
-        <form method="POST" action="<?php echo url('order_store.php'); ?>" enctype = "multipart/form-data">
+        <form method="POST" action="<?php echo url('std_order_store.php'); ?>" enctype = "multipart/form-data">
             <tr>
              
               <td> 
@@ -162,7 +162,8 @@
 
               <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
 
-             <td><a href="<?php echo url('details.php'); ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-info-circle" aria-hidden="true" title="details"></i></a></td>
+           <!--   <td></td> -->
+
              <td>
                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Order</button>
              </td>
@@ -186,14 +187,20 @@
     $("#typelist").on('change', function(){
       if($(this).val() == 0)
       {
-        window.location = 'order.php';
+        window.location = 'std_order.php';
       }
       else
       {
-        window.location = 'order.php?type='+$(this).val();
+        window.location = 'std_order.php?type='+$(this).val();
       }
     });
   });
+
+ 
+  function myFunction() {
+  location.replace("details.php")
+}
+
 </script>
 
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->

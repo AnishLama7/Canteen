@@ -19,7 +19,7 @@
 			$_SESSION['user'] = $user;
 
 			if($_SESSION['user']['type']== 'student'){
-				redirect(url('order.php'));
+				redirect(url('std_order.php'));
 			}
 
 			else{

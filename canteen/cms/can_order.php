@@ -13,7 +13,7 @@
 	<div class="col-12 bg-white my-3">
 		<div class="row">
 			<div class="col">
-				<h1>Order</h1>
+				<h1 style="text-align:center;">Order</h1>
 			</div>
 		</div>
 		<div class="row">
@@ -30,50 +30,61 @@
 							<th>Order No</th>
 							<th>Price</th>
 							<!-- <th>Food Image</th> -->
-							<th>Type</th>
-							<th>Food Category</th>
+							<!-- <th>Type</th>
+							<th>Food Category</th> -->
+							<th>Quantity</th>
 							<th>Order Time</th>
 							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
+
 						<?php 
-							$sql = "SELECT * FROM menu ";
-							$result = db_query($con, $sql); 
-							
+							$sql = "SELECT * FROM orders ";
+							$result = db_query($con, $sql);
+
 							$n = 1;
 							if($result && db_num_rows($result) > 0):
 							?>
 
-							<?php while($menu = db_fetch_assoc($result)): ?>
-							
-							<tr>
-						 		<td><?php echo $n++; ?></td>
-						 		<td></td>
-						 		<td><?php echo $menu['name']; ?></td>
-						 		<td></td>
-						 		<td><?php echo $menu['price']; ?></td>
-						 		<!-- <td>
-						 			<?php if(!is_null($menu['image'])): ?>
-						 				<img src="<?php echo url('images/'.$menu['image']); ?>" class = "img-fluid" width="100" height="100">
-						 				<?php else: ?>
-						 					n/a
-						 			<?php endif; ?>
-						 		</td> -->
+							<?php while($order = db_fetch_assoc($result)):?>
 
-						 		<td><?php echo ucfirst($menu['type']); ?></td>
-						 		<td></td>
-						 		<td></td>
-						 		<td>
-						 			<a href="<?php echo url('../order.php'); ?>" class="ok" ><i class="fas fa-check mr-3"></i></a>
+								<tr>
+									<td><?php echo $n++; ?></td>
+
+									<?php 
+										$qry = "SELECT name FROM users WHERE id = '{$order['user_id']}'";
+						 			    $res = db_query($con, $qry);
+						 			    $user = db_fetch_assoc($res);	
+									 ?>
+									<td><?php echo $user['name']; ?></td>
+
+									<td><?php echo $order['order_name']; ?></td>
+
+									<td><?php echo $order['order_no']; ?></td>
+
+									<?php 
+										$qry = "SELECT price FROM menu WHERE id = '{$order['menu_id']}'";
+						 			    $res = db_query($con, $qry);
+						 			    $menu = db_fetch_assoc($res);
+									 ?>
+									<td><?php echo $menu['price']; ?></td>
+
+									<td><?php echo $order['quantity']; ?></td>
+									<td><?php echo $order['created_at']; ?></td>
+
+									<td>
+						 			<a href="<?php echo url('../std_order.php'); ?>" class="ok" ><i class="fas fa-check mr-3"></i></a>
 						 			<a href="<?php echo url('cms/canorder_delete.php?slug='.$menu['slug']); ?>" class="delete"><i  class="fas fa-trash"></i></a>
 						 		</td>
-						 	</tr>
+								</tr>
+
+							
 					</tbody>
 						<?php endwhile; ?>
 						<?php else: ?>
 						<tr>
-							<td colspan="12" class="text-center">No data found</td>
+							<td colspan="12" class="text-center">No Order Available</td>
 						</tr>	
 					<?php endif; ?>
 				</table>
@@ -85,8 +96,6 @@
 <?php 
 	require_once 'templates/footer.php';
 
-
-	// <a href="<?php echo url('../order.php?slug='.$menu['slug']); ?>" class="ok" ><i class="fas fa-check mr-3"></i></a>
 
  
 		
