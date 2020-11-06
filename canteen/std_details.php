@@ -25,11 +25,14 @@
    </thead>
 
    <tbody>
+
+    <?php 
+      $sql = "SELECT * FROM orders WHERE user_id ='{$_SESSION['user']['id']}'";
+      $result = db_query($con, $sql);
+     ?>
+
     <tr>
-       <td>MOMO</td>
-       <td>2</td>
-       <td>200</td>
-       <td></td>
+       
     </tr>
 
     <tr>

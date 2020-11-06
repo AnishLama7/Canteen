@@ -1,8 +1,8 @@
 <?php 
   require_once 'includes/init.php';
-  require_once 'includes/db_connection.php';
-  require_once 'includes/student_check.php';
   require_once 'includes/user_check.php';
+  require_once 'includes/student_check.php';
+  require_once 'includes/db_connection.php';
   $title = 'Home';
   $active = 'home';
  ?>
@@ -53,7 +53,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo url('cms/profile.php'); ?>"title="My Profile"><i class="fas fa-user"></i></a></li>
+        <li><a href="<?php echo url('std_profile.php'); ?>"title="My Profile"><i class="fas fa-user"></i></a></li>
         <li style="color: white;"></i><?php echo $_SESSION['user']['name']; ?></li>
         <li style="color: white;">&nbsp;&nbsp;<i class="fas fa-user-clock"></i><?php echo $_SESSION['logged_in_datetime'] = date("d M H:i:s"); ?></li>
         <li> <a href="<?php echo url('cms/logout.php'); ?>" title="Logout" >&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a></li>
@@ -134,11 +134,13 @@
                   <input type="hidden" name="order_id" value="<?php echo $menu['id']?> ">
                 </label>
               </td>
+
               <td>
                  <?php  if(!empty($menu['image'])): ?>
                  <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-fluid">
                  <?php endif; ?>
               </td>
+
               <td class="text-right">&#x20A8; <?php echo number_format($menu['price']); ?></td>
               <?php 
                   $qry = "SELECT name FROM categories WHERE id = '{$menu['category_id']}'";
@@ -146,6 +148,7 @@
                   $Category = db_fetch_assoc($res);
                  ?>
               <td><?php echo $Category['name']; ?></td>
+              
               <td>
                 <label for="order_no">
                   <input type="number" name="order_no" class="form-control" value="<?php echo rand(111,999); ?>" readonly>

@@ -17,8 +17,6 @@
         $sql = " INSERT INTO orders SET order_name = '{$menu['name']}', user_id = '{$user_id}', order_no = '{$menu['order_no']}', quantity = '{$menu['quantity']}', created_at = '{$now}', menu_id='{$menu['order_id']}'";
 
          $result = db_query($con, $sql);
-
-         
       
 
 		if($result) {
@@ -27,7 +25,7 @@
 				'type' => 'success'
 			];
 
-			redirect(url('order.php'));
+			redirect(url('std_order.php'));
 		}
 		else {
 			$_SESSION['message'] = [
@@ -35,7 +33,7 @@
 				'type' => 'danger'
 			];
 
-			redirect(url('order.php'));
+			redirect(url('std_order.php'));
 			die;
 		}
 	}
@@ -47,6 +45,6 @@
 			'type' => 'danger'
 		];
 
-		redirect(url('order.php'));
+		redirect(url('std_order.php'));
 	}
  

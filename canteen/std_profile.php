@@ -1,16 +1,15 @@
 <?php 
-	require_once '../includes/init.php';
-	require_once '../includes/db_connection.php';
-	require_once '../includes/student_check.php';
-	require_once '../includes/user_check.php';
-	$title = 'My Profile';
-	$active = '';
+	require_once 'includes/init.php';
+	require_once 'includes/db_connection.php';
+	require_once 'includes/student_check.php';
+	require_once 'includes/user_check.php';
+	$title = 'My';
 
  ?>
  <!DOCTYPE html>
 <html>
 <head>
-	<title><?php echo $title; ?>-Online College Canteen</title>
+	<title><?php echo $title; ?>-Profile</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
 
@@ -55,7 +54,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<?php include_once 'templates/message.php'; ?>
+			<?php include_once 'cms/templates/message.php'; ?>
 		</div>
 		<div class="row">
 			<div class="col-12 mt-3">
@@ -65,19 +64,19 @@
 							<th>#</th>
 							<th>Food Name</th>
 							<th>Price</th>
-							<th>Food Category</th>
+							<th>Food image</th>
 							<th>DateTime</th>
 							<th>Action</th>
 						</tr>
 					</thead>
 					 <tbody>
 						<?php 
-							$sql = "SELECT COUNT(id) AS total FROM orders";
+							$sql = "SELECT COUNT(id) AS total FROM orders WHERE user_id ='{$_SESSION['user']['id']}'";
 							$result = db_query($con, $sql);
 							$ret = db_fetch_assoc($result);
 							$total = $ret['total'];
 
-							$limit = 2;
+							$limit = 20;
 
 							$totalpages = ceil($total/$limit);
 
@@ -95,7 +94,7 @@
 							$offset = ($limit * $page) - $limit;
 
 
-							$sql = "SELECT * FROM orders ORDER BY created_at DESC LIMIT {$offset}, {$limit} ";
+							$sql = "SELECT * FROM orders WHERE user_id ='{$_SESSION['user']['id']}' LIMIT {$offset}, {$limit} ";
 							$result = db_query($con, $sql);
 
 							$n = $offset + 1;
@@ -104,16 +103,24 @@
 						 <?php while($order = db_fetch_assoc($result)): ?>
 
 						 	<tr>
-						 	 	<td><?php echo $n++; ?></td>
-						 		<td><?php echo $order['name']; ?></td>
-						 		<td><?php echo $order['price']; ?></td>
-						 		<td><?php echo $order['food_category']; ?></td>
+						 		<td><?php echo $n++; ?></td>
 
-						 		<td><?php echo date('j M Y h:i:s A', strtotime($order['time'])); ?></td>
-						 		<td>
-						 			<a href="#" class="delete"><i  class="fas fa-trash"></i></a>
-						 		</td>
+						 		<td><?php echo $order['order_name']; ?></td>
+
+						 		<?php 
+										$qry = "SELECT price FROM menu WHERE id = '{$order['menu_id']}'";
+						 			    $res = db_query($con, $qry);
+						 			    $menu = db_fetch_assoc($res);
+									 ?>
+									<td><?php echo $menu['price']; ?></td>
+
+									<td></td>
+
+									<td><?php echo $order['created_at']; ?></td>
+
+									<td><a href="<?php echo url('stdorder_delete.php'); ?>" class="delete"><i  class="fas fa-trash"></i></a></td>
 						 	</tr>
+
 					</tbody>
 						<?php endwhile; ?>
 						<?php else: ?>
@@ -133,7 +140,7 @@
     					</li>
     					<?php else: ?>
     						<li class="page-item">
-      						<a class="page-link" href="<?php echo url('cms/profile.php?page='.($page -1)) ?>"><i class="fas fa-angle-left"></i></a>
+      						<a class="page-link" href="<?php echo url('std_profile.php?page='.($page -1)) ?>"><i class="fas fa-angle-left"></i></a>
     					</li>
 
     					<?php endif; ?>
@@ -145,14 +152,14 @@
       						<a class="page-link" href="#"><?php echo $i; ?></a>
     					</li>
     					<?php else: ?>
-    					<li class="page-item"><a class="page-link" href="<?php echo url('cms/profile.php?page='.$i); ?>"><?php echo $i; ?></a></li>
+    					<li class="page-item"><a class="page-link" href="<?php echo url('std_profile.php?page='.$i); ?>"><?php echo $i; ?></a></li>
     					<?php endif; ?>
     					<?php endfor; ?>
 
     					<?php if($page < $totalpages): ?>
    
     					<li class="page-item">
-     						<a class="page-link" href="<?php echo url('cms/profile.php?page='.($page+1)); ?>"><i class="fas fa-angle-right"></i></a>
+     						<a class="page-link" href="<?php echo url('std_profile.php?page='.($page+1)); ?>"><i class="fas fa-angle-right"></i></a>
     					</li>
     					<?php else: ?>
     						<li class="page-item disabled">
