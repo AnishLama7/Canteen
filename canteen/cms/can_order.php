@@ -101,8 +101,7 @@
 									<td><?php echo $order['created_at']; ?></td>
 
 									<td>
-						 			<a href="<?php echo url('../std_order.php'); ?>" class="ok" ><i class="fas fa-check mr-3"></i></a>
-						 			<!-- <a href="<?php echo url('cms/canorder_delete.php?slug='.$menu['slug']); ?>" class="delete"><i  class="fas fa-trash"></i></a> -->
+						 			<a href="<?php echo url('std_order.php'); ?>" class="ok" ><i class="fas fa-check mr-3"></i></a>
 						 		</td>
 								</tr>
 

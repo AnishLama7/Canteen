@@ -1,6 +1,7 @@
 <?php 
   require_once 'includes/init.php';
   require_once 'includes/db_connection.php';
+
   $sql = "SELECT * FROM categories WHERE slug = '{$_GET['slug']}'";
   $result = db_query($con, $sql);
 
@@ -55,7 +56,7 @@
           ?>
           <?php while($category = db_fetch_assoc($result)): ?>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo url('category/'.$category['slug']); ?>"><?php echo $category['name']; ?></a>
+          <a class="nav-link <?php echo $active == $category['slug'] ? 'active' : ''; ?>" href="<?php echo url('category/'.$category['slug']); ?>"><?php echo $category['name']; ?></a>
         </li>
         <?php endwhile; ?>
         <?php endif; ?>
@@ -113,10 +114,11 @@
         <?php 
         if (isset($_GET['type'])) {
           $slug = ($_GET['type']);
-          $sql = "SELECT * FROM menu WHERe type='$slug' LIMIT 0,10 "; 
+          $sql = "SELECT * FROM menu WHERe type ='$slug' LIMIT 0,10 "; 
         }else{
 
-         $sql = "SELECT * FROM menu WHERE slug = '{$_GET['slug']}' "; 
+         $sql = "SELECT * FROM menu WHERE categories.slug = '{$_GET['slug']}' "; 
+         $result = db_query($con, $sql);
         }
 
         if($result && db_num_rows($result) > 0 ): ?>
@@ -158,8 +160,6 @@
 
               <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
 
-           <!--   <td></td> -->
-
              <td>
                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Order</button>
              </td>
@@ -191,11 +191,6 @@
       }
     });
   });
-
- 
-  function myFunction() {
-  location.replace("details.php")
-}
 
 </script>
 

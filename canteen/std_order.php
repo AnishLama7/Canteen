@@ -37,7 +37,7 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item  <?php echo $active == 'home' ? 'active' : ' '; ?>">
-          <a class="nav-link" href="<?php echo url('std_order.php'); ?>"><i class="fas fa-home"></i></a>
+          <a class="nav-link <?php echo $active == $category['slug'] ? 'active' : ' '; ?>" href="<?php echo url('std_order.php'); ?>"><i class="fas fa-home"></i></a>
         </li>
           <?php 
             $sql = "SELECT name, slug FROM categories ";
@@ -55,7 +55,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="<?php echo url('std_profile.php'); ?>"title="My Profile"><i class="fas fa-user"></i></a></li>
         <li style="color: white;"></i><?php echo $_SESSION['user']['name']; ?></li>
-        <li style="color: white;">&nbsp;&nbsp;<i class="fas fa-user-clock"></i><?php echo $_SESSION['logged_in_datetime'] = date("d M H:i:s"); ?></li>
+        <li style="color: white;">&nbsp;&nbsp;<i class="fas fa-user-clock"></i><?php echo date('h:i:s A')?></li>
         <li> <a href="<?php echo url('cms/logout.php'); ?>" title="Logout" >&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a></li>
     </ul>
     </div>
@@ -86,11 +86,7 @@
   </select> -->
   <hr>
 
-  <div class="row">
-    <div class="col text-center">
-      <h1>Recommendation</h1>
-    </div>
-  </div>
+ <?php include 'recommend.php'; ?>
 
   <hr>
 
@@ -199,17 +195,10 @@
     });
   });
 
- 
-  function myFunction() {
-  location.replace("details.php")
-}
 
 </script>
 
-<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 
-
- <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
   <script type="text/javascript" src="<?php echo url('js/bootstrap.js')?>"></script>
