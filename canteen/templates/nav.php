@@ -16,34 +16,31 @@
 				</button>
 				<div class="collapse navbar-collapse" id="collapsibleNavbar">
 					<ul class="navbar-nav">
+
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo url('home.php'); ?>">Home</a>
 						</li>
+
 						<li class="nav-item">
-							<a class="nav-link" href="<?php echo url('about.php'); ?>">About</a>
+							<a class="nav-link" href="<?php echo url('about.php'); ?>">About Us</a>
 						</li>
+
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo url('menu.php'); ?>">Menu</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#people">Catering Services</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#gallery">Food System</a>
-						</li>
+
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo url('contact.php'); ?>">
 								Contact
 							</a>
 						</li>
-						<li class="ml-3 my-2">
-							<a href="<?php echo url('cms/login.php'); ?>"><button class="bg-dark btn btn-primary">Log In </button></a>
-						</li>
-						<li class="ml-3 my-2">
-							<a href="<?php echo url('signup.php'); ?>" target="_blank"><button class="bg-dark btn btn-primary"> Sign Up </button></a>
-						</li>
-						<!-- style="color:rgba(255,255,255,.5); -->
 					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+					  <li><a href="<?php echo url('cms/login.php'); ?>"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+				      <li><a href="<?php echo url('signup.php'); ?>"><i class="fas fa-user"></i> Sign Up</a></li> 
+				    </ul>
+					
 				</div>		
 			</nav>
 		</div>
