@@ -79,11 +79,6 @@
     </div>
   </div>
 
- <!--  <select id="typelist" class="btn btn-default" style="color:orange">
-    <option>Select Your food type</option>
-    <option>VEG</option>
-    <option>NON-VEG</option>
-  </select> -->
   <hr>
 
  <?php include 'recommend.php'; ?>
