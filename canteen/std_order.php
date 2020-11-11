@@ -16,20 +16,13 @@
   <link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
   <link rel="stylesheet" type="text/css" href="<?php echo url('css/cms.css')?>">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
- <style type="text/css">
-   img{
-    height: 30px;
-    width: 60px;
-   }
- </style>
  
  </head>
 <body>
   <div class="container-fluid">
  
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand"><img src="<?php echo url('images/newlogo.png'); ?>" width="60px" height="30px"></a>
+    <a class="navbar-brand"><img src="<?php echo url('images/newlogo.png'); ?>" width="80px" height="40px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -78,18 +71,18 @@
       </select>
     </div>
   </div>
-
+      <?php include_once 'cms/templates/message.php'; ?>
   <hr>
 
  <?php include 'recommend.php'; ?>
 
   <hr>
 
-  <div class="container">
+  <div class="container-fluid">
   <h1 class="page-header text-center">ORDER</h1>
   <p style="text-align:right;"><a href="<?php echo url('std_details.php') ?>" class="btn btn-dark">Order Details</a></p>
 
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered w-auto">
       <thead>
         <th>Food Name</th>
         <th>Food Image</th>
@@ -102,8 +95,6 @@
          <th>Action</th>
       </thead>
       <tbody>
-
-        <?php include_once 'cms/templates/message.php'; ?>
          
         <?php 
         if (isset($_GET['type'])) {
@@ -126,13 +117,18 @@
                 </label>
               </td>
 
-              <td>
-                 <?php  if(!empty($menu['image'])): ?>
-                 <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-fluid">
-                 <?php endif; ?>
+              <td style="height: 90px; width: 120px;">
+                <?php  if(!empty($menu['image'])): ?>
+                <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-fluid">
+                <?php endif;?>
+              </td>
+             
+
+              <td style="width:120px;">
+                <input type="number" name="price" class="form-control" value="<?php echo number_format($menu['price']); ?>" readonly>
               </td>
 
-              <td class="text-right">&#x20A8; <?php echo number_format($menu['price']); ?></td>
+              
               <?php 
                   $qry = "SELECT name FROM categories WHERE id = '{$menu['category_id']}'";
                   $res = db_query($con, $qry);
@@ -140,13 +136,13 @@
                  ?>
               <td><?php echo $Category['name']; ?></td>
               
-              <td>
+              <td style="width:120px;">
                 <label for="order_no">
                   <input type="number" name="order_no" class="form-control" value="<?php echo rand(111,999); ?>" readonly>
                 </label>
               </td>
 
-              <td>
+              <td style="width:150px;">
                 <input type="number" class= "form-control" name="total" value="<?php echo $menu['total']; ?>" readonly>
               </td>
 

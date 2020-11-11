@@ -24,14 +24,12 @@
 				<table class="table table-stripped table-hover table-sm">
 					<thead>
 						<tr>
+							<th input type="checkbox" id="checkAll"></th>
 							<th>#</th>
 							<th>Student Name</th>
 							<th>Order Name</th>
 							<th>Order No</th>
 							<th>Price</th>
-							<!-- <th>Food Image</th> -->
-							<!-- <th>Type</th>
-							<th>Food Category</th> -->
 							<th>Quantity</th>
 							<th>Order Time</th>
 							<th>Action</th>
@@ -64,8 +62,6 @@
 							$offset = ($limit * $page) - $limit;
 
 
-
-						
 							$sql = "SELECT * FROM orders limit {$offset}, {$limit} ";
 							$result = db_query($con, $sql);
 
@@ -76,6 +72,9 @@
 							<?php while($order = db_fetch_assoc($result)):?>
 
 								<tr>
+									<td input type="checkbox" name="ordercheck"></td>
+									<!-- <td class="text-center"><input type="checkbox" value="<?php echo $order['id']; ?>||<?php echo $iterate; ?>" name="orderid[]" style=""></td> -->
+
 									<td><?php echo $n++; ?></td>
 
 									<?php 
@@ -102,6 +101,7 @@
 
 									<td>
 						 			<a href="<?php echo url('std_order.php'); ?>" class="ok" ><i class="fas fa-check mr-3"></i></a>
+
 						 		</td>
 								</tr>
 
