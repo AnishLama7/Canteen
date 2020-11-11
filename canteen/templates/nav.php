@@ -2,6 +2,7 @@
 	a{
 		font-size: 19px;
 	}
+	
 </style>
 <!-- nav -->
 	<section class="bg-dark">
@@ -37,8 +38,8 @@
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
-					  <li><a href="<?php echo url('cms/login.php'); ?>"><i class="fas fa-sign-in-alt"></i>Login</a></li>
-				      <li><a href="<?php echo url('signup.php'); ?>"><i class="fas fa-user"></i> Sign Up</a></li> 
+					  <li><a href="<?php echo url('cms/login.php'); ?>" class="text-secondary"><i class="fas fa-sign-in-alt text-secondary" ></i>Login</a></li>
+				      <li><a href="<?php echo url('signup.php'); ?>" class="text-secondary"><i class="fas fa-user text-secondary"></i> Sign Up</a></li> 
 				    </ul>
 					
 				</div>		
