@@ -14,6 +14,8 @@
    }
  </style>
 
+ <div class="container">
+
  <h5><b>Name: </b><?php echo $_SESSION['user']['name']; ?></h5>
  <h5><b>Date: </b><?php echo $_SESSION['logged_in_datetime'] = date("d M H:i:s"); ?></h5>
  <table class="table table-bordered table-striped">
@@ -22,7 +24,7 @@
      <th>Quantity</th>
      <th>Price</th>
     <th>Subtotal</th>
-    <th>Rate the order</th>
+   <!--  <th>Rate the order</th> -->
    </thead>
 
    <tbody>
@@ -44,29 +46,39 @@
           $res = db_query($con, $qry);
           $menu = db_fetch_assoc($res);
        ?>
-      <td><?php echo $menu['price']; ?></td>
+      <td>&#x20A8;<?php echo $menu['price']; ?></td>
 
-      <td class="text-right">&#x20A8;
+      <td>&#x20A8;
         <?php
             $subt = $menu['price']*$order['quantity'];
             echo number_format($subt, 2);
         ?>
     </td>
 
-    <td style="text-align: center;">
+   <!--  <td style="text-align: center;">
       <span class="far fa-grin-stars" title="excellent"></span>
       <span class="far fa-grin-stars" title="excellent"></span>
       <span class="far fa-grin-stars" title="excellent"></span>
       <span class="far fa-grin-stars" title="excellent"></span>
       <span class="far fa-grin-stars" title="excellent"></span>
-    </td>
+    </td> -->
     </tr>
 
   <?php endwhile; ?>
 
   <tr>
       <td colspan="3" class="text-right"><b>TOTAL</b></td>
-      <td class="text-right">&#x20A8;<?php echo number_format($subt, 2); ?></td>                    
+      <td>
+      <?php 
+        $sql = "SELECT SUM(subt) FROM orders";
+        $result = db_query($con,$sql);
+        $row = mysqli_fetch_assoc($result);
+        $sum = $order['subt'];
+        echo($sum);
+        
+       ?>
+     </td>
+      <!-- <td>&#x20A8;<?php echo number_format($subt+$subt, 2); ?></td>   -->                  
     </tr> 
 
    </tbody>
@@ -75,3 +87,4 @@
 
 
 <?php require 'templates/footer.php'; ?>
+</div>

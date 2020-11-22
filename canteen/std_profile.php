@@ -60,12 +60,14 @@
 			<div class="col-12 mt-3">
 				<table class="table table-stripped table-hover table-sm">
 					<thead>
-						<tr>
+						<tr class="text-center">
 							<th>#</th>
 							<th>Food Name</th>
-							<th>Price</th>
 							<th>Food image</th>
 							<th>DateTime</th>
+							<th>Quantity</th>
+							<th>Price</th>
+							<th>SubTotal</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -102,32 +104,52 @@
 
 						 <?php while($order = db_fetch_assoc($result)): ?>
 
-						 	<tr>
+						 	<tr class="text-center">
 						 		<td><?php echo $n++; ?></td>
 
 						 		<td><?php echo $order['order_name']; ?></td>
-
-						 		<?php 
-										$qry = "SELECT price FROM menu WHERE id = '{$order['menu_id']}'";
-						 			    $res = db_query($con, $qry);
-						 			    $menu = db_fetch_assoc($res);
-									 ?>
-									<td><?php echo $menu['price']; ?></td>
 
 									<td></td>
 
 									<td><?php echo $order['created_at']; ?></td>
 
-									<td><a href="<?php echo url('stdorder_delete.php'); ?>" class="delete"><i  class="fas fa-trash"></i></a></td>
-						 	</tr>
+									<td><?php echo $order['quantity']; ?></td>
+									<?php 
+										$qry = "SELECT price FROM menu WHERE id = '{$order['menu_id']}'";
+						 			    $res = db_query($con, $qry);
+						 			    $menu = db_fetch_assoc($res);
+									 ?>
+									<td>&#8360;<?php echo $menu['price']; ?></td>
 
+									<td class="text-right">&#8360;
+										<?php 
+											 $subt = $menu['price']*$order['quantity'];
+                                             echo "$subt";
+										 ?>
+									</td>
+
+									<td><a href="<?php echo url('stdorder_delete.php'); ?>" class="delete"><i  class="fas fa-trash ml-4"></i></a></td>
+						 	</tr>
 					</tbody>
+
 						<?php endwhile; ?>
 						<?php else: ?>
 						<tr>
 							<td colspan="6" class="text-center">No data found</td>
 						</tr>	
 						<?php endif; ?>
+						<tr>
+                           <td colspan="6" class="text-right"><b>TOTAL</b></td>
+                            <td class="text-right">&#8360;
+                            	<?php 
+                            		$sql = "SELECT SUM(order_price) AS total FROM orders ";
+                            		$result = db_query($con, $sql);
+                            		$order = mysqli_fetch_assoc($result); 
+									$sum = $order['total'];
+									echo "$sum";
+                            	 ?>
+                            </td>
+						</tr>
 				</table>
 			</div>
 			<?php if($totalpages > 1): ?>

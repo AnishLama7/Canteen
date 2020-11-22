@@ -80,7 +80,7 @@
 
   <div class="container-fluid">
   <h1 class="page-header text-center">ORDER</h1>
-  <p style="text-align:right;"><a href="<?php echo url('std_details.php') ?>" class="btn btn-dark">Order Details</a></p>
+  <!-- <p style="text-align:right;"><a href="<?php echo url('std_details.php') ?>" class="btn btn-dark">Order Details</a></p> -->
 
     <table class="table table-striped table-bordered w-auto">
       <thead>
