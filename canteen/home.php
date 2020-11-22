@@ -9,6 +9,10 @@ require_once 'includes/db_functions.php';
 	.carousel-inner img {
 	width: 100%;
 	height: 100%;
+
+}
+body {
+	background: grey;
 }
 </style>
 <!-- modal part -->
