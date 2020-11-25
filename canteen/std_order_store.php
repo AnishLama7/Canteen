@@ -14,9 +14,11 @@
 		$now = date('Y-m-d H:i:s');
 		$user_id = $_SESSION['user']['id'];
 
-        $sql = " INSERT INTO orders SET order_name = '{$menu['name']}', order_price = '{$menu['price']}',  user_id = '{$user_id}', order_no = '{$menu['order_no']}',total_order = '{$menu['total']}', quantity = '{$menu['quantity']}', created_at = '{$now}', menu_id='{$menu['order_id']}'";
+        $sql = " INSERT INTO orders SET order_name = '{$menu['name']}', food_image = '{$menu['image']}', order_price = '{$menu['price']}',  user_id = '{$user_id}', order_no = '{$menu['order_no']}',total_order = '{$menu['total']}', quantity = '{$menu['quantity']}', created_at = '{$now}', menu_id='{$menu['order_id']}'";
 
         $result = db_query($con, $sql);
+
+        var_dump($sql); die;
 
 
 		if($result) {

@@ -118,6 +118,7 @@
               </td>
 
               <td style="height: 90px; width: 120px;">
+                <input type="hidden" name="image" class="form-control">
                 <?php  if(!empty($menu['image'])): ?>
                 <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-fluid">
                 <?php endif;?>

@@ -20,7 +20,7 @@
  <!DOCTYPE html>
  <html>
  <head>
-  <title> <?php echo $title; ?> - Order Page</title>
+  <title> <?php echo $title; ?> - Order</title>
 
   <link rel="stylesheet" type="text/css" href="<?php echo url('css/bootstrap.css')?>">
   <link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
@@ -63,7 +63,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo url('cms/profile.php'); ?>"title="My Profile"><i class="fas fa-user"></i></a></li>
+        <li><a href="<?php echo url('std_profile.php'); ?>"title="My Profile"><i class="fas fa-user"></i></a></li>
         <li style="color: white;"></i><?php echo $_SESSION['user']['name']; ?></li>
         <li style="color: white;">&nbsp;&nbsp;<i class="fas fa-user-clock"></i><?php echo $_SESSION['logged_in_datetime'] = date("d M H:i:s"); ?></li>
         <li> <a href="<?php echo url('cms/logout.php'); ?>" title="Logout" >&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a></li>
@@ -72,7 +72,7 @@
   </nav>
   <br>
 
-  <div class="row">
+ <!--  <div class="row">
     <div class="col-md-12">
       <select id="typelist" class="btn btn-default">
       <?php
@@ -87,13 +87,13 @@
       ?>
       </select>
     </div>
-  </div>
+  </div> -->
 
   <hr>
 
   <div class="container">
   <h1 class="page-header text-center">ORDER</h1>
-  <p style="text-align:right;"><a href="<?php echo url('std_details.php') ?>" class="btn btn-dark">Order Details</a></p>
+  <!-- <p style="text-align:right;"><a href="<?php echo url('std_details.php') ?>" class="btn btn-dark">Order Details</a></p> -->
 
     <table class="table table-striped table-bordered">
       <thead>
@@ -112,14 +112,15 @@
         <?php include_once 'cms/templates/message.php'; ?>
          
         <?php 
-        if (isset($_GET['type'])) {
-          $slug = ($_GET['type']);
-          $sql = "SELECT * FROM menu WHERe type ='$slug' LIMIT 0,10 "; 
-        }else{
+        // if (isset($_GET['type'])) {
+        //   $slug = ($_GET['type']);
+        //   $sql = "SELECT * FROM menu WHERe type ='$slug' LIMIT 0,10 "; 
+        // }
 
-         $sql = "SELECT * FROM menu WHERE categories.slug = '{$_GET['slug']}' "; 
+         $sql = "SELECT * FROM menu WHERE slug = '{$_GET['slug']}'"; 
          $result = db_query($con, $sql);
-        }
+         $category = db_fetch_assoc($result);
+         var_dump($category);
 
         if($result && db_num_rows($result) > 0 ): ?>
        <?php while( $menu = db_fetch_assoc($result)): ?>
@@ -132,11 +133,13 @@
                   <input type="hidden" name="order_id" value="<?php echo $menu['id']?> ">
                 </label>
               </td>
+
               <td>
                  <?php  if(!empty($menu['image'])): ?>
                  <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-fluid">
                  <?php endif; ?>
               </td>
+
               <td class="text-right">&#x20A8; <?php echo number_format($menu['price']); ?></td>
               <?php 
                   $qry = "SELECT name FROM categories WHERE id = '{$menu['category_id']}'";
@@ -144,6 +147,7 @@
                   $Category = db_fetch_assoc($res);
                  ?>
               <td><?php echo $Category['name']; ?></td>
+
               <td>
                 <label for="order_no">
                   <input type="number" name="order_no" class="form-control" value="<?php echo rand(111,999); ?>" readonly>

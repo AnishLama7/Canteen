@@ -4,11 +4,11 @@
 	height: 100%;
 }
 	.sizered{
-		width:50%;
+		width:30%;
 	}
 </style>
 
-<h1 style="text-align: center">Recommendation</h1>
+<h2 style="text-align: center">Recommended For You</h2>
 <section class="container sizered">
 		<div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -22,9 +22,13 @@
 			<!-- The slideshow -->
 			<div class="carousel-inner">
 				<div class="carousel-item active">
+					<?php 
+						$sql = "SELECT order_name, food_image FROM orders WHERE order_price > 20 LIMIT 0,3";
+						$result = db_query($con, $sql);
+					 ?>
 					<img src="images/3.jpg" alt="Samosa">
 					<div class="carousel-caption">
-						<h3>Samosa</h3>
+						<h3><?php echo $order['order_name']; ?></h3>
 					</div>
 				</div>
 				<div class="carousel-item">
