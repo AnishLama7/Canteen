@@ -48,7 +48,7 @@ $(function() {
 
 	});
 
-	$('.alert').delay(5000).slideUp(500); 
+	$('.alert').delay(10000).slideUp(500); 
 
 	$('#image').change(function() {
 		readURL(this);

@@ -2,6 +2,8 @@
   require_once 'includes/init.php';
   require_once 'includes/db_connection.php';
 
+  if (isset($_GET['slug'])) {
+    
   $sql = "SELECT * FROM categories WHERE slug = '{$_GET['slug']}'";
   $result = db_query($con, $sql);
 
@@ -14,8 +16,10 @@
   $title = $cat['name'];
 
   $active = $cat['slug'];
- 
+    }
+
  ?>
+
 
  <!DOCTYPE html>
  <html>
@@ -27,13 +31,6 @@
   <link rel="stylesheet" type="text/css" href="<?php echo url('css/cms.css')?>">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
- <style type="text/css">
-   img{
-    height: 30px;
-    width: 60px;
-   }
- </style>
- 
  </head>
 <body>
   <div class="container-fluid">
@@ -54,40 +51,26 @@
             $result = db_query($con, $sql);
             if($result && db_num_rows($result) > 0):
           ?>
+
           <?php while($category = db_fetch_assoc($result)): ?>
+            
         <li class="nav-item">
-          <a class="nav-link <?php echo $active == $category['slug'] ? 'active' : ''; ?>" href="<?php echo url('category/'.$category['slug']); ?>"><?php echo $category['name']; ?></a>
+          <a class="nav-link <?php echo $active == $category['slug'] ? 'active' : ''; ?>" href="<?php echo url('categories.php?slug='.$category['slug']); ?>"><?php echo $category['name']; ?></a>
         </li>
         <?php endwhile; ?>
         <?php endif; ?>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo url('std_profile.php'); ?>"title="My Profile"><i class="fas fa-user"></i></a></li>
-        <li style="color: white;"></i><?php echo $_SESSION['user']['name']; ?></li>
-        <li style="color: white;">&nbsp;&nbsp;<i class="fas fa-user-clock"></i><?php echo $_SESSION['logged_in_datetime'] = date("d M H:i:s"); ?></li>
-        <li> <a href="<?php echo url('cms/logout.php'); ?>" title="Logout" >&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a></li>
+        <li><a href="<?php echo url('std_profile.php'); ?>"title="My Profile"><i class="fas fa-user"></i></i><?php echo $_SESSION['user']['name']; ?></a></li>
+        <li style="color: white;"><i class="fas fa-user-clock ml-3"></i><?php echo $_SESSION['logged_in_datetime'] = date("d M H:i:s"); ?></li>
+        <li> <a href="<?php echo url('cms/logout.php'); ?>" title="Logout"><i class="fas fa-sign-out-alt ml-3"></i></a></li>
     </ul>
     </div>
   </nav>
   <br>
 
- <!--  <div class="row">
-    <div class="col-md-12">
-      <select id="typelist" class="btn btn-default">
-      <?php
-      
-        $sql="SELECT DISTINCT type FROM menu";
-          $result=db_query($con,$sql); 
-          while($menu = db_fetch_assoc($result)){
-          $menu_id = isset($_GET['type']) ? $_GET['type']: 0;
-          $selected = ($menu_id == $menu['type']) ? " selected" : "";
-          echo "<option$selected value=".$menu['type'].">".$menu['type']."</option>";
-        }
-      ?>
-      </select>
-    </div>
-  </div> -->
+ 
 
   <hr>
 
@@ -116,11 +99,25 @@
         //   $slug = ($_GET['type']);
         //   $sql = "SELECT * FROM menu WHERe type ='$slug' LIMIT 0,10 "; 
         // }
+        if (isset($_GET['slug'])) {
+          $query = "SELECT * FROM categories where slug='{$_GET['slug']}' limit 1";
+          $result = db_query($con, $query);
 
-         $sql = "SELECT * FROM menu WHERE slug = '{$_GET['slug']}'"; 
+          var_dump($result); 
+
+          $data = (db_fetch_assoc($result));
+          $slugId = '';
+          if (isset($data)>=1) {
+            $slugId = $data['id'];
+          }
+
+          $sql = "SELECT * FROM menu WHERE category_id = '{$slugId}'"; 
          $result = db_query($con, $sql);
          $category = db_fetch_assoc($result);
-         var_dump($category);
+
+         var_dump($category); 
+         
+        }
 
         if($result && db_num_rows($result) > 0 ): ?>
        <?php while( $menu = db_fetch_assoc($result)): ?>
@@ -134,11 +131,13 @@
                 </label>
               </td>
 
-              <td>
-                 <?php  if(!empty($menu['image'])): ?>
-                 <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-fluid">
-                 <?php endif; ?>
+              <td style="height: 90px; width: 120px;">
+                <input type="hidden" name="image" class="form-control" value="<?php echo $menu['image']; ?>">
+                <?php  if(!empty($menu['image'])): ?>
+                <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-fluid">
+                <?php endif;?>
               </td>
+             
 
               <td class="text-right">&#x20A8; <?php echo number_format($menu['price']); ?></td>
               <?php 

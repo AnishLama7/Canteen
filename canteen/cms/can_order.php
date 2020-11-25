@@ -12,9 +12,26 @@
 <div class="col">
 	<div class="col-12 bg-white my-3">
 		<div class="row">
-			<div class="col">
-				<h1 style="text-align:center;">Order</h1>
+
+			<div class="col-6 my-3">
+				<select class="btn btn-default" id="selval">
+				  <option selected>Select date</option>
+				  <?php 
+						$sql = "SELECT DISTINCT date FROM can_order";
+						$result = db_query($con, $sql);
+						 while($can_order = db_fetch_assoc($result)){
+					      $date = isset($_GET['date']) ? $_GET['date']: 0;
+					      $selected = ($date == $can_order['date']) ? " selected" : "";
+					      echo "<option$selected value=".$can_order['date'].">".$can_order['date']."</option>";
+        }
+						?>
+				</select>
 			</div>
+
+			<div class="col-6">
+				<h1 style="text-align:left;">Order</h1>
+			</div>
+			
 		</div>
 		<div class="row">
 			<?php include_once 'templates/message.php'; ?>
@@ -23,15 +40,15 @@
 			<div class="col-12 mt-3">
 				<table class="table table-stripped table-hover table-sm">
 					<thead>
-						<tr>
-							<th input type="checkbox" id="checkAll"></th>
+						<tr class="text-center">
 							<th>#</th>
 							<th>Student Name</th>
 							<th>Order Name</th>
 							<th>Order No</th>
 							<th>Price</th>
 							<th>Quantity</th>
-							<th>Order Time</th>
+							<th>Time</th>
+							<th>Date</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -39,7 +56,7 @@
 
 
 						<?php 
-							$sql = "SELECT COUNT(id) AS total FROM orders ";
+							$sql = "SELECT COUNT(id) AS total FROM can_order ";
 							$result = db_query($con, $sql);
 							$ret = db_fetch_assoc($result);
 							$total = $ret['total'];
@@ -61,46 +78,51 @@
 
 							$offset = ($limit * $page) - $limit;
 
-
-							$sql = "SELECT * FROM orders limit {$offset}, {$limit} ";
+							$sql = "SELECT * FROM can_order limit {$offset}, {$limit} ";
 							$result = db_query($con, $sql);
 
 							$n = $offset + 1;
 							if($result && db_num_rows($result) > 0):
 							?>
 
-							<?php while($order = db_fetch_assoc($result)):?>
+							<?php while($can_order = db_fetch_assoc($result)):?>
 
-								<tr>
-									<td input type="checkbox" name="ordercheck"></td>
-									<!-- <td class="text-center"><input type="checkbox" value="<?php echo $order['id']; ?>||<?php echo $iterate; ?>" name="orderid[]" style=""></td> -->
+								<tr class="text-center">
 
 									<td><?php echo $n++; ?></td>
 
 									<?php 
-										$qry = "SELECT name FROM users WHERE id = '{$order['user_id']}'";
+										$qry = "SELECT name FROM users WHERE id = '{$can_order['user_id']}'";
 						 			    $res = db_query($con, $qry);
 						 			    $user = db_fetch_assoc($res);	
 									 ?>
 									<td><?php echo $user['name']; ?></td>
 
-									<td><?php echo $order['order_name']; ?></td>
+									<td><?php echo $can_order['order_name']; ?></td>
 
-									<td><?php echo $order['order_no']; ?></td>
+									<td><?php echo $can_order['order_no']; ?></td>
 
 									<?php 
-										$qry = "SELECT price FROM menu WHERE id = '{$order['menu_id']}'";
+										$qry = "SELECT price FROM menu WHERE id = '{$can_order['menu_id']}'";
 						 			    $res = db_query($con, $qry);
 						 			    $menu = db_fetch_assoc($res);
 									 ?>
-									<td><?php echo $menu['price']; ?></td>
+									<td><?php echo $can_order['order_price']; ?></td>
 
-									<td><?php echo $order['quantity']; ?></td>
+									<td><?php echo $can_order['quantity']; ?></td>
 
-									<td><?php echo $order['created_at']; ?></td>
+									<td><?php echo $can_order['order_time']; ?></td>
+
+									<td><?php echo $can_order['order_date']; ?></td>
 
 									<td>
-						 			<a href="<?php echo url('std_order.php'); ?>" class="ok" ><i class="fas fa-check mr-3"></i></a>
+											<button type="button" onclick="myFunction()" class="btn btn-warning btn-sm" id="demo">Notify</button>
+											<script>
+												function myFunction() {
+												document.getElementById("demo").innerHTML = "Order Ready";
+												}
+											</script>
+						 			<!-- <a href="<?php echo url('std_order.php'); ?>" class="ok" ><i class="fas fa-check mr-3"></i></a> -->
 
 						 		</td>
 								</tr>
@@ -160,6 +182,21 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#selval").on('change', function(){
+      if($(this).val() == 0)
+      {
+        window.location = 'can_order.php';
+      }
+      else
+      {
+        window.location = 'can_order.php?date='+$(this).val();
+      }
+    });
+  });
+</script>
 
 <?php 
 	require_once 'templates/footer.php';

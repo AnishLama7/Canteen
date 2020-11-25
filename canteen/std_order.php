@@ -7,10 +7,12 @@
   $active = 'home';
  ?>
 
+
  <!DOCTYPE html>
  <html>
  <head>
   <title> <?php echo $title; ?> - Order Page</title>
+
 
   <link rel="stylesheet" type="text/css" href="<?php echo url('css/bootstrap.css')?>">
   <link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
@@ -46,10 +48,10 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo url('std_profile.php'); ?>"title="My Profile"><i class="fas fa-user"></i></a></li>
-        <li style="color: white;"></i><?php echo $_SESSION['user']['name']; ?></li>
-        <li style="color: white;">&nbsp;&nbsp;<i class="fas fa-user-clock"></i><?php echo date('h:i:s A')?></li>
-        <li> <a href="<?php echo url('cms/logout.php'); ?>" title="Logout" >&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a></li>
+        <li><a href="<?php echo url('std_profile.php'); ?>"title="My Profile"><i class="fas fa-user"></i><?php echo $_SESSION['user']['name']; ?></a></li>
+        <li style="color: white;"><i class="fas fa-user-clock ml-3"></i><?php echo date('Y/m/d')?></li>&nbsp;
+        <li style="color: white;"><?php echo date('H-i-s A')?></li>
+        <li> <a href="<?php echo url('cms/logout.php'); ?>" title="Logout"><i class="fas fa-sign-out-alt ml-3"></i></a></li>
     </ul>
     </div>
   </nav>
@@ -73,7 +75,11 @@
   </div>
       <?php include_once 'cms/templates/message.php'; ?>
   <hr>
-
+ <!--  <div class="col-12">
+    <div class="alert alert-success">
+      hello
+    </div>
+  </div> -->
  <?php include 'recommend.php'; ?>
 
   <hr>
@@ -107,6 +113,8 @@
         $result = db_query($con, $sql);
         if($result && db_num_rows($result) > 0 ): ?>
        <?php while( $menu = db_fetch_assoc($result)): ?>
+        <?php if ($menu['total'] > 0) {?>
+        
         <form method="POST" action="<?php echo url('std_order_store.php'); ?>" enctype = "multipart/form-data">
             <tr>
              
@@ -118,7 +126,7 @@
               </td>
 
               <td style="height: 90px; width: 120px;">
-                <input type="hidden" name="image" class="form-control">
+                <input type="hidden" name="image" class="form-control" value="<?php echo $menu['image']; ?>">
                 <?php  if(!empty($menu['image'])): ?>
                 <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-fluid">
                 <?php endif;?>
@@ -161,7 +169,7 @@
 
            </tr>
   </form>
-
+<?php }?>
 
           <?php endwhile; ?>
       </tbody>

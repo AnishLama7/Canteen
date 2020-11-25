@@ -28,7 +28,7 @@
 					 ?>
 					<img src="images/3.jpg" alt="Samosa">
 					<div class="carousel-caption">
-						<h3><?php echo $order['order_name']; ?></h3>
+						<h3>Samosa</h3>
 					</div>
 				</div>
 				<div class="carousel-item">

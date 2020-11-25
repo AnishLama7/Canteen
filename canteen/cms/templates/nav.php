@@ -31,10 +31,6 @@
 					<a href="<?php echo url('cms/users.php'); ?>"><i class="fas fa-users mr-2"></i>Users</a>
 				</li>
 
-				<li <?php echo $active == 'records' ? 'class="active"' : ''; ?>>
-					<a href="<?php echo url('cms/records.php'); ?>"><i class="fas fa-file mr-2"></i>Records</a>
-				</li>
-
 				<li <?php echo $active == 'comments' ? 'class="active"' : ''; ?>>
 					<a href="<?php echo url('cms/comments.php'); ?>"><i class="fas fa-comments mr-2"></i>Comments</a>
 				</li>

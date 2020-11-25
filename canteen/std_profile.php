@@ -68,12 +68,12 @@
 							<th>Quantity</th>
 							<th>Price</th>
 							<th>SubTotal</th>
-							<th>Action</th>
 						</tr>
+
 					</thead>
 					 <tbody>
 						<?php 
-							$sql = "SELECT COUNT(id) AS total FROM orders WHERE user_id ='{$_SESSION['user']['id']}'";
+							$sql = "SELECT COUNT(id) AS total FROM std_order WHERE user_id ='{$_SESSION['user']['id']}'";
 							$result = db_query($con, $sql);
 							$ret = db_fetch_assoc($result);
 							$total = $ret['total'];
@@ -96,39 +96,37 @@
 							$offset = ($limit * $page) - $limit;
 
 
-							$sql = "SELECT * FROM orders WHERE user_id ='{$_SESSION['user']['id']}' LIMIT {$offset}, {$limit} ";
+							$sql = "SELECT * FROM std_order WHERE user_id ='{$_SESSION['user']['id']}' LIMIT {$offset}, {$limit} ";
 							$result = db_query($con, $sql);
 
 							$n = $offset + 1;
 							if($result && db_num_rows($result) > 0):?>
 
-						 <?php while($order = db_fetch_assoc($result)): ?>
+						 <?php while($std_order = db_fetch_assoc($result)): ?>
 
 						 	<tr class="text-center">
 						 		<td><?php echo $n++; ?></td>
 
-						 		<td><?php echo $order['order_name']; ?></td>
+					 			<td><?php echo $std_order['order_name']; ?></td>
 
-									<td></td>
+								<td><?php echo $std_order['food_image']; ?></td>
 
-									<td><?php echo $order['created_at']; ?></td>
+								<td><?php echo $std_order['created_at']; ?></td>
 
-									<td><?php echo $order['quantity']; ?></td>
+								<td><?php echo $std_order['quantity']; ?></td>
+								<?php 
+									$qry = "SELECT price FROM menu WHERE id = '{$std_order['menu_id']}'";
+					 			    $res = db_query($con, $qry);
+					 			    $menu = db_fetch_assoc($res);
+								 ?>
+								<td>&#8360;<?php echo $std_order['order_price'] ??'-'; ?></td>
+
+								<td>&#8360;
 									<?php 
-										$qry = "SELECT price FROM menu WHERE id = '{$order['menu_id']}'";
-						 			    $res = db_query($con, $qry);
-						 			    $menu = db_fetch_assoc($res);
+										 $subt = $std_order['order_price']*$std_order['quantity'];
+                                         echo "$subt";
 									 ?>
-									<td>&#8360;<?php echo $menu['price']; ?></td>
-
-									<td class="text-right">&#8360;
-										<?php 
-											 $subt = $menu['price']*$order['quantity'];
-                                             echo "$subt";
-										 ?>
-									</td>
-
-									<td><a href="<?php echo url('stdorder_delete.php'); ?>" class="delete"><i  class="fas fa-trash ml-4"></i></a></td>
+								</td>
 						 	</tr>
 					</tbody>
 
@@ -138,18 +136,7 @@
 							<td colspan="6" class="text-center">No data found</td>
 						</tr>	
 						<?php endif; ?>
-						<tr>
-                           <td colspan="6" class="text-right"><b>TOTAL</b></td>
-                            <td class="text-right">&#8360;
-                            	<?php 
-                            		$sql = "SELECT SUM(order_price) AS total FROM orders ";
-                            		$result = db_query($con, $sql);
-                            		$order = mysqli_fetch_assoc($result); 
-									$sum = $order['total'];
-									echo "$sum";
-                            	 ?>
-                            </td>
-						</tr>
+					 
 				</table>
 			</div>
 			<?php if($totalpages > 1): ?>
