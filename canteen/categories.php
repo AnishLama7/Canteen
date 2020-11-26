@@ -86,8 +86,9 @@
          <th>Category</th>
          <th>Order No</th>
          <th>Available</th>
-         <th>Quantity</th>
          <th>Time</th>
+         <th>Quantity</th>
+         <th>Break Time</th>
          <th>Action</th>
       </thead>
       <tbody>
@@ -162,6 +163,8 @@
              </td>
 
               <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
+
+              <td><input type="time" name="break_time" class="form-control"></td>
 
              <td>
                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Order</button>
