@@ -29,7 +29,7 @@
 
 		if($result) {
 			$_SESSION['message'] = [
-				'content' => 'Menu added successfully.',
+				'content' => 'Items added successfully.',
 				'type' => 'success'
 			];
 
@@ -37,7 +37,7 @@
 		}
 		else {
 			$_SESSION['message'] = [
-				'content' => 'problem while adding Menu.'.db_error($con),
+				'content' => 'problem while adding items.'.db_error($con),
 				'type' => 'danger'
 			];
 

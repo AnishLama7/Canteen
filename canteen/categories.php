@@ -104,8 +104,6 @@
           $query = "SELECT * FROM categories where slug='{$_GET['slug']}' limit 1";
           $result = db_query($con, $query);
 
-          var_dump($result); 
-
           $data = (db_fetch_assoc($result));
           $slugId = '';
           if (isset($data)>=1) {
@@ -115,8 +113,6 @@
           $sql = "SELECT * FROM menu WHERE category_id = '{$slugId}'"; 
          $result = db_query($con, $sql);
          $category = db_fetch_assoc($result);
-
-         var_dump($category); 
          
         }
 
@@ -183,20 +179,6 @@
 
   </div>
 </body>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    $("#typelist").on('change', function(){
-      if($(this).val() == 0)
-      {
-        window.location = 'std_order.php';
-      }
-      else
-      {
-        window.location = 'std_order.php?type='+$(this).val();
-      }
-    });
-  });
 
 </script>
 

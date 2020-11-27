@@ -48,7 +48,7 @@
 				<ul class="nav navbar-nav justify-content-end">
 
 					<li><a href="<?php echo url('cms/login.php'); ?>" class="text-secondary mr-3"><i class="fas fa-sign-in-alt text-secondary " ></i>Login</a></li>
-					<li><a href="<?php echo url('signup.php'); ?>" class="text-secondary"><i class="fas fa-user text-secondary"></i> Sign Up</a></li> 
+					<li><a href="<?php echo url('cms/signup.php'); ?>" class="text-secondary"><i class="fas fa-user text-secondary"></i> Sign Up</a></li> 
 				</ul>
 <!-- 			</div>		
  -->		</nav>

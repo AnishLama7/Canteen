@@ -12,11 +12,9 @@
 	}
 </style>
 
-<body>
+<body class="bg-secondary">
 
-<div class="col">
-	<div class="col-12 bg-dark my-3">
-		<div class="row">
+	<div  class="container-fluid bg-dark mt-5 p-4 col-lg-6 col-md-8 col-12">
 			
 			<?php include_once 'templates/message.php'; ?>
 			<?php $user = $_SESSION['user']; ?>
@@ -56,13 +54,7 @@
 			</div>
 		</form>
 				
-			</div>
-		</div>
-	</div>
-</div>
 
-<div class="text-right">
-	&copy; Copyright 2013 AJAS FOODS
 </div>
 
 	<script type="text/javascript" src="<?php echo url('js/jquery.js')?>"></script>

@@ -1,7 +1,7 @@
 <?php 
-require_once 'includes/init.php';
+require_once '../includes/init.php';
 $title = 'Sign up';
-require_once 'includes/db_functions.php';
+require_once '../includes/db_functions.php';
 ?>
 <?php require 'templates/header.php'; ?>
 
@@ -20,7 +20,7 @@ require_once 'includes/db_functions.php';
 		}
 	</script>
 	<style type="text/css">
-		.bodd{
+		.body{
 			background-image: url("images/3.jpg");
 			background-repeat: no-repeat;
 			/*background-size: cover;*/	
@@ -35,7 +35,7 @@ require_once 'includes/db_functions.php';
 
 	<body  class="bg-secondary">
 		<div  class="container bg-dark mt-5 p-4 col-lg-6 col-md-8 col-12">
-			<?php include_once 'cms/templates/message.php'; ?>
+			<?php include_once 'templates/message.php'; ?>
 			<form action="<?php echo url('cms/sign_check.php'); ?>" name="myform" method="POST" class="needs-validation w-75 mx-auto" onsubmit="return matchpass()">
 				<h1 class="text-center">Sign Up</h1><hr color="orange">
 				<div class="form-group"> 
@@ -86,15 +86,10 @@ require_once 'includes/db_functions.php';
 					<label for="password2">Retype Password:</label>
 					<input type="password" class="form-control" id="password2" placeholder="Enter password" name="password2" required>
 				</div>
-				<div class="form-group form-check">
-					<label class="form-check-label">
-						<input class="form-check-input" type="checkbox" name="remember" required> I agree on all terms and conditions.
-					</label>
-				</div>
+				
 				<div class=" text-center">
 					<button type="submit" class="but btn btn-secondary mb-1 font-weight-bold" name="submit">Submit</button><br>
-					<button type="reset" name="reset" value="reset" class="but btn btn-secondary mb-3 font-weight-bold">
-					Reset</button>
+					
 				</div>
 			</form>
 		</div>

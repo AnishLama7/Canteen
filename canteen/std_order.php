@@ -171,7 +171,6 @@
 
            </tr>
   </form>
-<?php }?>
 
           <?php endwhile; ?>
       </tbody>

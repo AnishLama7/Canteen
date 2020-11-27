@@ -128,9 +128,7 @@
 						 			<!-- <a href="<?php echo url('std_order.php'); ?>" class="ok" ><i class="fas fa-check mr-3"></i></a> -->
 
 						 		</td>
-								</tr>
-
-							
+								</tr>	
 					</tbody>
 						<?php endwhile; ?>
 						<?php else: ?>
