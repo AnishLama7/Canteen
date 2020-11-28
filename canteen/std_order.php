@@ -51,7 +51,7 @@
         <li><a href="<?php echo url('std_profile.php'); ?>"title="My Profile"><i class="fas fa-user"></i><?php echo $_SESSION['user']['name']; ?></a></li>
         <li style="color: white;"><i class="fas fa-user-clock ml-3"></i><?php echo date('Y/m/d')?></li>&nbsp;
         <li style="color: white;"><?php echo date('H-i-s A')?></li>
-        <li> <a href="<?php echo url('cms/logout.php'); ?>" title="Logout"><i class="fas fa-sign-out-alt ml-3"></i></a></li>
+        <li> <a href="<?php echo url('stdlogout.php'); ?>" title="Logout"><i class="fas fa-sign-out-alt ml-3"></i></a></li>
     </ul>
     </div>
   </nav>
@@ -96,9 +96,8 @@
          <th>Category</th>
          <th>Order No</th>
          <th>Available</th>
-         <th>Time</th>
          <th>Quantity</th>
-         <th>Break Time</th>
+         <th>Time</th>
          <th>Action</th>
       </thead>
       <tbody>
@@ -156,17 +155,11 @@
                 <input type="number" class= "form-control" name="total" value="<?php echo $menu['total']; ?>" readonly>
               </td>
 
-              <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
-
              <td>
                <input type="number" class="form-control" name="quantity" max="<?php echo $menu['total']; ?>">
              </td>
 
-             <td>
-               <input type="time" name="break_time" class="form-control" required>
-             </td>
-
-              
+              <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
 
            <!--   <td></td> -->
 

@@ -86,9 +86,8 @@
          <th>Category</th>
          <th>Order No</th>
          <th>Available</th>
-         <th>Time</th>
          <th>Quantity</th>
-         <th>Break Time</th>
+         <th>Time</th>
          <th>Action</th>
       </thead>
       <tbody>
@@ -104,6 +103,8 @@
           $query = "SELECT * FROM categories where slug='{$_GET['slug']}' limit 1";
           $result = db_query($con, $query);
 
+          var_dump($result); 
+
           $data = (db_fetch_assoc($result));
           $slugId = '';
           if (isset($data)>=1) {
@@ -113,6 +114,8 @@
           $sql = "SELECT * FROM menu WHERE category_id = '{$slugId}'"; 
          $result = db_query($con, $sql);
          $category = db_fetch_assoc($result);
+
+         var_dump($category); 
          
         }
 
@@ -160,8 +163,6 @@
 
               <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
 
-              <td><input type="time" name="break_time" class="form-control"></td>
-
              <td>
                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Order</button>
              </td>
@@ -179,6 +180,20 @@
 
   </div>
 </body>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#typelist").on('change', function(){
+      if($(this).val() == 0)
+      {
+        window.location = 'std_order.php';
+      }
+      else
+      {
+        window.location = 'std_order.php?type='+$(this).val();
+      }
+    });
+  });
 
 </script>
 

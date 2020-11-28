@@ -47,8 +47,10 @@
  -->
 				<ul class="nav navbar-nav justify-content-end">
 
-					<li><a href="<?php echo url('cms/login.php'); ?>" class="text-secondary mr-3"><i class="fas fa-sign-in-alt text-secondary " ></i>Login</a></li>
-					<li><a href="<?php echo url('cms/signup.php'); ?>" class="text-secondary"><i class="fas fa-user text-secondary"></i> Sign Up</a></li> 
+					<li><a href="<?php echo url('std_login.php'); ?>" class="text-secondary mr-3"><i class="fas fa-sign-in-alt text-secondary " ></i>Login</a> <hr>
+              		<a href="<?php echo url('cms/signup.php'); ?>" class="mt-5 mb-3 text-muted">Create an account</a></li>
+
+					<li><a href="<?php echo url('cms/can_login.php'); ?>" class="text-secondary mr-3"><i class="fas fa-sign-in-alt text-secondary " ></i></a></li>
 				</ul>
 <!-- 			</div>		
  -->		</nav>

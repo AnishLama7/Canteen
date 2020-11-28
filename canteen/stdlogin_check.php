@@ -1,7 +1,7 @@
 <?php 
 
-	require_once '../includes/init.php';
-	require_once '../includes/db_connection.php';
+	require_once 'includes/init.php';
+	require_once 'includes/db_connection.php';
 
 
 	if(!empty($_POST)){
@@ -18,12 +18,16 @@
 
 			$_SESSION['user'] = $user;
 
-			if($_SESSION['user']['type']== 'student' || 'staff'){
+			if($_SESSION['user']['type']== 'student' || 'staff' and $_SESSION['user']['request'] == 'accepted'){
 				redirect(url('std_order.php'));
 			}
 
 			else{
-				redirect(url('cms'));
+				$_SESSION['message'] = [
+				'content' => 'User not validated yet.',
+				'type' =>'danger'
+			];
+				redirect(url('std_login.php'));
 				}
 
 		}

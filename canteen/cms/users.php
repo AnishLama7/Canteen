@@ -31,6 +31,7 @@
 							<th>Faculty</th>
 							<th>Phone</th>						
 							<th>Email</th>
+							<th>Request</th>
 							<th>Type</th>
 							<th>Action</th>
 						</tr>
@@ -76,10 +77,12 @@
 						 		<td><?php echo $user['faculty']; ?></td>
 						 		<td><?php echo $user['phone']; ?></td>
 						 		<td><?php echo $user['email']; ?></td>
+						 		<td><?php echo ucfirst($user['request']); ?></td>
 						 		<td><?php echo ucfirst($user['type']); ?></td>
 						 		
 						 		<td>
-						 			<a href="<?php echo url('cms/user_delete.php?username='.$user['username']); ?>" class="delete">&nbsp;&nbsp;&nbsp;<i  class="fas fa-trash"></i></a>
+						 			<a href="<?php echo url('cms/edit_users.php?username='.$user['username']); ?>"><i class="fas fa-edit mr-3"></i></a>
+						 			<a href="<?php echo url('cms/user_delete.php?username='.$user['username']); ?>" class="delete"><i  class="fas fa-trash"></i></a>
 						 		</td>
 						 	</tr>
 

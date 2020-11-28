@@ -15,7 +15,34 @@ body {
 	background: grey;
 }
 </style>
-
+<!-- modal part -->
+	<!-- <section class="container bg-dark text-light">
+		<div class="modal fade modal-m text-dark bg-dark" id="myModal">
+			<div class="modal-dialog modal-m">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2>Log in</h2>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<form name="myform" action="check.php" method="POST">
+							<div class="form-group"> 
+								<label for="uname">Username:</label>
+								<input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+							</div>
+							<div class="form-group">
+								<label for="pwd">password:</label>
+								<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" required>
+							</div>
+							<div class=" text-center">
+								<button type="submit" class="btn btn-primary mb-1" name="submit">Submit</button><br>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> -->	
 
 	<!-- carousel part -->
 	<section class="container">

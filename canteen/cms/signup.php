@@ -20,7 +20,7 @@ require_once '../includes/db_functions.php';
 		}
 	</script>
 	<style type="text/css">
-		.body{
+		.bodd{
 			background-image: url("images/3.jpg");
 			background-repeat: no-repeat;
 			/*background-size: cover;*/	
@@ -88,8 +88,8 @@ require_once '../includes/db_functions.php';
 				</div>
 				
 				<div class=" text-center">
-					<button type="submit" class="but btn btn-secondary mb-1 font-weight-bold" name="submit">Submit</button><br>
-					
+					<button type="submit" class="but btn btn-secondary mb-1 font-weight-bold" name="submit">Submit</button>
+
 				</div>
 			</form>
 		</div>

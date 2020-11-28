@@ -20,7 +20,7 @@
 				'type' => 'success'
 			];
 
-			redirect(url('cms/login.php'));
+			redirect(url('signup.php'));
 		}
 		else {
 			$_SESSION['message'] = [

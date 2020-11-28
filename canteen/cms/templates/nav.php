@@ -6,9 +6,9 @@
 		<div class="col-12 text-center">
 			 <i class="fas fa-user mr-2"></i><?php echo $_SESSION['user']['name']; ?> <br>
 			 <small>
-			 <a href="<?php echo url('cms/profile_edit.php'); ?>" title="Edit Profile"><i class="fas fa-edit"></i></a>
+			 <a href="<?php echo url('profile_edit.php'); ?>" title="Edit Profile"><i class="fas fa-edit"></i></a>
 
-			 <a href="<?php echo url('cms/logout.php'); ?>" title="Logout" ><i class="fas fa-sign-out-alt"></i></a>
+			 <a href="<?php echo url('logout.php'); ?>" title="Logout" ><i class="fas fa-sign-out-alt"></i></a>
 			 </small>
 
 		</div>
@@ -27,7 +27,7 @@
 					<a href="<?php echo url('cms/can_order.php'); ?>"><i class="fas fa-hamburger mr-2"></i>Order</a>
 				</li>
 
-				<li <?php echo $active == 'comments' ? 'class="active"' : ''; ?>>
+				<li <?php echo $active == 'user' ? 'class="active"' : ''; ?>>
 					<a href="<?php echo url('cms/users.php'); ?>"><i class="fas fa-users mr-2"></i>Users</a>
 				</li>
 

@@ -2,7 +2,7 @@
 
 	if($_SESSION['user']['type'] == 'canteen') {
 		// $_SESSION['message'] = [
-		// 	'content' => '',
+		// 	'content' => 'Access Denied.',
 		// 	'type' => 'danger'
 		// ];
 

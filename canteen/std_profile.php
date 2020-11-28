@@ -109,9 +109,7 @@
 
 					 			<td><?php echo $std_order['order_name']; ?></td>
 
-					 			<td>
-                				<img src="<?php echo $std_order['food_image']; ?>">
-                            	</td>
+								<td><?php echo $std_order['food_image']; ?></td>
 
 								<td><?php echo $std_order['created_at']; ?></td>
 
