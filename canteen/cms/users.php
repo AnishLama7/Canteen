@@ -81,7 +81,7 @@
 						 		<td><?php echo ucfirst($user['type']); ?></td>
 						 		
 						 		<td>
-						 			<a href="<?php echo url('cms/edit_users.php?username='.$user['username']); ?>"><i class="fas fa-edit mr-3"></i></a>
+						 			<a href="<?php echo url('cms/user_edit.php?username='.$user['username']); ?>"><i class="fas fa-edit mr-3"></i></a>
 						 			<a href="<?php echo url('cms/user_delete.php?username='.$user['username']); ?>" class="delete"><i  class="fas fa-trash"></i></a>
 						 		</td>
 						 	</tr>

@@ -10,13 +10,11 @@
 
 		$sql = "UPDATE users SET  name = '{$name}', phone = '{$phone}', username = '{$username}', email = '{$email}', type = '{$type}', request = '{$request}' WHERE username = '$username' ";
 
-		
-
 		$result = db_query($con, $sql);
 
 		if($result) {
 			$_SESSION['message'] = [
-				'content' => 'users updated successfully.',
+				'content' => 'User accepted.',
 				'type' => 'success'
 			];
 

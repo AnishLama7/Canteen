@@ -1,11 +1,11 @@
 <?php 
-require_once 'includes/init.php';
+require_once '../includes/init.php';
 $title = 'Login';
-require_once 'cms/templates/header.php';
+require_once 'templates/header.php';
 ?>
 <style type="text/css">
 	.bod{
-	background-image: url("images/4.jpg");
+	background-image: url("../images/4.jpg");
 	background-repeat: no-repeat;
 	/*background-size: cover;*/	
 	background-attachment: fixed;
@@ -14,11 +14,11 @@ require_once 'cms/templates/header.php';
 </style>
 <body class="bg-secondary bod">
 	<div class="mx-auto bg-dark p-5 mt-5 col-lg-4 col-md-8 col-12" style="opacity:0.9;">
-		<h1 class="text-center">Student Login</h1>
+		<h1 class="text-center">Login</h1>
 		<hr color="orange">
-		<?php include_once 'cms/templates/message.php'; ?>
+		<?php include_once 'templates/message.php'; ?>
 		<div class="text-white">
-			<form method="POST" action="<?php echo url('stdlogin_check.php') ?>">
+			<form method="POST" action="<?php echo url('cms/login_check.php') ?>">
 				<div class="form-group">
 					<label for="username">Username/Email:</label>
 					<input type="text" name="username" id="username" class="form-control" required >
@@ -35,4 +35,6 @@ require_once 'cms/templates/header.php';
 	</div>
 </body>
 
-
+<?php 
+require_once 'templates/footer.php';
+?>

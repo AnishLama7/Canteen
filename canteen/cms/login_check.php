@@ -1,7 +1,7 @@
 <?php 
 
-	require_once 'includes/init.php';
-	require_once 'includes/db_connection.php';
+	require_once '../includes/init.php';
+	require_once '../includes/db_connection.php';
 
 
 	if(!empty($_POST)){
@@ -17,17 +17,22 @@
 			$user = db_fetch_assoc($result);
 
 			$_SESSION['user'] = $user;
+			
 
 			if($_SESSION['user']['type']== 'student' || 'staff' and $_SESSION['user']['request'] == 'accepted'){
 				redirect(url('std_order.php'));
 			}
 
+			else if ($_SESSION['user']['type'] == 'canteen'){
+				redirect(url('cms'));
+			}
+
 			else{
 				$_SESSION['message'] = [
-				'content' => 'User not validated yet.',
+				'content' => 'User not verified or user not found.',
 				'type' =>'danger'
 			];
-				redirect(url('std_login.php'));
+				redirect(url('cms/login.php'));
 				}
 
 		}

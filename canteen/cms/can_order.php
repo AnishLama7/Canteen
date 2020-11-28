@@ -17,12 +17,12 @@
 				<select class="btn btn-default" id="selval">
 				  <option selected>Select date</option>
 				  <?php 
-						$sql = "SELECT DISTINCT date FROM can_order";
+						$sql = "SELECT DISTINCT order_date FROM can_order";
 						$result = db_query($con, $sql);
 						 while($can_order = db_fetch_assoc($result)){
-					      $date = isset($_GET['date']) ? $_GET['date']: 0;
-					      $selected = ($date == $can_order['date']) ? " selected" : "";
-					      echo "<option$selected value=".$can_order['date'].">".$can_order['date']."</option>";
+					      $date = isset($_GET['order_date']) ? $_GET['order_date']: 0;
+					      $selected = ($order_date == $can_order['order_date']) ? " selected" : "";
+					      echo "<option$selected value=".$can_order['order_date'].">".$can_order['order_date']."</option>";
         }
 						?>
 				</select>

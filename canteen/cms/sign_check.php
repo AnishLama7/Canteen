@@ -16,11 +16,11 @@
 
 		if($result) {
 			$_SESSION['message'] = [
-				'content' => 'users added successfully.',
+				'content' => 'User added successfully now wait for verification.',
 				'type' => 'success'
 			];
 
-			redirect(url('signup.php'));
+			redirect(url('cms/login.php'));
 		}
 		else {
 			$_SESSION['message'] = [
@@ -28,7 +28,7 @@
 				'type' => 'danger'
 			];
 
-			redirect(url('signup.php'));
+			redirect(url('cms/login.php'));
 			die;
 		}
 
@@ -39,6 +39,6 @@
 			'type' => 'danger'
 		];
 
-		redirect(url('signup.php'));
+		redirect(url('cms/login.php'));
 	}
  
