@@ -156,14 +156,19 @@
                 <input type="number" class= "form-control" name="total" value="<?php echo $menu['total']; ?>" readonly>
               </td>
 
-
               <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
 
-              <td style="width: 150px;"> 
+             <td>
                <input type="number" class="form-control" name="quantity" max="<?php echo $menu['total']; ?>">
              </td>
 
-             <td><input type="time" name="break_time" class="form-control"></td>
+             <td>
+               <input type="time" name="break_time" class="form-control" required>
+             </td>
+
+              
+
+           <!--   <td></td> -->
 
              <td>
                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Order</button>
@@ -171,6 +176,7 @@
 
            </tr>
   </form>
+<?php }?>
 
           <?php endwhile; ?>
       </tbody>
