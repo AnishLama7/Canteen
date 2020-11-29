@@ -14,16 +14,16 @@
 		<div class="row">
 
 			<div class="col-6 my-3">
-				<select class="btn btn-default" id="selval">
+				<select id="datelist" class="btn btn-default">
 				  <option selected>Select date</option>
 				  <?php 
 						$sql = "SELECT DISTINCT order_date FROM can_order";
 						$result = db_query($con, $sql);
 						 while($can_order = db_fetch_assoc($result)){
-					      $date = isset($_GET['order_date']) ? $_GET['order_date']: 0;
-					      $selected = ($order_date == $can_order['order_date']) ? " selected" : "";
+					      $can_id = isset($_GET['order_date']) ? $_GET['order_date']: 0;
+					      $selected = ($can_id == $can_order['order_date']) ? " selected" : "";
 					      echo "<option$selected value=".$can_order['order_date'].">".$can_order['order_date']."</option>";
-        }
+       					 }
 						?>
 				</select>
 			</div>
@@ -49,6 +49,7 @@
 							<th>Quantity</th>
 							<th>Time</th>
 							<th>Date</th>
+							<th>Break Time</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -56,6 +57,7 @@
 
 
 						<?php 
+
 							$sql = "SELECT COUNT(id) AS total FROM can_order ";
 							$result = db_query($con, $sql);
 							$ret = db_fetch_assoc($result);
@@ -114,6 +116,8 @@
 									<td><?php echo $can_order['order_time']; ?></td>
 
 									<td><?php echo $can_order['order_date']; ?></td>
+
+									<td><?php echo $can_order['break_time']; ?></td>
 
 									<td>
 											<button type="button" onclick="myFunction()" class="btn btn-warning btn-sm" id="demo">Notify</button>
@@ -185,21 +189,26 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $("#selval").on('change', function(){
+    $("#datelist").on('change', function(){
       if($(this).val() == 0)
       {
         window.location = 'can_order.php';
       }
       else
       {
-        window.location = 'can_order.php?date='+$(this).val();
+        window.location = 'can_order.php?Order_date='+$(this).val();
       }
     });
   });
 </script>
 
-<?php 
-	require_once 'templates/footer.php';
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+  <script type="text/javascript" src="<?php echo url('js/bootstrap.js')?>"></script>
+  <script type="text/javascript" src="<?php echo url('js/cms.js')?>"></script>
+  <script type="text/javascript" src="<?php echo url('js/all.js')?>"></script>
+ </body>
+ </html>
 
 
  

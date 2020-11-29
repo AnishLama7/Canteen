@@ -21,7 +21,7 @@
 			<div class="col-6 mx-auto">
 
 				<?php 
-					$sql = "SELECT * FROM users WHERE type = 'student'  AND username = '{$_GET['username']}' ";
+					$sql = "SELECT * FROM users WHERE username = '{$_GET['username']}' AND (type = 'staff' OR type = 'student') ";
 					$result = db_query($con, $sql);
 					$user = db_fetch_assoc($result);
 

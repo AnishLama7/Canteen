@@ -96,8 +96,9 @@
          <th>Category</th>
          <th>Order No</th>
          <th>Available</th>
-         <th>Quantity</th>
          <th>Time</th>
+         <th>Quantity</th>
+         <th>Break Time</th>
          <th>Action</th>
       </thead>
       <tbody>
@@ -155,13 +156,15 @@
                 <input type="number" class= "form-control" name="total" value="<?php echo $menu['total']; ?>" readonly>
               </td>
 
-             <td>
+               <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
+
+             <td style="width: 150px;">
                <input type="number" class="form-control" name="quantity" max="<?php echo $menu['total']; ?>">
              </td>
 
-              <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
-
-           <!--   <td></td> -->
+             <td>
+               <input type="time" class="form-control" name="order_time">
+             </td>
 
              <td>
                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Order</button>

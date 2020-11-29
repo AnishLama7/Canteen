@@ -86,8 +86,9 @@
          <th>Category</th>
          <th>Order No</th>
          <th>Available</th>
-         <th>Quantity</th>
          <th>Time</th>
+         <th>Quantity</th>
+         <th>Break Time</th>
          <th>Action</th>
       </thead>
       <tbody>
@@ -101,9 +102,8 @@
         // }
         if (isset($_GET['slug'])) {
           $query = "SELECT * FROM categories where slug='{$_GET['slug']}' limit 1";
-          $result = db_query($con, $query);
 
-          var_dump($result); 
+          $result = db_query($con, $query);
 
           $data = (db_fetch_assoc($result));
           $slugId = '';
@@ -111,11 +111,9 @@
             $slugId = $data['id'];
           }
 
-          $sql = "SELECT * FROM menu WHERE category_id = '{$slugId}'"; 
+          $sql = "SELECT * FROM menu WHERE category_id = '{$slugId}'";
          $result = db_query($con, $sql);
          $category = db_fetch_assoc($result);
-
-         var_dump($category); 
          
         }
 
@@ -157,11 +155,15 @@
                 <input type="number" class= "form-control" name="total" value="<?php echo $menu['total']; ?>" readonly>
               </td>
 
+            <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
+
              <td>
                <input type="number" class="form-control" name="quantity" max="<?php echo $menu['total']; ?>">
              </td>
 
-              <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
+             <td>
+               <input type="time" class="form-control" name="order_time">
+             </td>
 
              <td>
                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Order</button>
