@@ -30,7 +30,7 @@ body {
 
 			<!-- The slideshow -->
 			<div class="carousel-inner">
-				<div class="carousel-item active">
+				<div class="carousel-item active my-3">
 					<img src="images/3.jpg" alt="Los Angeles" width="1100" height="500">
 					<div class="carousel-caption">
 						<h3>Samosa</h3>

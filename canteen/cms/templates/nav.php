@@ -8,7 +8,7 @@
 			 <small>
 			 <a href="<?php echo url('cms/profile_edit.php'); ?>" title="Edit Profile"><i class="fas fa-edit"></i></a>
 
-			 <a href="<?php echo url('logout.php'); ?>" title="Logout" ><i class="fas fa-sign-out-alt"></i></a>
+			 <a href="<?php echo url('cms/logout.php'); ?>" title="Logout" ><i class="fas fa-sign-out-alt"></i></a>
 			 </small>
 
 		</div>

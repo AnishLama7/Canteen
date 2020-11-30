@@ -15,8 +15,10 @@
 </style>
 <body>
 	<!-- 1st part -->
+	
+	<?php require 'templates/nav.php'; ?>
 	<section style="background-color:darkorange;">
-		<div class="container">
+		<div class="container my-2">
 			<span class="mr-3 font-weight-bold">
 				<i class="fa fa-mobile"></i> +977 9823741999
 			</span>
@@ -25,15 +27,13 @@
 			</span>
 		</div>
 	</section>
-	<?php require 'templates/nav.php'; ?>
-	
 
 	<!-- 3RD PART -->
 	<section id="contact">
-		<div class="container pt-5 pb-5">
+		<div class="container pt-3 pb-3">
 			<div class="row">
 				<!-- input part -->
-				<div class="bg-dark pl-4 col-lg-8 col-md-8 col-12" style="opacity:0.9">
+				<div class="bg-dark pl-4 col-lg-8 col-md-8 col-6" style="opacity:0.9">
 					<h3 style="color:darkorange;" class="mb-4 mt-4">Send us a message</h3>
 					<form>
 						<div class="form-row text">

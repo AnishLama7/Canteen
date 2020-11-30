@@ -1,6 +1,7 @@
 <?php 
 require_once 'includes/init.php';
 $title = 'About';
+$active = 'about us';
 require_once 'includes/db_functions.php';
 ?>
 <?php require 'templates/header.php'; ?>
