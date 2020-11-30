@@ -1,5 +1,7 @@
 <?php 
   require_once 'includes/init.php';
+  require_once 'includes/user_check.php';
+  require_once 'includes/student_check.php';
   require_once 'includes/db_connection.php';
 
   if (isset($_GET['slug'])) {
@@ -36,7 +38,7 @@
   <div class="container-fluid">
  
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand"><img src="<?php echo url('images/newlogo.png'); ?>" width="60px" height="30px"></a>
+    <a class="navbar-brand"><img src="<?php echo url('images/newlogo.png'); ?>" width="80px" height="40px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -61,22 +63,29 @@
         <?php endif; ?>
       </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo url('std_profile.php'); ?>"title="My Profile"><i class="fas fa-user"></i></i><?php echo $_SESSION['user']['name']; ?></a></li>
-        <li style="color: white;"><i class="fas fa-user-clock ml-3"></i><?php echo $_SESSION['logged_in_datetime'] = date("d M H:i:s"); ?></li>
-        <li> <a href="<?php echo url('cms/logout.php'); ?>" title="Logout"><i class="fas fa-sign-out-alt ml-3"></i></a></li>
+      <ul class="nav navbar-nav navbar-right mr-5">
+        <li class="nav-item my-2 mr-3" style="color:white;"><a href=""></a><i class="fas fa-user-clock ml-3"></i><?php echo date('Y/m/d H-i-s A')?></li>
+
+
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          More
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="<?php echo url('std_profile.php'); ?>"title="My Profile"><i class="fas fa-user"></i><?php echo $_SESSION['user']['name']; ?></a>
+
+          <a class="dropdown-item mr-5" href="<?php echo url('cms/logout.php'); ?>" title="Logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        </div>
+      </li>
+
     </ul>
     </div>
   </nav>
   <br>
 
- 
 
-  <hr>
-
-  <div class="container">
+  <div class="container-fluid">
   <h1 class="page-header text-center">ORDER</h1>
-  <!-- <p style="text-align:right;"><a href="<?php echo url('std_details.php') ?>" class="btn btn-dark">Order Details</a></p> -->
 
     <table class="table table-striped table-bordered">
       <thead>
@@ -95,13 +104,13 @@
 
         <?php include_once 'cms/templates/message.php'; ?>
          
+
         <?php 
-        // if (isset($_GET['type'])) {
-        //   $slug = ($_GET['type']);
-        //   $sql = "SELECT * FROM menu WHERe type ='$slug' LIMIT 0,10 "; 
-        // }
+       
         if (isset($_GET['slug'])) {
-          $query = "SELECT * FROM categories where slug='{$_GET['slug']}' limit 1";
+          $query = "SELECT * FROM categories WHERE slug ='{$_GET['slug']}' limit 1";
+
+          var_dump($sql);
 
           $result = db_query($con, $query);
 
@@ -119,7 +128,7 @@
 
         if($result && db_num_rows($result) > 0 ): ?>
        <?php while( $menu = db_fetch_assoc($result)): ?>
-        <form method="POST" action="<?php echo url('std_order_store.php'); ?>" enctype = "multipart/form-data">
+          <form method="POST" action="<?php echo url('std_order_store.php'); ?>" enctype = "multipart/form-data">
             <tr>
              
               <td> 
@@ -137,27 +146,31 @@
               </td>
              
 
-              <td class="text-right">&#x20A8; <?php echo number_format($menu['price']); ?></td>
+              <td style="width:120px;">
+                <input type="number" name="price" class="form-control" value="<?php echo number_format($menu['price']); ?>" readonly>
+              </td>
+
+              
               <?php 
                   $qry = "SELECT name FROM categories WHERE id = '{$menu['category_id']}'";
                   $res = db_query($con, $qry);
                   $Category = db_fetch_assoc($res);
                  ?>
               <td><?php echo $Category['name']; ?></td>
-
-              <td>
+              
+              <td style="width:120px;">
                 <label for="order_no">
                   <input type="number" name="order_no" class="form-control" value="<?php echo rand(111,999); ?>" readonly>
                 </label>
               </td>
 
-              <td>
+              <td style="width:150px;">
                 <input type="number" class= "form-control" name="total" value="<?php echo $menu['total']; ?>" readonly>
               </td>
 
-            <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
+               <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
 
-             <td>
+             <td style="width: 150px;">
                <input type="number" class="form-control" name="quantity" max="<?php echo $menu['total']; ?>" required>
              </td>
 

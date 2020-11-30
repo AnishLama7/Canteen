@@ -47,11 +47,22 @@
         <?php endif; ?>
       </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo url('std_profile.php'); ?>"title="My Profile"><i class="fas fa-user"></i><?php echo $_SESSION['user']['name']; ?></a></li>
-        <li style="color: white;"><i class="fas fa-user-clock ml-3"></i><?php echo date('Y/m/d')?></li>&nbsp;
-        <li style="color: white;"><?php echo date('H-i-s A')?></li>
-        <li> <a href="<?php echo url('cms/logout.php'); ?>" title="Logout"><i class="fas fa-sign-out-alt ml-3"></i></a></li>
+      <ul class="nav navbar-nav navbar-right mr-5">
+
+        <li class="nav-item my-2 mr-3" style="color: white;"><a href=""></a><i class="fas fa-user-clock ml-3"></i><?php echo date('Y/m/d H-i-s A')?></li>
+
+
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          More
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="<?php echo url('std_profile.php'); ?>"title="My Profile"><i class="fas fa-user"></i><?php echo $_SESSION['user']['name']; ?></a>
+
+          <a class="dropdown-item mr-5" href="<?php echo url('cms/logout.php'); ?>" title="Logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        </div>
+      </li>
+        
     </ul>
     </div>
   </nav>
@@ -86,7 +97,7 @@
 
   <div class="container-fluid">
   <h1 class="page-header text-center">ORDER</h1>
-  <!-- <p style="text-align:right;"><a href="<?php echo url('std_details.php') ?>" class="btn btn-dark">Order Details</a></p> -->
+  
 
     <table class="table table-striped table-bordered w-auto">
       <thead>
