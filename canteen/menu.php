@@ -8,13 +8,12 @@
 	<?php require 'templates/nav.php'; ?>
 	
 	<!-- paragraph section -->
-	<section class="container">
-		<p> Here, customer's can select the menu and can have their expense reports. Canteen's Admin can conveniently set menus and process orders and better manage the operations.</p>
+	<section class="container my-5">
+		<p> Here, customer's can have the outer look of our menu page with its quantity and price. Admin which is canteen can conveniently set menu and process orders to users for better operations.</p>
 	</section>
 	<!-- menu item -->
 	<section class="container">
-		<input class="form-control" id="myInput" type="text" placeholder="Search food..." style="height: 50px;">
-		<br />
+		
 		<div>
 			<table class="table table-hover table-striped table-responsive-sm table-responsive-md">
 				<thead class="thead-dark">
@@ -26,84 +25,48 @@
 				</thead>
 				<tbody id="myTable">
 					<tr>
-						<td>Buff MOMO(steam /fry/chilly)</td>
+						<td>Mo:Mo</td>
 						<td>1 plate</td>
-						<td>rs100 / rs120 / rs140</td>
+						<td>Rs.100</td>
 					</tr>
-					<tr>
-						<td>Veg MOMO(steam/fry/chilly)</td>
-						<td>1 plate</td>
-						<td>rs100 / rs120 / rs140</td>
-					</tr>
-					<tr>
-						<td>Chicken MOMO(steam/fry/chilly)</td>
-						<td>1 plate</td>
-						<td>rs100 / rs120 / rs140</td>
-					</tr>
+					
 					<tr>
 						<td>Samosa</td>
 						<td>1 piece</td>
-						<td>rs25</td>
+						<td>Rs.25</td>
 					</tr>
+
 					<tr>
-						<td>Buff Chowmein</td>
+						<td>Chowmein</td>
 						<td>1 plate</td>
-						<td>rs110</td>
+						<td>Rs.80</td>
 					</tr>
+					
 					<tr>
-						<td>Veg Chowmein</td>
+						<td>Fry Rice</td>
 						<td>1 plate</td>
-						<td>rs100</td>
+						<td>Rs.90</td>
 					</tr>
+					
 					<tr>
-						<td>Chicken Chowmein</td>
+						<td>Pakouda</td>
 						<td>1 plate</td>
-						<td>rs140</td>
-					</tr>
-					<tr>
-						<td>Buff Fry Rice</td>
-						<td>1 plate</td>
-						<td>rs110</td>
-					</tr>
-					<tr>
-						<td>Veg Fry Rice</td>
-						<td>1 plate</td>
-						<td>rs100</td>
-					</tr>
-					<tr>
-						<td>Chicken Fry Rice</td>
-						<td>1 plate</td>
-						<td>rs140</td>
-					</tr>
-					<tr>
-						<td>Buff Chilly</td>
-						<td>1 plate</td>
-						<td>rs110</td>
-					</tr>
-					<tr>
-						<td>Veg Chilly</td>
-						<td>1 plate</td>
-						<td>rs100</td>
-					</tr>
-					<tr>
-						<td>Veg Pakouda</td>
-						<td>1 plate</td>
-						<td>rs80</td>
+						<td>Rs.50</td>
 					</tr>
 					<tr>
 						<td>Milk tea</td>
 						<td>1 cup</td>
-						<td>rs20</td>
+						<td>Rs.20</td>
 					</tr>
 					<tr>
 						<td>Black tea</td>
 						<td>1 cup</td>
-						<td>rs20</td>
+						<td>Rs.15</td>
 					</tr>
 					<tr>
-						<td>Coke/Dew/Sprite/Slice</td>
+						<td>Drinks</td>
 						<td>250 ml</td>
-						<td>rs50</td>
+						<td>Rs.70</td>
 					</tr>
 				</tbody>
 			</table>

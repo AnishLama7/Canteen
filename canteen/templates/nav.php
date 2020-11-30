@@ -3,9 +3,6 @@
 		font-size: 22px;
 	}
 	
-
-
-
 </style>
 <!-- nav -->
 <section class="bg-dark">
