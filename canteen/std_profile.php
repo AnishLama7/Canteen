@@ -4,6 +4,7 @@
 	require_once 'includes/student_check.php';
 	require_once 'includes/user_check.php';
 	$title = 'My';
+	$active = '';
 
  ?>
  <!DOCTYPE html>
@@ -17,31 +18,35 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo url('css/cms.css')?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
 
-	<style type="text/css">
-		img{
-			height: 80px;
-			width: 130px;
-		}
-	</style>
-
 </head>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-2 side-nav">
 				<div class="row">
 					<div class="col-12 text-center ">
-						<div class="col my-4">
-							<img src="<?php echo url('images/newlogo.png'); ?>">
+						<div class="col text-center my-4">
+							<img src="<?php echo url('images/newlogo.png'); ?>" class="img-fluid" alt="Responsive image">
 						</div>
-						<h1>Online College Canteen</h1>
-					</div>
-					<div class="col-12 text-center my-2">
-						<i class="fas fa-user mr-2"></i><?php echo $_SESSION['user']['name']; ?> <br>
-						 <small>
-						 <a href="<?php echo url('cms/profile_edit.php'); ?>" title="Edit Profile"><i class="fas fa-edit"></i></a>
 
-						 <a href="<?php echo url('cms/logout.php'); ?>" title="Logout" ><i class="fas fa-sign-out-alt"></i></a>
-						 </small>
+						<div class="col-12 text-center my-2">
+							<h3>Online Canteen</h3>
+						</div>
+
+					</div>
+
+					<div class="col-12 mt-5">
+						<ul class="side-menu">
+							
+
+							<li>
+								<a href="<?php echo url('cms/profile_edit.php'); ?>"><i class="fas fa-edit mr-2"></i>Edit Profile</a>
+							</li>
+
+							<li>
+								<a href="<?php echo url('cms/logout.php'); ?>"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
+
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
