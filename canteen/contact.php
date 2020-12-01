@@ -23,7 +23,7 @@
 				<i class="fa fa-mobile"></i> +977 9823741999
 			</span>
 			<span>
-				<a href="https://www.gmail.com"><i class="fa fa-envelope"></i> lama7453@gmail.com </a>
+				<a href="https://www.gmail.com"><i class="fa fa-envelope"></i> nsccanteen@gmail.com </a>
 			</span>
 		</div>
 	</section>
@@ -38,32 +38,24 @@
 					<form>
 						<div class="form-row text">
 							<div class="col">
-								<input type="text" class="form-control bg-dark text-white mb-2" id="first" placeholder="First name" name="first" required>
+								<input type="text" class="form-control bg-dark text-white mb-2" id="first" placeholder="Full name" name="name" required>
 							</div>
-							<div class="col">
-								<input type="text" class="form-control bg-dark text-white mb-2" id="last" placeholder="last name" name="last" required>
-							</div>
+							
 						</div>		
 						<div class="form-row mt-2">
 							<div class="col">
-								<input type="text" class="form-control bg-dark text-white mb-2" id="email" placeholder="email address" name="email" required>
+								<input type="text" class="form-control bg-dark text-white mb-2" id="email" placeholder="Email address" name="email" required>
 							</div>
 							<div class="col">
-								<input type="number" class="form-control bg-dark text-white mb-2" id="phone" placeholder="phone number" name="phone" required>
+								<input type="number" class="form-control bg-dark text-white mb-2" id="phone" placeholder="Phone number" name="phone" required>
 							</div>
 						</div>
 						<div class="form-row mt-2">
 							<div class="col">
-								<textarea placeholder="message" style="width:100%" class="bg-dark text-white mb-2" required></textarea>
+								<textarea placeholder="Message" style="width:100%" class="bg-dark text-white mb-2" required></textarea>
 							</div>
 						</div>
-						<div class="form-group form-check">
-							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" name="remember">
-								<div class="text-white"> Remember me
-								</div>
-							</label>
-						</div>
+						
 						<button class="btn btn-secondary mb-5">Send message</button>
 					</form>
 				</div>
@@ -90,10 +82,10 @@
 		</div>
 	</section>
 	<!-- 4th part -->
-	<section class="bg-secondary">
-		<div class="container pt-5 pb-5 text-white">
+	<section class="bg-dark">
+		<div class="container pt-5 pb-4 text-white">
 			<div class="row">
-				<div class="col-lg-4 col-md-4 col-6">
+				<div class="col-lg-4 col-md-4 col-6 text-center">
 					<h4 class="mb-2">Canteen Info</h4>
 					<p>
 						Online college canteen<br>
@@ -101,14 +93,14 @@
 						Shantinagar gate,kathmandu<br>
 					</p>
 				</div>
-				<div class="col-lg-4 col-md-4 col-6">
+				<div class="col-lg-4 col-md-4 col-6 text-center">
 					<h4 class="mb-2">Hours</h4>
-					<p>Sunday-friday: 8am-2pm><br>
+					<p>Sunday-friday: 8am-2pm<br>
 						Saturday:closed
 
 					</p>
 				</div>
-				<div class="col-lg-4 col-md-4 col-12">
+				<div class="col-lg-4 col-md-4 col-12 text-center">
 					<h4 class="mb-2">Contacts</h4>
 					<p>
 						Phone: 01-4445566, 01-545165<br>

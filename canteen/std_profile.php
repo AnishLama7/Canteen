@@ -109,7 +109,13 @@
 
 					 			<td><?php echo $std_order['order_name']; ?></td>
 
-								<td><?php echo $std_order['food_image']; ?></td>
+					 			<td style="width:40px; height: 40px;">
+					 			<?php  if(!empty($std_order['food_image'])): ?>
+										<img src="<?php echo url('images/'.$std_order['food_image']); ?>" class = "img-fluid">
+									<?php endif; ?>	
+								</td>
+
+								<!-- <td><?php echo $std_order['food_image']; ?></td> -->
 
 								<td><?php echo $std_order['created_at']; ?></td>
 

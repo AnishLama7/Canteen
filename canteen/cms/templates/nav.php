@@ -1,8 +1,14 @@
+
 <div class="col-2 side-nav">
+	<div class="col text-center my-4">
+		<img src="<?php echo url('images/newlogo.png'); ?>" class="img-fluid" alt="Responsive image">
+	</div>
+
 	<div class="row">
-		<div class="col-12 text-center">
-			<h1>Online Canteen</h1>
+		<div class="col-12 text-center my-2">
+			<h3>Online Canteen</h3>
 		</div>
+
 		<div class="col-12 text-center">
 			 <i class="fas fa-user mr-2"></i><?php echo $_SESSION['user']['name']; ?> <br>
 			 <small>
