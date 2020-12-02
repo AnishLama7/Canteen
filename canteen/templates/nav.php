@@ -13,9 +13,11 @@
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-      <a class="navbar-brand" href="home.php">
-        <img src="images/newlogo.png" width="80px" height="40px">
+      <div class="col-1">
+      <a class="navbar-brand" href="<?php echo url('home.php'); ?>">
+        <img src="<?php echo url('images/newlogo.png'); ?>" class="img-fluid" alt="Responsive image">
       </a>
+    </div>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

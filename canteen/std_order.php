@@ -69,7 +69,7 @@
   <br>
 
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
       <select id="typelist" class="btn btn-default">
       <?php
       
@@ -83,6 +83,8 @@
       ?>
       </select>
     </div>
+
+
   </div>
       <?php include_once 'cms/templates/message.php'; ?>
   <hr>

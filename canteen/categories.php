@@ -110,8 +110,6 @@
         if (isset($_GET['slug'])) {
           $query = "SELECT * FROM categories WHERE slug ='{$_GET['slug']}' limit 1";
 
-          var_dump($sql);
-
           $result = db_query($con, $query);
 
           $data = (db_fetch_assoc($result));
