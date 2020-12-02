@@ -57,7 +57,7 @@
 				<div class="form-group">
 						<label for="request">Request:</label>
 						<select name="request" id="request" class="form-control" required>
-							<option style="color: red;"> value="pending" <?php echo $user['request'] == 'pending' ? 'selected' : ''; ?>>Pending</option>
+							<option value="pending" <?php echo $user['request'] == 'pending' ? 'selected' : ''; ?>>Pending</option>
 							<option value="accepted">Accepted</option>
 							<option value="rejected">Rejected</option>
 						</select>
