@@ -7,9 +7,9 @@
     color: white;
   }
  
+ 
 </style>
 
-<section>
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -27,16 +27,16 @@
 
         <ul class="navbar-nav">
 
+          <li class="nav-item <?php echo $active == 'home' ? 'class="active"' : ''; ?>">
+            <a class="nav-link" href="<?php echo url('home.php'); ?>">Home <span class="sr-only">(current)</span></a>
+          </li>
+
+            <li class="nav-item">
+            <a class="nav-link mr-3" href="<?php echo url('about.php'); ?>">About Us</a>
+          </li>
+
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo url('home.php'); ?>">Home</a>
-          </li>
-
-            <li class="nav-item mr-3">
-            <a class="nav-link" href="<?php echo url('about.php'); ?>">About Us</a>
-          </li>
-
-          <li class="nav-item mr-3">
-            <a class="nav-link" href="<?php echo url('menu.php'); ?>">Menu</a>
+            <a class="nav-link mr-3" href="<?php echo url('menu.php'); ?>">Menu</a>
           </li>
 
           <li class="nav-item">

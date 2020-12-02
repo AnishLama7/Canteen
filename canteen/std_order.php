@@ -100,7 +100,7 @@
   <div class="container-fluid">
   <h1 class="page-header text-center">ORDER</h1>
   
-
+<div class="table-responsive-sm">
     <table class="table table-striped table-bordered w-auto">
       <thead>
         <th>Food Name</th>
@@ -147,7 +147,7 @@
               </td>
              
 
-              <td style="width:120px;">
+              <td>
                 <input type="number" name="price" class="form-control" value="<?php echo number_format($menu['price']); ?>" readonly>
               </td>
 
@@ -159,19 +159,19 @@
                  ?>
               <td><?php echo $Category['name']; ?></td>
               
-              <td style="width:120px;">
+              <td>
                 <label for="order_no">
                   <input type="number" name="order_no" class="form-control" value="<?php echo rand(111,999); ?>" readonly>
                 </label>
               </td>
 
-              <td style="width:150px;">
+              <td>
                 <input type="number" class= "form-control" name="total" value="<?php echo $menu['total']; ?>" readonly>
               </td>
 
                <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
 
-             <td style="width: 150px;">
+             <td>
                <input type="number" class="form-control" name="quantity" max="<?php echo $menu['total']; ?>" required>
              </td>
 
@@ -190,6 +190,7 @@
           <?php endwhile; ?>
       </tbody>
     </table>
+  </div>
   <?php endif; ?>
     
 </div>

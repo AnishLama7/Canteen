@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
 
 </head>
-<body>
-	<div class="container-fluid">
+<div class="container-fluid">
 		<div class="row">
+
+	
