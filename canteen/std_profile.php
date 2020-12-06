@@ -18,21 +18,6 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo url('css/cms.css')?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
 
-	<style type="text/css">
-		.side-nav{
-			background-color: black;
-			opacity: 0.8;
-			color: #ffffff;
-			min-height: 100vh;
-		}
-
-		.side-nav a{
-			color: #fff;
-			padding: 5px 10px;
-			display: inline-block;
-		}
-	</style>
-
 </head>
 	<div class="container-fluid">
 		<div class="row">
