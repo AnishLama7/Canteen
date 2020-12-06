@@ -126,7 +126,7 @@
 
         if($result && db_num_rows($result) > 0 ): ?>
        <?php while( $menu = db_fetch_assoc($result)): ?>
-          <form method="POST" action="<?php echo url('std_order_store.php'); ?>" enctype = "multipart/form-data">
+          <form method="POST" action="<?php echo url('order_store.php'); ?>" enctype = "multipart/form-data">
             <tr>
              
               <td> 
@@ -173,7 +173,7 @@
              </td>
 
              <td>
-               <input type="time" class="form-control" name="order_time" required>
+               <input type="time" class="form-control" name="brek_time" required>
              </td>
 
              <td>

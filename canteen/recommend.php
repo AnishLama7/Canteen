@@ -22,36 +22,22 @@
 			<!-- The slideshow -->
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-				
-					<?php  
-						$sql = "SELECT * FROM std_order WHERE order_price > 20 AND user_id ='{$_SESSION['user']['id']}'";
-						$result = db_query($con, $sql);
-						$std_order = db_fetch_assoc($result);
-						?>
-
-					<img src="<?php echo url('images/'.$std_order['food_image']); ?>" alt="<?php echo $std_order['order_name']; ?>">
-
+					<img src="images/3.jpg" alt="samosha">
 					<div class="carousel-caption">
-						<h3><?php echo $std_order['order_name']; ?></h3>	
+						<h3>Samosha</h3>
 					</div>
+					
 				</div>
 
-				
 				<div class="carousel-item">
-					<?php 
-						$sql = "SELECT * FROM std_order WHERE order_price = 20  ";
-						$result = db_query($con, $sql);
-						$std_order = db_fetch_assoc($result);
-						?>
-					<img src="<?php echo url('images/'.$std_order['food_image']); ?>" alt="<?php echo $std_order['order_name']; ?>">
+					<img src="images/4.jpg" alt="momo">
 					<div class="carousel-caption">
-						<h3><?php echo $std_order['order_name']; ?></h3>
+						<h3>MOMO</h3>
 					</div>
 				</div>
-
-
+				
 				<div class="carousel-item">
-					<img src="images/5.jpg" alt="Chowmein">
+					<img src="images/5.jpg" alt="chowmin">
 					<div class="carousel-caption">
 						<h3>Chowmein</h3>
 					</div>

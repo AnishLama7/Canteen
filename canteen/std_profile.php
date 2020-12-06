@@ -21,10 +21,10 @@
 </head>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-2 side-nav">
+			<div class="col-lg-2 col-md-4 col p-4 side-navi">
 				<div class="row">
 					<div class="col-12 text-center ">
-						<div class="col text-center my-4">
+						<div class="col text-center ">
 							<img src="<?php echo url('images/newlogo.png'); ?>" class="img-fluid my-4" alt="Responsive image">
 						</div>
 
@@ -84,7 +84,7 @@
 							$ret = db_fetch_assoc($result);
 							$total = $ret['total'];
 
-							$limit = 20;
+							$limit = 8;
 
 							$totalpages = ceil($total/$limit);
 

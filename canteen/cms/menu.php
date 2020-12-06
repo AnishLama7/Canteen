@@ -42,10 +42,32 @@
 						</tr>
 					</thead>
 						<?php 
-							$sql = "SELECT * FROM menu ";
+
+							$sql = "SELECT COUNT(id) AS total FROM menu ";
+							$result = db_query($con, $sql);
+							$ret = db_fetch_assoc($result);
+							$total = $ret['total'];
+
+							$limit = 6;
+
+							$totalpages = ceil($total/$limit);
+
+							if(isset($_GET['page']) && !empty($_GET['page'])) {
+								$page = $_GET['page'];
+
+								if($page > $totalpages) {
+									$page = $totalpages;
+								}
+							}
+							else {
+								$page = 1;
+							}
+
+							$offset = ($limit * $page) - $limit;
+							$sql = "SELECT * FROM menu LIMIT {$offset}, {$limit}  ";
 							$result = db_query($con, $sql); 
 							
-							$n = 1;
+							$n = $offset + 1;
 							if($result && db_num_rows($result) > 0):
 							?>
 
@@ -89,6 +111,48 @@
 				</table>
 			</div>
 			</div>
+
+			<?php if($totalpages > 1): ?>
+			<div class="col-12">
+				<nav>
+  					<ul class="pagination">
+  						<?php if($page == 1): ?>
+    					<li class="page-item disabled">
+      						<a class="page-link" href="#"><i class="fas fa-angle-left"></i></a>
+    					</li>
+    					<?php else: ?>
+    						<li class="page-item">
+      						<a class="page-link" href="<?php echo url('cms/menu.php?page='.($page -1)) ?>"><i class="fas fa-angle-left"></i></a>
+    					</li>
+
+    					<?php endif; ?>
+
+    					<?php for($i = 1; $i <= $totalpages; $i++): ?>
+    					<?php if($i == $page): ?>
+    					
+    					<li class="page-item active">
+      						<a class="page-link" href="#"><?php echo $i; ?></a>
+    					</li>
+    					<?php else: ?>
+    					<li class="page-item"><a class="page-link" href="<?php echo url('cms/menu.php?page='.$i); ?>"><?php echo $i; ?></a></li>
+    					<?php endif; ?>
+    					<?php endfor; ?>
+
+    					<?php if($page < $totalpages): ?>
+   
+    					<li class="page-item">
+     						<a class="page-link" href="<?php echo url('cms/menu.php?page='.($page+1)); ?>"><i class="fas fa-angle-right"></i></a>
+    					</li>
+    					<?php else: ?>
+    						<li class="page-item disabled">
+     						<a class="page-link" href="#"><i class="fas fa-angle-right"></i></a>
+     					</li>
+     					<?php endif; ?>
+  					</ul>
+				</nav>
+			</div>
+			<?php endif; ?>
+
 		</div>
 	</div>
 </div>

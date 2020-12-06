@@ -27,15 +27,13 @@ if (isset($data)>=1) {
 
 
 		$now = date('Y-m-d H-i-s A');
-		$now1 = date('H-i-s A');
-		$now2 = date('Y-m-d');
 		$user_id = $_SESSION['user']['id'];
 
-        $sql1 = " INSERT INTO std_order SET order_name = '{$menu['name']}', food_image = '{$menu['image']}', order_price = '{$menu['price']}',  user_id = '{$user_id}', order_no = '{$menu['order_no']}',total_order = '{$menu['total']}', quantity = '{$menu['quantity']}', created_at = '{$now}', menu_id='{$menu['order_id']}'";
+        $sql1 = " INSERT INTO std_order SET order_name = '{$menu['name']}', food_image = '{$menu['image']}', order_price = '{$menu['price']}',  user_id = '{$user_id}', order_no = '{$menu['order_no']}',total_order = '{$menu['total']}', quantity = '{$menu['quantity']}', created_at = '{$now}',break_time = '{$break_time}', menu_id='{$menu['order_id']}'";
         $result = db_query($con, $sql1);
 
 
-         $sql2 = " INSERT INTO can_order SET order_name = '{$menu['name']}', order_price = '{$menu['price']}',  user_id = '{$user_id}', order_no = '{$menu['order_no']}', quantity = '{$menu['quantity']}', order_date = '{$now2}', order_time ='{$now1}', menu_id='{$menu['order_id']}'";
+         $sql2 = " INSERT INTO can_order SET order_name = '{$menu['name']}', order_price = '{$menu['price']}',  user_id = '{$user_id}', order_no = '{$menu['order_no']}', quantity = '{$menu['quantity']}',break_time = '{$break_time}', menu_id='{$menu['order_id']}'";
 
         $result = db_query($con, $sql2);
 

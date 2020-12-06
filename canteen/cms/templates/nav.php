@@ -1,24 +1,3 @@
-<style type="text/css">
-	.side-navi{
-		background-color: black;
-		opacity: 0.8;
-		height: 100vh;
-		color: #ffffff;
-	}
-	.side-navi a{
-	color: #fff;
-}
-.side-navi a{
-	padding: 5px 10px;
-	display: inline-block;
-}
-@media(max-width:770px){
-	.side-navi{
-		height: auto;
-	}
-}
-</style>
-
 <div class="col-lg-2 col-md-4 col p-4 side-navi">
 	<div class="row">
 		<div class="col my-2 ">
