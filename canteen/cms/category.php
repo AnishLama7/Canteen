@@ -10,7 +10,7 @@
  ?>
 
 <div class="col">
-	<div class="col-12 bg-white my-3">
+	<div class="col-12 my-3">
 		<div class="row">
 			<div class="col">
 				<h1>Category</h1>
@@ -24,6 +24,7 @@
 		</div>
 		<div class="row">
 			<div class="col-12 mt-3">
+				<div class="table-responsive">
 				<table class="table table-stripped table-hover table-sm">
 					<thead>
 						<tr>
@@ -59,6 +60,7 @@
 						</tr>	
 					<?php endif; ?>
 				</table>
+			</div>
 			</div>
 		</div>
 	</div>

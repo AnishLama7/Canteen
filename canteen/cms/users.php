@@ -10,7 +10,7 @@
  ?>
 
 <div class="col">
-	<div class="col-12 bg-light my-3">
+	<div class="col-12 my-3">
 		<div class="row">
 			<div class="col">
 				<h1 style="text-align: center;">Users</h1>
@@ -21,6 +21,7 @@
 		</div>
 		<div class="row">
 			<div class="col-12 mt-3">
+				<div class="table-responsive">
 				<table class="table table-stripped table-hover table-sm">
 					<thead>
 						<tr>
@@ -71,13 +72,29 @@
 
 						 	<tr>
 						 		<td><?php echo $n++; ?></td>
-						 		<td><?php echo $user['name'];?></td>
+						 		<td><?php echo ucfirst($user['name']);?></td>
 						 		<td><?php echo $user['username']; ?></td>
 						 		<td><?php echo $user['sex']; ?></td>
 						 		<td><?php echo $user['faculty']; ?></td>
 						 		<td><?php echo $user['phone']; ?></td>
 						 		<td><?php echo $user['email']; ?></td>
-						 		<td><?php echo ucfirst($user['request']); ?></td>
+
+						 		
+						 		<td  id="req" class="request"><?php echo ucfirst($user['request']); ?></td>
+
+						 		<script>
+
+								    if ('{{$user->request}}' === 'pending'){
+								    document.getElementById('req').innerHTML = "Pending";
+								    document.getElementById('req').style='color:green';
+								    }
+								    else{
+								    document.getElementById('req').innerHTML = "Accepted";
+								    document.getElementById('req').style='color:green';
+								    }
+							    </script>
+
+						 		
 						 		<td><?php echo ucfirst($user['type']); ?></td>
 						 		
 						 		<td>
@@ -94,6 +111,7 @@
 						</tr>	
 						<?php endif; ?>
 				</table>
+			</div>
 			</div>
 			<?php if($totalpages > 1): ?>
 			<div class="col-12">

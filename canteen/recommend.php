@@ -4,7 +4,7 @@
 	height: 100%;
 }
 	.sizered{
-		width:30%;
+		width:35%;
 	}
 </style>
 
@@ -22,28 +22,41 @@
 			<!-- The slideshow -->
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<?php 
-						$sql = "SELECT order_name, food_image FROM orders WHERE order_price > 20 LIMIT 0,3";
+				
+					<?php  
+						$sql = "SELECT * FROM std_order WHERE order_price > 20 AND user_id ='{$_SESSION['user']['id']}'";
 						$result = db_query($con, $sql);
-					 ?>
-					<img src="images/3.jpg" alt="Samosa">
+						$std_order = db_fetch_assoc($result);
+						?>
+
+					<img src="<?php echo url('images/'.$std_order['food_image']); ?>" alt="<?php echo $std_order['order_name']; ?>">
+
 					<div class="carousel-caption">
-						<h3>Samosa</h3>
+						<h3><?php echo $std_order['order_name']; ?></h3>	
 					</div>
 				</div>
+
+				
 				<div class="carousel-item">
-					<img src="images/4.jpg" alt="Momo">
+					<?php 
+						$sql = "SELECT * FROM std_order WHERE order_price = 20  ";
+						$result = db_query($con, $sql);
+						$std_order = db_fetch_assoc($result);
+						?>
+					<img src="<?php echo url('images/'.$std_order['food_image']); ?>" alt="<?php echo $std_order['order_name']; ?>">
 					<div class="carousel-caption">
-						<h3>Momo</h3>
+						<h3><?php echo $std_order['order_name']; ?></h3>
 					</div>
 				</div>
+
+
 				<div class="carousel-item">
 					<img src="images/5.jpg" alt="Chowmein">
 					<div class="carousel-caption">
 						<h3>Chowmein</h3>
 					</div>
 				</div>
-			</div>
+			
 
 			<!-- Left and right controls -->
 			<a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -52,5 +65,7 @@
 			<a class="carousel-control-next" href="#demo" data-slide="next">
 				<span class="carousel-control-next-icon"></span>
 			</a>
+
 		</div>
+		
 	</section>

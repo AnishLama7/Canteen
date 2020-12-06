@@ -10,10 +10,10 @@
  ?>
 
 <div class="col">
-	<div class="col-12 bg-white my-3">
+	<div class="col-12 my-3">
 		<div class="row">
 
-			<div class="col-6 my-3">
+			<!-- <div class="col-6 my-3">
 				<select id="datelist" class="btn btn-default">
 				  <option selected>Select date</option>
 				  <?php 
@@ -26,7 +26,7 @@
        					 }
 						?>
 				</select>
-			</div>
+			</div> -->
 
 			<div class="col-6">
 				<h1 style="text-align:left;">Order</h1>
@@ -38,6 +38,7 @@
 		</div>
 		<div class="row">
 			<div class="col-12 mt-3">
+				<div class="table-responsive">
 				<table class="table table-stripped table-hover table-sm">
 					<thead>
 						<tr class="text-center">
@@ -47,10 +48,9 @@
 							<th>Order No</th>
 							<th>Price</th>
 							<th>Quantity</th>
-							<th>Time</th>
-							<th>Date</th>
+							<th>Created_at</th>
 							<th>Break Time</th>
-							<th>Action</th>
+							<th>Notify</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -113,22 +113,26 @@
 
 									<td><?php echo $can_order['quantity']; ?></td>
 
-									<td><?php echo $can_order['order_time']; ?></td>
-
-									<td><?php echo $can_order['order_date']; ?></td>
+									<td><?php echo $can_order['created_at']; ?></td>
 
 									<td><?php echo $can_order['break_time']; ?></td>
 
 									<td>
-											<button type="button" onclick="myFunction()" class="btn btn-warning btn-sm" id="demo">Notify</button>
-											<script>
-												function myFunction() {
-												document.getElementById("demo").innerHTML = "Order Ready";
-												}
-											</script>
-						 			<!-- <a href="<?php echo url('std_order.php'); ?>" class="ok" ><i class="fas fa-check mr-3"></i></a> -->
+										<?php 
+										
+										 if (($can_order['notify']) == 0) {
+									    ?>
+									    	<button  class="btn btn-danger" onclick=" update ('1',<?php echo $can_order['id']; ?>)">No</button>
+									    <?php
+									    } 
+									    else  {
+									        ?>
+									        <button class="btn btn-success">Yes</button>
+									        <?php
+									    }
+									    ?>
 
-						 		</td>
+						 			</td>
 								</tr>
 
 							
@@ -140,6 +144,7 @@
 						</tr>	
 					<?php endif; ?>
 				</table>
+			</div>
 			</div>
 
 
@@ -209,7 +214,6 @@
   <script type="text/javascript" src="<?php echo url('js/all.js')?>"></script>
  </body>
  </html>
-
 
  
 		

@@ -25,7 +25,7 @@ $active = 'menu';
 		background-color: black;
 		opacity: 0.8;
 		height: 100vh;
-			color: #ffffff;
+		color: #ffffff;
 	}
 	.side-navi a{
 	color: #fff;

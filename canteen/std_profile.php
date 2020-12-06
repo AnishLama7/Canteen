@@ -18,6 +18,21 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo url('css/cms.css')?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
 
+	<style type="text/css">
+		.side-nav{
+			background-color: black;
+			opacity: 0.8;
+			color: #ffffff;
+			min-height: 100vh;
+		}
+
+		.side-nav a{
+			color: #fff;
+			padding: 5px 10px;
+			display: inline-block;
+		}
+	</style>
+
 </head>
 	<div class="container-fluid">
 		<div class="row">
@@ -25,11 +40,11 @@
 				<div class="row">
 					<div class="col-12 text-center ">
 						<div class="col text-center my-4">
-							<img src="<?php echo url('images/newlogo.png'); ?>" class="img-fluid" alt="Responsive image">
+							<img src="<?php echo url('images/newlogo.png'); ?>" class="img-fluid my-4" alt="Responsive image">
 						</div>
 
 						<div class="col-12 text-center my-2">
-							<h3>Online Canteen</h3>
+							<h6><i class="fas fa-user mr-2"></i><?php echo $_SESSION['user']['name'];?></h6> 
 						</div>
 
 					</div>
@@ -52,10 +67,10 @@
 			</div>
 
 	<div class="col">
-	<div class="col-12 bg-white my-3">
+	<div class="col-12 my-3">
 		<div class="row">
 			<div class="col">
-				<h1>My Profile</h1>
+				<h1 class="text-center">My Profile</h1>
 			</div>
 		</div>
 		<div class="row">
@@ -63,7 +78,8 @@
 		</div>
 		<div class="row">
 			<div class="col-12 mt-3">
-				<table class="table table-stripped table-hover table-sm">
+				<div class="table-responsives"></div>
+				<table class="table table-stripped table-hover table-lg">
 					<thead>
 						<tr class="text-center">
 							<th>#</th>
@@ -119,8 +135,6 @@
 										<img src="<?php echo url('images/'.$std_order['food_image']); ?>" class = "img-fluid">
 									<?php endif; ?>	
 								</td>
-
-								<!-- <td><?php echo $std_order['food_image']; ?></td> -->
 
 								<td><?php echo $std_order['created_at']; ?></td>
 
