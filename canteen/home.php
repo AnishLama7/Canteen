@@ -1,6 +1,7 @@
 <?php 
 require_once 'includes/init.php';
-$title = 'Home';
+$title = 'Home Page';
+$page = 'home';
 require_once 'includes/db_functions.php';
 ?>
 <?php require 'templates/header.php'; ?>
@@ -12,7 +13,7 @@ require_once 'includes/db_functions.php';
 
 }
 body {
-	background: grey;
+	background:#eaeaea;;
 }
 </style>
 

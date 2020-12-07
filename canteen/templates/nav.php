@@ -1,14 +1,10 @@
 
 <style type="text/css">
   a{
-    font-size: 20px;
-  }
-  navbar-nav ml-auto{
-    color: white;
-  }
- 
- 
+    font-size: 22px;
+  } 
 </style>
+
 
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -27,19 +23,19 @@
 
         <ul class="navbar-nav">
 
-          <li class="nav-item <?php echo $active == 'home' ? 'class="active"' : ''; ?>">
+          <li class="<?php if($page == 'home'){echo 'active';} ?>">
             <a class="nav-link" href="<?php echo url('home.php'); ?>">Home <span class="sr-only">(current)</span></a>
           </li>
 
-            <li class="nav-item">
+            <li class="<?php if($page == 'about'){echo 'active';} ?>">
             <a class="nav-link mr-3" href="<?php echo url('about.php'); ?>">About Us</a>
           </li>
 
-          <li class="nav-item">
+          <li class="<?php if($page == 'menu'){echo 'active';} ?>">
             <a class="nav-link mr-3" href="<?php echo url('menu.php'); ?>">Menu</a>
           </li>
 
-          <li class="nav-item">
+          <li class="<?php if($page == 'contact'){echo 'active';} ?>">
             <a class="nav-link" href="<?php echo url('contact.php'); ?>">
               Contact
             </a>
@@ -48,12 +44,12 @@
         </ul>
 
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item mr-2">
-            <a href="<?php echo url('cms/login.php'); ?>" class="mr-3"><i class="fas fa-sign-in-alt text-secondary " ></i>Login</a>
+            <li class= "mr-2">
+            <a href="<?php echo url('cms/login.php'); ?>" class="mr-3 text-white bg-dark"><i class="fas fa-sign-in-alt " ></i>Login</a>
           </li>
 
-          <li class="nav-item">
-            <a href="<?php echo url('cms/signup.php'); ?>" ><i class="fas fa-user text-secondary"></i> Sign Up</a>
+          <li>
+            <a href="<?php echo url('cms/signup.php'); ?>" class="text-white bg-dark" ><i class="fas fa-user"></i> Sign Up</a>
           </li> 
       
         </ul>

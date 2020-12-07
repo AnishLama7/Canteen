@@ -113,25 +113,28 @@
 
 									<td><?php echo $can_order['quantity']; ?></td>
 
-									<td><?php echo $can_order['created_at']; ?></td>
+									<td><?php echo date('M d,Y h:i A', strtotime($can_order['created_at'])) ?></td>
 
-									<td><?php echo $can_order['break_time']; ?></td>
+									<td><?php echo date('h:i A', strtotime($can_order['break_time']))?></td>
 
 									<td>
-										<?php 
-										
-										 if (($can_order['notify']) == 0) {
-									    ?>
-									    	<button  class="btn btn-danger" onclick=" update ('1',<?php echo $can_order['id']; ?>)">No</button>
-									    <?php
-									    } 
-									    else  {
+										<form method="POST" action="order_update.php">
+											<input type="hidden" name="updated_at">
+
+											<?php
+											 	if (($can_order['notify']) == 0) {
+									    	?>
+									    	<button type="submit" class="btn btn-danger">No</button>
+									    	<?php
+									    		} 
+									    else {
 									        ?>
 									        <button class="btn btn-success">Yes</button>
 									        <?php
 									    }
 									    ?>
-
+											
+										</form>
 						 			</td>
 								</tr>
 

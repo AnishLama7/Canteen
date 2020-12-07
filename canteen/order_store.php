@@ -31,9 +31,10 @@ if (isset($data)>=1) {
 
         $sql1 = " INSERT INTO std_order SET order_name = '{$menu['name']}', food_image = '{$menu['image']}', order_price = '{$menu['price']}',  user_id = '{$user_id}', order_no = '{$menu['order_no']}',total_order = '{$menu['total']}', quantity = '{$menu['quantity']}', created_at = '{$now}',break_time = '{$break_time}', menu_id='{$menu['order_id']}'";
         $result = db_query($con, $sql1);
+        var_dump($sql1); die;
 
 
-         $sql2 = " INSERT INTO can_order SET order_name = '{$menu['name']}', order_price = '{$menu['price']}',  user_id = '{$user_id}', order_no = '{$menu['order_no']}', quantity = '{$menu['quantity']}',break_time = '{$break_time}', menu_id='{$menu['order_id']}'";
+         $sql2 = " INSERT INTO can_order SET order_name = '{$menu['name']}', order_price = '{$menu['price']}',  user_id = '{$user_id}', order_no = '{$menu['order_no']}', quantity = '{$menu['quantity']}',created_at = '{$now}',break_time = '{$break_time}', menu_id='{$menu['order_id']}'";
 
         $result = db_query($con, $sql2);
 
