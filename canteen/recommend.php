@@ -22,6 +22,12 @@
 			<!-- The slideshow -->
 			<div class="carousel-inner">
 				<div class="carousel-item active">
+					<?php 
+						// $checkDataExists = select * from recommend where user_id = {current_user_id}
+						// if(checkDataExsists)?user already ordered and has their preferences and show data from querying which order_type users like :(else) show some random menu item";
+						$sql = "SELECT order_name, food_image FROM orders WHERE order_price > 20 LIMIT 0,3";
+						$result = db_query($con, $sql);
+					 ?>
 					<img src="images/3.jpg" alt="samosha">
 					<div class="carousel-caption">
 						<h3>Samosha</h3>
