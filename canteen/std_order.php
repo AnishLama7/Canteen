@@ -29,17 +29,22 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+
+
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item  <?php echo $active == 'home' ? 'active' : ' '; ?>">
           <a class="nav-link <?php echo $active == $category['slug'] ? 'active' : ' '; ?>" href="<?php echo url('std_order.php'); ?>"><i class="fas fa-home"></i></a>
         </li>
-          <?php 
+
+        <?php 
             $sql = "SELECT name, slug FROM categories ";
             $result = db_query($con, $sql);
             if($result && db_num_rows($result) > 0):
           ?>
-          <?php while($category = db_fetch_assoc($result)): ?>
+           <?php while($category = db_fetch_assoc($result)): ?>
+          
+         
         <li class="nav-item">
           <a class="nav-link" href="<?php echo url('category/'.$category['slug']); ?>"><?php echo $category['name']; ?></a>
         </li>
@@ -109,7 +114,7 @@
          <th>Category</th>
          <th>Order No</th>
          <th>Available</th>
-         <th>Time</th>
+         <th>DateTime</th>
          <th>Quantity</th>
          <th>Break Time</th>
          <th>Action</th>
@@ -157,7 +162,9 @@
                   $res = db_query($con, $qry);
                   $Category = db_fetch_assoc($res);
                  ?>
-              <td><?php echo $Category['name']; ?></td>
+              <td><?php echo $Category['name']; ?>
+                <input type="hidden" name="type" value="<?php echo $menu['type']; ?>">
+              </td>
               
               <td>
                 <label for="order_no">

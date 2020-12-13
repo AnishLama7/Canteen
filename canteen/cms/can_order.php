@@ -119,7 +119,7 @@
 
 									<td>
 										<form method="POST" action="order_update.php">
-											<input type="hidden" name="updated_at">
+											<input type="hidden" name="order_no" value="<?php echo $can_order['order_no']; ?>">
 
 											<?php
 											 	if (($can_order['notify']) == 0) {

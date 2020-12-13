@@ -1,63 +1,90 @@
-<style type="text/css">
-	.carousel-inner img {
-	width: 100%;
-	height: 100%;
+<style>
+  .sizered{
+    width:35%;
+  }
+  .carousel-inner img {
+  width: 100%;
+  height: 100%;
 }
-	.sizered{
-		width:35%;
-	}
 </style>
 
-<h2 style="text-align: center">Recommended For You</h2>
-<section class="container sizered">
-		<div id="demo" class="carousel slide" data-ride="carousel">
+<h1 style="text-align: center">Recommended For You</h1>
+<div class="container sizered">
+  <div id="demo" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ol>
 
-			<!-- Indicators -->
-			<ul class="carousel-indicators">
-				<li data-target="#demo" data-slide-to="0" class="active"></li>
-				<li data-target="#demo" data-slide-to="1"></li>
-				<li data-target="#demo" data-slide-to="2"></li>
-			</ul>
+    <div class="carousel-inner">
+      <?php 
 
-			<!-- The slideshow -->
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<?php 
-						// $checkDataExists = select * from recommend where user_id = {current_user_id}
-						// if(checkDataExsists)?user already ordered and has their preferences and show data from querying which order_type users like :(else) show some random menu item";
-						$sql = "SELECT order_name, food_image FROM orders WHERE order_price > 20 LIMIT 0,3";
-						$result = db_query($con, $sql);
-					 ?>
-					<img src="images/3.jpg" alt="samosha">
-					<div class="carousel-caption">
-						<h3>Samosha</h3>
-					</div>
-					
-				</div>
+      $query = "SELECT * FROM recommend WHERE user_id = '{$_SESSION['user']['id']}'";
+      $result = db_query($con ,$query);
+      $result = db_fetch_assoc($result);
+      if(isset($result)){
+        $type = 'veg';
+        if ($result['veg_count'] < $result['nonveg_count']) {
+           $type= 'non-veg';
+         } 
+        $sql = "SELECT * FROM menu WHERE type = '{$type}' order by RAND() LIMIT 3  ";
+        $result = db_query($con,$sql);
+        // var_dump($sql);
 
-				<div class="carousel-item">
-					<img src="images/4.jpg" alt="momo">
-					<div class="carousel-caption">
-						<h3>MOMO</h3>
-					</div>
-				</div>
-				
-				<div class="carousel-item">
-					<img src="images/5.jpg" alt="chowmin">
-					<div class="carousel-caption">
-						<h3>Chowmein</h3>
-					</div>
-				</div>
-			
 
-			<!-- Left and right controls -->
-			<a class="carousel-control-prev" href="#demo" data-slide="prev">
-				<span class="carousel-control-prev-icon"></span>
-			</a>
-			<a class="carousel-control-next" href="#demo" data-slide="next">
-				<span class="carousel-control-next-icon"></span>
-			</a>
+            if($result && db_num_rows($result) > 0 ): ?>
+           <?php while( $std_order = db_fetch_assoc($result)): ?>
+    
+        <div class="carousel-item-active">
+            <img src="<?php echo url('images/'.$std_order['image']); ?>" class = "img-fluid">
+           
+          <div class="carousel-caption">
+            <h3><?php echo $std_order['name']; ?></h3>
+          </div>
+        </div> 
+ 
+        <?php endwhile; ?>
+        <?php endif; ?>
+      </div>
 
-		</div>
-		
-	</section>
+
+        <?php  
+      
+      }else{
+        $sql = "SELECT * FROM menu ORDER BY RAND() LIMIT 0,3";
+        $result = db_query($con,$sql);
+      }
+
+        if($result && db_num_rows($result) > 0 ): ?>
+           <?php while( $menu = db_fetch_assoc($result)): ?>
+    
+        <div class="carousel-item-active">
+          <?php  if(!empty($menu['image'])): ?>
+            <img src="<?php echo url('images/'.$menu['image']); ?>" class = "img-fluid">
+          <?php endif; ?> 
+          <div class="carousel-caption">
+            <h3><?php echo $menu['name']; ?></h3>
+          </div>
+         
+
+      </div>
+ 
+  
+    </div>
+    
+
+    <a class="carousel-control-prev" href="#demo" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+
+    <a class="carousel-control-next" href="#demo" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+
+  </div>
+<?php endwhile; ?>
+        <?php endif; ?>
+</div>

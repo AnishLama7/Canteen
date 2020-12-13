@@ -11,14 +11,13 @@
 
   $now = date('Y-m-d H:i:s');
 
-  if (isset($can_order['notify']) == 0) {
-    
-    $qry = "UPDATE can_order set updated_at = '{$now}', notify = '1' WHERE id = '{$can_order['id']}'";
+     
+    $qry = "UPDATE can_order set updated_at = '{$now}', notify = '1' WHERE order_no = '{$can_order['order_no']}";
 
      $result = db_query($con, $qry);
 
-     var_dump($qry); die;
-  }
+     
+
 
 }
  ?>  

@@ -29,7 +29,7 @@ if (isset($data)>=1) {
 		$now = date('Y-m-d H-i-s A');
 		$user_id = $_SESSION['user']['id'];
 
-        $sql1 = " INSERT INTO std_order SET order_name = '{$menu['name']}', food_image = '{$menu['image']}', order_price = '{$menu['price']}',  user_id = '{$user_id}', order_no = '{$menu['order_no']}',total_order = '{$menu['total']}', quantity = '{$menu['quantity']}', created_at = '{$now}',break_time = '{$break_time}', menu_id='{$menu['order_id']}'";
+        $sql1 = " INSERT INTO std_order SET order_name = '{$menu['name']}', food_image = '{$menu['image']}', order_price = '{$menu['price']}',  user_id = '{$user_id}', order_no = '{$menu['order_no']}',total_order = '{$menu['total']}', quantity = '{$menu['quantity']}', order_type = '{$menu['type']}', created_at = '{$now}',break_time = '{$break_time}', menu_id='{$menu['order_id']}'";
         $result = db_query($con, $sql1);
 
 
@@ -38,7 +38,7 @@ if (isset($data)>=1) {
         $result = db_query($con, $sql2);
 
 
-        $sql = "SELECT * FROM recommend where user_id= '{$user_id}'";
+        $sql = "SELECT * FROM recommend where user_id = '{$user_id}'";
         $query = db_query($con,$sql);
 
         $data = (db_fetch_assoc($query));
@@ -50,7 +50,7 @@ if (isset($data)>=1) {
 		if (isset($data)>=1) {
 		 	$vegCount =($data['veg_count']);
 		 	$nonVegCount =($data['nonveg_count']);
-		 	if ($menu['order_type'] == 'non-veg') {
+		 	if ($menu['type'] == 'non-veg') {
 		 		$nonVegCount++;
 		 	}else{
 		 		$vegCount++;
@@ -59,13 +59,13 @@ if (isset($data)>=1) {
 			$query = "UPDATE recommend set veg_count = {$vegCount} , nonveg_count = {$nonVegCount} where user_id = '{$user_id}'";
 			db_query($con,$query);
 		}else{
-			if ($menu['order_type'] == 'non-veg') {
+			if ($menu['type'] == 'veg') {
 		 		$nonVegCount = 1;
 		 	}else{
 		 		$vegCount = 1;
 		 	}
-			$sql1 = " INSERT INTO recommend SET veg_count = '{$vegCount}', nonveg_count = '{$nonVegCount}', user_id = '{$user_id}'";
-        	$result = db_query($con, $sql1);
+			$query1 = " INSERT INTO recommend SET veg_count = '{$vegCount}', nonveg_count = '{$nonVegCount}', user_id = '{$user_id}'";
+        	$result = db_query($con, $query1);
 		}
 
 

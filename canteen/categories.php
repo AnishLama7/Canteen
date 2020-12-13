@@ -120,7 +120,9 @@
 
           $sql = "SELECT * FROM menu WHERE category_id = '{$slugId}'";
          $result = db_query($con, $sql);
-         $category = db_fetch_assoc($result);
+         // $category = db_fetch_assoc($result);
+// var_dump($category);
+// die($category);
          
         }
 
