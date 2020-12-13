@@ -9,7 +9,7 @@
 </style>
 
 <h1 style="text-align: center">Recommended For You</h1>
-<div class="container sizered">
+<section class="container sizered">
   <div id="demo" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -87,4 +87,4 @@
   </div>
 <?php endwhile; ?>
         <?php endif; ?>
-</div>
+</section>

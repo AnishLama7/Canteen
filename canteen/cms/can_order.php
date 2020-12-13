@@ -195,7 +195,7 @@
 	</div>
 </div>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $(document).ready(function(){
     $("#datelist").on('change', function(){
       if($(this).val() == 0)
@@ -208,7 +208,7 @@
       }
     });
   });
-</script>
+</script> -->
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 

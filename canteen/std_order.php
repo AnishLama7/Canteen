@@ -17,8 +17,11 @@
   <link rel="stylesheet" type="text/css" href="<?php echo url('css/bootstrap.css')?>">
   <link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
   <link rel="stylesheet" type="text/css" href="<?php echo url('css/cms.css')?>">
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
- 
+  <link rel="stylesheet" type="text/css" href="<?php echo url('css/bootstrap.css.map')?>">
+
+  <script type="text/javascript" src="<?php echo url('js/jquery.js') ?>"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  -->
  </head>
 <body>
   <div class="container-fluid">
@@ -92,7 +95,6 @@
 
   </div>
       <?php include_once 'cms/templates/message.php'; ?>
-  <hr>
  <!--  <div class="col-12">
     <div class="alert alert-success">
       hello
@@ -104,27 +106,28 @@
 
   <div class="container-fluid">
   <h1 class="page-header text-center">ORDER</h1>
+
   
 <div class="table-responsive-sm">
     <table class="table table-striped table-bordered w-auto">
       <thead>
         <th>Food Name</th>
         <th>Food Image</th>
-         <th>Price</th>
-         <th>Category</th>
-         <th>Order No</th>
-         <th>Available</th>
-         <th>DateTime</th>
-         <th>Quantity</th>
-         <th>Break Time</th>
-         <th>Action</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Order No</th>
+        <th>Available</th>
+        <th>DateTime</th>
+        <th>Quantity</th>
+        <th>Break Time</th>
+        <th>Action</th>
       </thead>
       <tbody>
          
         <?php 
         if (isset($_GET['type'])) {
           $slug = ($_GET['type']);
-          $sql = "SELECT * FROM menu WHERe type='$slug' LIMIT 0,10 "; 
+          $sql = "SELECT * FROM menu WHERE type='$slug' LIMIT 0,10 "; 
         }else{
 
          $sql = "SELECT * FROM menu LIMIT 0,10 "; 
@@ -223,10 +226,11 @@
 </script>
 
 
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-
+<!-- <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>-->
+  <script type="text/javascript" src="<?php echo url('js/jquery.min.js')?>"></script>
   <script type="text/javascript" src="<?php echo url('js/bootstrap.js')?>"></script>
   <script type="text/javascript" src="<?php echo url('js/cms.js')?>"></script>
   <script type="text/javascript" src="<?php echo url('js/all.js')?>"></script>
+  <script type="text/javascript" src="<?php echo url('js/bootstrap.js.map')?>"></script>
  </body>
  </html>
