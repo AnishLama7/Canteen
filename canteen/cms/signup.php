@@ -44,7 +44,7 @@ require_once '../includes/db_functions.php';
 				</div>
 
 				<div>
-					<span style="margin-right: 10px; color: white">Sex:</span>
+					<span style="margin-right: 10px; color: white">Sex:</span><br>
 					<span>
 							<input type="radio" id="radio1" name="sex" value="male" class="m-1">Male
 							<input type="radio" id="radio2" name="sex" value="female" class="m-1">Female
@@ -52,7 +52,7 @@ require_once '../includes/db_functions.php';
 						</span>
 				</div>
 				<div class="mt-2 mb-2">
-					<span style="margin-right: 10px; color: white">Faculty:</span>
+					<span style="margin-right: 10px; color: white">Faculty:</span><br>
 					<span>
 							<input type="radio" class="m-1" id="radio11" name="faculty" value="CSIT">BSC CSIT
 							<input type="radio" class="m-1" id="radio12" name="faculty" value="BBA">BBA
@@ -72,19 +72,38 @@ require_once '../includes/db_functions.php';
 					<input type="text" class="form-control" id="username" placeholder="Enter new username" name="username" required>
 				</div>
 				<div class="form-group">
-					<label for="type">Type</label>
+					<label for="type">Type:</label>
 					<select name="type" id="type" class="form-control" required>
+						<option>Select user type</option>
 						<option value="student">Student</option>
 						<option value="staff">Staff</option>
+						<option value="guest">Guest</option>
 					</select>
 				</div>
+				<div class="form-group">
+					<label for="id_no">ID No.</label>
+					<input type="number" name="id_no" class="form-control" placeholder="Enter your ID No." required>
+				</div>
+
+				<div class="form-group">
+					<label for="type">Batch:</label>
+					<select name="batch" id="batch" class="form-control" required>
+						<option> Select your batch</option>
+						<option value="2073">2073</option>
+						<option value="2074">2074</option>
+						<option value="2075">2075</option>
+						<option value="2076">2076</option>
+						<option value="2077">2077</option>
+					</select>
+				</div>
+
 				<div class="form-group">
 					<label for="password1">Password:</label>
 					<input type="password" class="form-control" id="password1" placeholder="Enter password" name="password1" required>
 				</div>
 				<div class="form-group">
 					<label for="password2">Retype Password:</label>
-					<input type="password" class="form-control" id="password2" placeholder="Enter password" name="password2" required>
+					<input type="password" class="form-control" id="password2" placeholder="Retype password" name="password2" required>
 				</div>
 				
 				<div class=" text-center">

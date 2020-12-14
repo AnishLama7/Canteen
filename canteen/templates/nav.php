@@ -24,7 +24,7 @@
         <ul class="navbar-nav">
 
           <li class="<?php if($page == 'home'){echo 'active';} ?>">
-            <a class="nav-link" href="<?php echo url('home.php'); ?>">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo url('home.php'); ?>">Home </a>
           </li>
 
             <li class="<?php if($page == 'about'){echo 'active';} ?>">

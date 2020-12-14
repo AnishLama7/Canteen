@@ -29,7 +29,7 @@ if (isset($data)>=1) {
 		$now = date('Y-m-d H-i-s A');
 		$user_id = $_SESSION['user']['id'];
 
-        $sql1 = " INSERT INTO std_order SET order_name = '{$menu['name']}', food_image = '{$menu['image']}', order_price = '{$menu['price']}',  user_id = '{$user_id}', order_no = '{$menu['order_no']}',total_order = '{$menu['total']}', quantity = '{$menu['quantity']}', order_type = '{$menu['type']}', created_at = '{$now}',break_time = '{$break_time}', menu_id='{$menu['order_id']}'";
+        $sql1 = " INSERT INTO std_order SET order_name = '{$menu['name']}', food_image = '{$menu['image']}', order_price = '{$menu['price']}',  user_id = '{$user_id}', order_no = '{$menu['order_no']}',total_order = '{$menu['total']}', quantity = '{$menu['quantity']}', created_at = '{$now}',break_time = '{$break_time}', menu_id='{$menu['order_id']}'";
         $result = db_query($con, $sql1);
 
 

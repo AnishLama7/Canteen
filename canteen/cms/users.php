@@ -32,8 +32,10 @@
 							<th>Faculty</th>
 							<th>Phone</th>						
 							<th>Email</th>
-							<th>Request</th>
 							<th>Type</th>
+							<th>ID NO.</th>
+							<th>Batch</th>
+							<th>Request</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -62,7 +64,7 @@
 							$offset = ($limit * $page) - $limit;
 
 
-							$sql = "SELECT * FROM users where type = 'student' OR type = 'staff' LIMIT {$offset}, {$limit} ";
+							$sql = "SELECT * FROM users where type = 'student' OR type = 'staff' OR type = 'guest' LIMIT {$offset}, {$limit} ";
 							$result = db_query($con, $sql);
 
 							$n = $offset + 1;
@@ -78,24 +80,10 @@
 						 		<td><?php echo $user['faculty']; ?></td>
 						 		<td><?php echo $user['phone']; ?></td>
 						 		<td><?php echo $user['email']; ?></td>
-
-						 		
-						 		<td  id="req" class="request"><?php echo ucfirst($user['request']); ?></td>
-
-						 		<script>
-
-								    if ('{{$user->request}}' === 'pending'){
-								    document.getElementById('req').innerHTML = "Pending";
-								    document.getElementById('req').style='color:green';
-								    }
-								    else{
-								    document.getElementById('req').innerHTML = "Accepted";
-								    document.getElementById('req').style='color:green';
-								    }
-							    </script>
-
-						 		
 						 		<td><?php echo ucfirst($user['type']); ?></td>
+						 		<td><?php echo $user['id_no'];?></td>
+						 		<td><?php echo $user['batch']; ?></td>
+						 		<td  id="req" class="request"><?php echo ucfirst($user['request']); ?></td>
 						 		
 						 		<td>
 						 			<a href="<?php echo url('cms/user_edit.php?username='.$user['username']); ?>"><i class="fas fa-edit mr-3"></i></a>

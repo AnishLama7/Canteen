@@ -13,7 +13,7 @@ require_once 'templates/header.php';
 }
 </style>
 <body class="bg-secondary bod">
-	<div class="mx-auto bg-dark p-5 mt-5 col-lg-4 col-md-8 col-12" style="opacity:0.9;">
+	<div class="mx-auto bg-dark p-5 mt-5 col-lg-4 " style="opacity:0.9;">
 		<h1 class="text-center">Login</h1>
 		<hr color="orange">
 		<?php include_once 'templates/message.php'; ?>

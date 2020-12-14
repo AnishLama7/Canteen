@@ -9,10 +9,11 @@
 
 		$password1 = sha1($password1);
 
-		$sql = "INSERT INTO users SET name = '{$name}', sex= '{$sex}', faculty = '{$faculty}', phone = '{$phone}', password = '{$password1}', username = '{$username}', email = '{$email}', type = '{$type}' ";
+		$sql = "INSERT INTO users SET name = '{$name}', sex= '{$sex}', faculty = '{$faculty}', phone = '{$phone}', password = '{$password1}', username = '{$username}', email = '{$email}', type = '{$type}', batch = '{$batch}', id_no = '{$id_no}' ";
 
 
 		$result = db_query($con, $sql);
+
 
 		if($result) {
 			$_SESSION['message'] = [

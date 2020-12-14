@@ -19,7 +19,7 @@
 			$_SESSION['user'] = $user;
 			
 
-			if($_SESSION['user']['type']== 'student' || 'staff' and $_SESSION['user']['request'] == 'accepted'){
+			if($_SESSION['user']['type'] == 'student' || 'staff' || 'guest' and $_SESSION['user']['request'] == 'accepted'){
 				redirect(url('std_order.php'));
 			}
 
