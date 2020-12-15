@@ -74,7 +74,7 @@
 							<th>Quantity</th>
 							<th>Price</th>
 							<th>SubTotal</th>
-						</tr>
+						</tr>	
 
 					</thead>
 					 <tbody>
@@ -84,7 +84,7 @@
 							$ret = db_fetch_assoc($result);
 							$total = $ret['total'];
 
-							$limit = 8;
+							$limit = 7;
 
 							$totalpages = ceil($total/$limit);
 

@@ -59,7 +59,7 @@ if (isset($data)>=1) {
 			$query = "UPDATE recommend set veg_count = {$vegCount} , nonveg_count = {$nonVegCount} where user_id = '{$user_id}'";
 			db_query($con,$query);
 		}else{
-			if ($menu['type'] == 'veg') {
+			if ($menu['type'] == 'non-veg') {
 		 		$nonVegCount = 1;
 		 	}else{
 		 		$vegCount = 1;
