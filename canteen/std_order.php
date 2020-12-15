@@ -99,7 +99,17 @@
       <?php include_once 'cms/templates/message.php'; ?>
  <!--  <div class="col-12">
     <div class="alert alert-success">
-      hello
+      <?php 
+      
+        $sql = "SELECT * FROM can_order";
+        $result = db_query($con, $sql);
+        $result = db_fetch_assoc($result);
+
+        if($result){
+          echo "Your Order is ready";
+        }
+       
+       ?>
     </div>
   </div> -->
  <?php include 'recommend.php'; ?>
@@ -107,14 +117,14 @@
   <hr>
 
   <div class="container-fluid">
-  <h1 class="page-header text-center">ORDER</h1>
+  <h1 class="page-header text-center">Today's Menu</h1>
 
   
 <div class="table-responsive-sm">
     <table class="table table-striped table-bordered w-auto">
       <thead>
         <th>Food Name</th>
-        <th>Food Image</th>
+        <th>Image</th>
         <th>Price</th>
         <th>Category</th>
         <th>Order No</th>
@@ -129,10 +139,10 @@
         <?php 
         if (isset($_GET['type'])) {
           $slug = ($_GET['type']);
-          $sql = "SELECT * FROM menu WHERE type='$slug' LIMIT 0,10 "; 
+          $sql = "SELECT * FROM menu WHERE type='$slug' LIMIT 0,20 "; 
         }else{
 
-         $sql = "SELECT * FROM menu LIMIT 0,10 "; 
+         $sql = "SELECT * FROM menu LIMIT 0,30"; 
         }
         $result = db_query($con, $sql);
         if($result && db_num_rows($result) > 0 ): ?>
@@ -142,14 +152,14 @@
         <form method="POST" action="<?php echo url('order_store.php'); ?>" enctype = "multipart/form-data">
             <tr>
              
-              <td> 
+              <td style="width:200px;"> 
                 <label for="name">
                   <input type="text" name="name" class="form-control" value="<?php echo $menu['name']; ?>" readonly>
                   <input type="hidden" name="order_id" value="<?php echo $menu['id']?> ">
                 </label>
               </td>
 
-              <td style="height: 90px; width: 120px;">
+              <td style="height: 60px; width: 80px;">
                 <input type="hidden" name="image" class="form-control" value="<?php echo $menu['image']; ?>">
                 <?php  if(!empty($menu['image'])): ?>
                 <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-fluid">

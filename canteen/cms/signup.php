@@ -17,8 +17,14 @@ require_once '../includes/db_functions.php';
 				alert("Password must be same");
 				return false;
 			}
-		}
+
+			if(pass1.length < 5){
+				alert ("Password must be 5 character");
+				return false;
+			}
+    }
 	</script>
+
 	<style type="text/css">
 		.bodd{
 			background-image: url("images/3.jpg");
@@ -99,7 +105,7 @@ require_once '../includes/db_functions.php';
 
 				<div class="form-group">
 					<label for="password1">Password:</label>
-					<input type="password" class="form-control" id="password1" placeholder="Enter password" name="password1" required>
+					<input type="password" class="form-control" id="password1" placeholder="Enter password" name="password1" minlength="5" required>
 				</div>
 				<div class="form-group">
 					<label for="password2">Retype Password:</label>
@@ -113,4 +119,5 @@ require_once '../includes/db_functions.php';
 			</form>
 		</div>
 	</body>
+	<?php require 'templates/footer.php'; ?>
 	</html>

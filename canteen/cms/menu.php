@@ -80,7 +80,7 @@
 						 		<td><?php echo $menu['price']; ?></td>
 						 		<td>
 						 			<?php if(!is_null($menu['image'])): ?>
-						 				<img src="<?php echo url('images/'.$menu['image']); ?>" class = "img-fluid" width="100" height="100">
+						 				<img src="<?php echo url('images/'.$menu['image']); ?>" class = "img-fluid" width="50" height="50">
 						 				<?php else: ?>
 						 					n/a
 						 			<?php endif; ?>
@@ -97,7 +97,7 @@
 						 		<td><?php echo date('j M Y h:i:s A', strtotime($menu['created_at'])); ?></td>
 						 		<td><?php echo date('j M Y h:i:s A', strtotime($menu['updated_at'])); ?></td>
 						 		<td>
-						 			<a href="<?php echo url('cms/menu_edit.php?slug='.$menu['slug']); ?>"><i class="fas fa-edit mr-3"></i></a>
+						 			<a href="<?php echo url('cms/menu_edit.php?slug='.$menu['slug']); ?>"><i class="fas fa-edit"></i></a>
 						 			<a href="<?php echo url('cms/menu_delete.php?slug='.$menu['slug']); ?>" class="delete"><i  class="fas fa-trash"></i></a>
 						 		</td>
 						 	</tr>

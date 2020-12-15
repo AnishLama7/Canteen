@@ -17,7 +17,7 @@
 			$file = $_FILES['image'];
 
 			$ext = pathinfo($file['name'], PATHINFO_EXTENSION);
-			$filename = 'menu_'.date('smHYid').'_'.rand(1000, 9999).'.'.$ext;
+			$filename = 'food_'.date('smHYid').'_'.rand(1000, 9999).'.'.$ext;
 
 			move_uploaded_file($file['tmp_name'], '../images/'.$filename);
 

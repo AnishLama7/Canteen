@@ -21,7 +21,7 @@
 			<div class="col-6 mx-auto">
 
 				<?php 
-					$sql = "SELECT * FROM users WHERE username = '{$_GET['username']}' AND (type = 'staff' OR type = 'student') ";
+					$sql = "SELECT * FROM users WHERE username = '{$_GET['username']}' AND (type = 'staff' OR type = 'student' OR type ='guest') ";
 					$result = db_query($con, $sql);
 					$user = db_fetch_assoc($result);
 
@@ -51,6 +51,7 @@
 					<select name="type" id="type" class="form-control">
 						<option value="student">Student</option>
 						<option value="staff">Staff</option>
+						<option value="guest">Guest</option>
 					</select>
 				</div>
 

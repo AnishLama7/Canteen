@@ -46,7 +46,7 @@
 							$ret = db_fetch_assoc($result);
 							$total = $ret['total'];
 
-							$limit = 15;
+							$limit = 18;
 
 							$totalpages = ceil($total/$limit);
 

@@ -35,12 +35,12 @@
         $result = db_query($con,$sql);
 
             if($result && db_num_rows($result) > 0 ): ?>
-           <?php while( $std_order = db_fetch_assoc($result)): ?>
+           <?php while( $menu = db_fetch_assoc($result)): ?>
 
   <div class="column">
-    <img src="<?php echo url('images/'.$std_order['image']); ?>" class = "img-fluid" style="width:100%">
+    <img src="<?php echo url('images/'.$menu['image']); ?>" class = "img-fluid" style="width:100%">
     <div class="text-center">
-        <h3><?php echo $std_order['name']; ?></h3>
+        <h4><?php echo $menu['name']; ?></h4>
     </div>
   </div>
 

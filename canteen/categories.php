@@ -92,9 +92,8 @@
     <table class="table table-striped table-bordered">
       <thead>
         <th>Food Name</th>
-        <th>Food Image</th>
+        <th>Image</th>
          <th>Price</th>
-         <th>Category</th>
          <th>Order No</th>
          <th>Available</th>
          <th>Time</th>
@@ -130,17 +129,20 @@
 
         if($result && db_num_rows($result) > 0 ): ?>
        <?php while( $menu = db_fetch_assoc($result)): ?>
-          <form method="POST" action="<?php echo url('order_store.php'); ?>" enctype = "multipart/form-data">
+         
+         <?php if ($menu['total'] > 0) {?>
+        
+        <form method="POST" action="<?php echo url('order_store.php'); ?>" enctype = "multipart/form-data">
             <tr>
              
-              <td> 
+              <td style="width:200px;"> 
                 <label for="name">
                   <input type="text" name="name" class="form-control" value="<?php echo $menu['name']; ?>" readonly>
                   <input type="hidden" name="order_id" value="<?php echo $menu['id']?> ">
                 </label>
               </td>
 
-              <td style="height: 90px; width: 120px;">
+              <td style="height: 70px; width: 90px;">
                 <input type="hidden" name="image" class="form-control" value="<?php echo $menu['image']; ?>">
                 <?php  if(!empty($menu['image'])): ?>
                 <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-fluid">
@@ -148,36 +150,29 @@
               </td>
              
 
-              <td style="width:120px;">
+              <td>
                 <input type="number" name="price" class="form-control" value="<?php echo number_format($menu['price']); ?>" readonly>
+                 <input type="hidden" name="type" value="<?php echo $menu['type']; ?>">
               </td>
 
-              
-              <?php 
-                  $qry = "SELECT name FROM categories WHERE id = '{$menu['category_id']}'";
-                  $res = db_query($con, $qry);
-                  $Category = db_fetch_assoc($res);
-                 ?>
-              <td><?php echo $Category['name']; ?></td>
-              
-              <td style="width:120px;">
+              <td>
                 <label for="order_no">
                   <input type="number" name="order_no" class="form-control" value="<?php echo rand(111,999); ?>" readonly>
                 </label>
               </td>
 
-              <td style="width:150px;">
+              <td>
                 <input type="number" class= "form-control" name="total" value="<?php echo $menu['total']; ?>" readonly>
               </td>
 
                <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
 
-             <td style="width: 150px;">
+             <td>
                <input type="number" class="form-control" name="quantity" max="<?php echo $menu['total']; ?>" required>
              </td>
 
              <td>
-               <input type="time" class="form-control" name="brek_time" required>
+               <input type="time" class="form-control" name="break_time" required>
              </td>
 
              <td>
@@ -186,6 +181,7 @@
 
            </tr>
   </form>
+<?php }?>
 
 
           <?php endwhile; ?>
