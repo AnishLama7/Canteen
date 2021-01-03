@@ -5,25 +5,9 @@
   require_once 'includes/db_connection.php';
   $title = 'Home';
   $active = 'home';
+  include 'templates/header.php';
  ?>
 
-
- <!DOCTYPE html>
- <html>
- <head>
-  <title> <?php echo $title; ?> - Order Page</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-  <link rel="stylesheet" type="text/css" href="<?php echo url('css/bootstrap.css')?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo url('css/cms.css')?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo url('css/bootstrap.css.map')?>">
-
-  <script type="text/javascript" src="<?php echo url('js/jquery.js') ?>"></script>
-  <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  -->
  </head>
 <body>
   <div class="container-fluid">
@@ -95,23 +79,9 @@
     </div>
 
 
-  </div>
-      <?php include_once 'cms/templates/message.php'; ?>
- <!--  <div class="col-12">
-    <div class="alert alert-success">
-      <?php 
-      
-        $sql = "SELECT * FROM can_order";
-        $result = db_query($con, $sql);
-        $result = db_fetch_assoc($result);
+ <?php include 'notify.php'; ?>
+ <br>
 
-        if($result){
-          echo "Your Order is ready";
-        }
-       
-       ?>
-    </div>
-  </div> -->
  <?php include 'recommend.php'; ?>
 
   <hr>
@@ -122,7 +92,7 @@
   
 <div class="table-responsive-sm">
     <table class="table table-striped table-bordered w-auto">
-      <thead>
+      <thead class="text-center">
         <th>Food Name</th>
         <th>Image</th>
         <th>Price</th>
@@ -133,6 +103,7 @@
         <th>Quantity</th>
         <th>Break Time</th>
         <th>Action</th>
+        <th>Review</th>
       </thead>
       <tbody>
          
@@ -191,7 +162,7 @@
                 <input type="number" class= "form-control" name="total" value="<?php echo $menu['total']; ?>" readonly>
               </td>
 
-               <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
+               <td style="width:200px;"><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
 
              <td>
                <input type="number" class="form-control" name="quantity" max="<?php echo $menu['total']; ?>" required>
@@ -204,6 +175,10 @@
              <td>
                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Order</button>
              </td>
+
+             <td class="text-center">
+              <a href="<?php echo url('review.php'); ?>"><i class="fa fa-star" aria-hidden="true"></i></a>
+            </td>
 
            </tr>
   </form>
@@ -237,12 +212,5 @@
 
 </script>
 
-
-<!-- <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>-->
-  <script type="text/javascript" src="<?php echo url('js/jquery.min.js')?>"></script>
-  <script type="text/javascript" src="<?php echo url('js/bootstrap.js')?>"></script>
-  <script type="text/javascript" src="<?php echo url('js/cms.js')?>"></script>
-  <script type="text/javascript" src="<?php echo url('js/all.js')?>"></script>
-  <script type="text/javascript" src="<?php echo url('js/bootstrap.js.map')?>"></script>
- </body>
+<?php include 'templates/footer.php'; ?>
  </html>

@@ -74,6 +74,7 @@
 							<th>Quantity</th>
 							<th>Price</th>
 							<th>SubTotal</th>
+							<th>Rate</th>
 						</tr>	
 
 					</thead>
@@ -137,6 +138,8 @@
                                          echo "$subt";
 									 ?>
 								</td>
+
+								<td><a href="<?php echo url('rate.php'); ?>" class="btn btn-warning btn-sm" role="button" aria-disabled="true">Rate</a></td>
 						 	</tr>
 					</tbody>
 
