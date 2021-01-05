@@ -87,7 +87,7 @@
   <div class="container-fluid">
   <h1 class="page-header text-center">ORDER</h1>
 
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered table-responsive">
       <thead>
         <th>Food Name</th>
         <th>Food Image</th>
