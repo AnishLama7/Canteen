@@ -1,6 +1,7 @@
 <?php 
 require_once 'includes/init.php';
-$title = 'Home';
+$title = 'Home Page';
+$page = 'home';
 require_once 'includes/db_functions.php';
 ?>
 <?php require 'templates/header.php'; ?>
@@ -12,7 +13,7 @@ require_once 'includes/db_functions.php';
 
 }
 body {
-	background: grey;
+	background:#eaeaea;;
 }
 </style>
 
@@ -34,21 +35,21 @@ body {
 					<img src="images/3.jpg" alt="Los Angeles" width="1100" height="500">
 					<div class="carousel-caption">
 						<h3>Samosa</h3>
-						<p style="color: red;">Rich in protein</p>
+						<!-- <p style="color: red;">Rich in protein</p> -->
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img src="images/4.jpg" alt="Chicago" width="1100" height="500">
 					<div class="carousel-caption">
 						<h3>Momo</h3>
-						<p style="color: blue;">Rich in fiber</p>
+						<!-- <p style="color: blue;">Rich in fiber</p> -->
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img src="images/5.jpg" alt="New York" width="1100" height="500">
 					<div class="carousel-caption">
 						<h3>Chowmein</h3>
-						<p style="color: black">Rich in Carbs</p>
+						<!-- <p style="color: black">Rich in Carbs</p> -->
 					</div>
 				</div>
 			</div>

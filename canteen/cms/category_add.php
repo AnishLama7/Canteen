@@ -10,10 +10,11 @@
  ?>
 
 <div class="col">
-	<div class="col-12 bg-white my-3">
+	<div class="col-12 my-3">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-12 text-center">
 				<h1>Add Category</h1>
+				<hr>
 			</div>
 			<?php include_once 'templates/message.php'; ?>
 

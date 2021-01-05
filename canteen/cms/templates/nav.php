@@ -1,24 +1,19 @@
-
-<div class="col-2 side-nav">
-	<div class="col text-center my-4">
-		<img src="<?php echo url('images/newlogo.png'); ?>" class="img-fluid" alt="Responsive image">
-	</div>
-
+<div class="col-lg-2 col-md-4 col p-4 side-navi">
 	<div class="row">
-		<div class="col-12 text-center my-2">
-			<h3>Online Canteen</h3>
+		<div class="col my-2 ">
+			<img src="<?php echo url('images/newlogo.png'); ?>" class="img-fluid" alt="Responsive image">
 		</div>
 
-		<div class="col-12 text-center">
+		<div class="col-12 text-center my-4">
 			 <i class="fas fa-user mr-2"></i><?php echo $_SESSION['user']['name']; ?> <br>
 			 <small>
-			 <a href="<?php echo url('cms/profile_edit.php'); ?>" title="Edit Profile"><i class="fas fa-edit"></i></a>
+			 <a href="<?php echo url('cms/profile_edit.php'); ?>" title="Edit Profile"><i class="fas fa-edit my-3"></i></a>
 
-			 <a href="<?php echo url('cms/logout.php'); ?>" title="Logout" ><i class="fas fa-sign-out-alt"></i></a>
+			 <a href="<?php echo url('cms/logout.php'); ?>" title="Logout" ><i class="fas fa-sign-out-alt my-3"></i></a>
 			 </small>
 
 		</div>
-		<div class="col-12 mt-5">
+		<div class="col-12">
 			<ul class="side-menu">
 				<?php if($_SESSION['user']['type'] == 'canteen'): ?>
 				<li <?php echo $active == 'menu' ? 'class="active"' : ''; ?>>
@@ -37,9 +32,9 @@
 					<a href="<?php echo url('cms/users.php'); ?>"><i class="fas fa-users mr-2"></i>Users</a>
 				</li>
 
-				<li <?php echo $active == 'comments' ? 'class="active"' : ''; ?>>
+				<!-- <li <?php echo $active == 'comments' ? 'class="active"' : ''; ?>>
 					<a href="<?php echo url('cms/comments.php'); ?>"><i class="fas fa-comments mr-2"></i>Comments</a>
-				</li>
+				</li> -->
 				<?php endif; ?>
 			</ul>
 		</div>

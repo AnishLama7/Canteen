@@ -1,56 +1,73 @@
-<style type="text/css">
-	.carousel-inner img {
-	width: 100%;
-	height: 100%;
+<style>
+* {
+  box-sizing: border-box;
 }
-	.sizered{
-		width:30%;
-	}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 </style>
 
-<h2 style="text-align: center">Recommended For You</h2>
-<section class="container sizered">
-		<div id="demo" class="carousel slide" data-ride="carousel">
+<h1 class="text-center">Recommeded For You</h1>
 
-			<!-- Indicators -->
-			<ul class="carousel-indicators">
-				<li data-target="#demo" data-slide-to="0" class="active"></li>
-				<li data-target="#demo" data-slide-to="1"></li>
-				<li data-target="#demo" data-slide-to="2"></li>
-			</ul>
+<div class="row">
 
-			<!-- The slideshow -->
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<?php 
-						$sql = "SELECT order_name, food_image FROM orders WHERE order_price > 20 LIMIT 0,3";
-						$result = db_query($con, $sql);
-					 ?>
-					<img src="images/3.jpg" alt="Samosa">
-					<div class="carousel-caption">
-						<h3>Samosa</h3>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<img src="images/4.jpg" alt="Momo">
-					<div class="carousel-caption">
-						<h3>Momo</h3>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<img src="images/5.jpg" alt="Chowmein">
-					<div class="carousel-caption">
-						<h3>Chowmein</h3>
-					</div>
-				</div>
-			</div>
+   <?php 
 
-			<!-- Left and right controls -->
-			<a class="carousel-control-prev" href="#demo" data-slide="prev">
-				<span class="carousel-control-prev-icon"></span>
-			</a>
-			<a class="carousel-control-next" href="#demo" data-slide="next">
-				<span class="carousel-control-next-icon"></span>
-			</a>
-		</div>
-	</section>
+      $query = "SELECT * FROM recommend WHERE user_id = '{$_SESSION['user']['id']}'";
+      $result = db_query($con ,$query);
+      $result = db_fetch_assoc($result);
+      if(isset($result)){
+        $type = 'veg';
+        if ($result['veg_count'] < $result['nonveg_count']) {
+           $type= 'non-veg';
+         } 
+        $sql = "SELECT * FROM menu WHERE type = '{$type}' order by RAND() LIMIT 3  ";
+        $result = db_query($con,$sql);
+
+            if($result && db_num_rows($result) > 0 ): ?>
+           <?php while( $menu = db_fetch_assoc($result)): ?>
+
+  <div class="column">
+    <img src="<?php echo url('images/'.$menu['image']); ?>" class = "img-fluid" style="width:100%">
+    <div class="text-center">
+        <h4><?php echo $menu['name']; ?></h4>
+    </div>
+  </div>
+
+<?php endwhile; ?>
+<?php endif; ?>
+ 
+
+<?php  
+      
+      }else{
+        $sql = "SELECT * FROM menu ORDER BY RAND() LIMIT 0,3";
+        $result = db_query($con,$sql);
+      }
+
+        if($result && db_num_rows($result) > 0 ): ?>
+        <?php while( $menu = db_fetch_assoc($result)): ?>
+
+        <div class="column">
+          <img src="<?php echo url('images/'.$menu['image']); ?>" class = "img-fluid" style="width:100%">
+          <div class="text-center">
+              <h3><?php echo $menu['name']; ?></h3>
+          </div>
+        </div>
+
+        <?php endwhile; ?>
+        <?php endif; ?>
+
+
+</div>
+      

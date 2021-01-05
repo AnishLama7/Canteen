@@ -4,6 +4,9 @@
 	<script type="text/javascript" src="<?php echo url('js/cms.js')?>"></script>
 	<script type="text/javascript" src="<?php echo url('js/all.js')?>"></script>
 
+</body>
+</html>
+
 
 	<div id="footer" class="bg-light">
 			<div class="text-right mr-3">

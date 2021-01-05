@@ -6,6 +6,5 @@
 	<script type="text/javascript" src="<?php echo url('js/cms.js')?>"></script>
 	<script type="text/javascript" src="<?php echo url('js/all.js')?>"></script>
 	
-
 </body>
 </html>

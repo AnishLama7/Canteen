@@ -5,20 +5,9 @@
   require_once 'includes/db_connection.php';
   $title = 'Home';
   $active = 'home';
+  include 'templates/header.php';
  ?>
 
-
- <!DOCTYPE html>
- <html>
- <head>
-  <title> <?php echo $title; ?> - Order Page</title>
-
-
-  <link rel="stylesheet" type="text/css" href="<?php echo url('css/bootstrap.css')?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo url('css/cms.css')?>">
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
- 
  </head>
 <body>
   <div class="container-fluid">
@@ -29,17 +18,22 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+
+
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item  <?php echo $active == 'home' ? 'active' : ' '; ?>">
           <a class="nav-link <?php echo $active == $category['slug'] ? 'active' : ' '; ?>" href="<?php echo url('std_order.php'); ?>"><i class="fas fa-home"></i></a>
         </li>
-          <?php 
+
+        <?php 
             $sql = "SELECT name, slug FROM categories ";
             $result = db_query($con, $sql);
             if($result && db_num_rows($result) > 0):
           ?>
-          <?php while($category = db_fetch_assoc($result)): ?>
+           <?php while($category = db_fetch_assoc($result)): ?>
+          
+         
         <li class="nav-item">
           <a class="nav-link" href="<?php echo url('category/'.$category['slug']); ?>"><?php echo $category['name']; ?></a>
         </li>
@@ -69,7 +63,7 @@
   <br>
 
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
       <select id="typelist" class="btn btn-default">
       <?php
       
@@ -83,61 +77,60 @@
       ?>
       </select>
     </div>
-  </div>
-      <?php include_once 'cms/templates/message.php'; ?>
-  <hr>
- <!--  <div class="col-12">
-    <div class="alert alert-success">
-      hello
-    </div>
-  </div> -->
+
+
+ <?php include 'notify.php'; ?>
+ <br>
+
  <?php include 'recommend.php'; ?>
 
   <hr>
 
   <div class="container-fluid">
-  <h1 class="page-header text-center">ORDER</h1>
-  
+  <h1 class="page-header text-center">Today's Menu</h1>
 
+  
+<div class="table-responsive-sm">
     <table class="table table-striped table-bordered w-auto">
-      <thead>
+      <thead class="text-center">
         <th>Food Name</th>
-        <th>Food Image</th>
-         <th>Price</th>
-         <th>Category</th>
-         <th>Order No</th>
-         <th>Available</th>
-         <th>Time</th>
-         <th>Quantity</th>
-         <th>Break Time</th>
-         <th>Action</th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Order No</th>
+        <th>Available</th>
+        <th>DateTime</th>
+        <th>Quantity</th>
+        <th>Break Time</th>
+        <th>Action</th>
+        <th>Review</th>
       </thead>
       <tbody>
          
         <?php 
         if (isset($_GET['type'])) {
           $slug = ($_GET['type']);
-          $sql = "SELECT * FROM menu WHERe type='$slug' LIMIT 0,10 "; 
+          $sql = "SELECT * FROM menu WHERE type='$slug' LIMIT 0,20 "; 
         }else{
 
-         $sql = "SELECT * FROM menu LIMIT 0,10 "; 
+         $sql = "SELECT * FROM menu LIMIT 0,30"; 
         }
         $result = db_query($con, $sql);
         if($result && db_num_rows($result) > 0 ): ?>
        <?php while( $menu = db_fetch_assoc($result)): ?>
         <?php if ($menu['total'] > 0) {?>
         
-        <form method="POST" action="<?php echo url('std_order_store.php'); ?>" enctype = "multipart/form-data">
+        <form method="POST" action="<?php echo url('order_store.php'); ?>" enctype = "multipart/form-data">
             <tr>
              
-              <td> 
+              <td style="width:200px;"> 
                 <label for="name">
                   <input type="text" name="name" class="form-control" value="<?php echo $menu['name']; ?>" readonly>
                   <input type="hidden" name="order_id" value="<?php echo $menu['id']?> ">
                 </label>
               </td>
 
-              <td style="height: 90px; width: 120px;">
+              <td style="height: 60px; width: 80px;">
                 <input type="hidden" name="image" class="form-control" value="<?php echo $menu['image']; ?>">
                 <?php  if(!empty($menu['image'])): ?>
                 <img src="<?php echo url('images/'.$menu['image']); ?>" class="img-fluid">
@@ -145,7 +138,7 @@
               </td>
              
 
-              <td style="width:120px;">
+              <td>
                 <input type="number" name="price" class="form-control" value="<?php echo number_format($menu['price']); ?>" readonly>
               </td>
 
@@ -155,31 +148,37 @@
                   $res = db_query($con, $qry);
                   $Category = db_fetch_assoc($res);
                  ?>
-              <td><?php echo $Category['name']; ?></td>
+              <td><?php echo $Category['name']; ?>
+                <input type="hidden" name="type" value="<?php echo $menu['type']; ?>">
+              </td>
               
-              <td style="width:120px;">
+              <td>
                 <label for="order_no">
                   <input type="number" name="order_no" class="form-control" value="<?php echo rand(111,999); ?>" readonly>
                 </label>
               </td>
 
-              <td style="width:150px;">
+              <td>
                 <input type="number" class= "form-control" name="total" value="<?php echo $menu['total']; ?>" readonly>
               </td>
 
-               <td><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
+               <td style="width:200px;"><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
 
-             <td style="width: 150px;">
+             <td>
                <input type="number" class="form-control" name="quantity" max="<?php echo $menu['total']; ?>" required>
              </td>
 
              <td>
-               <input type="time" class="form-control" name="order_time" required>
+               <input type="time" class="form-control" name="break_time" required>
              </td>
 
              <td>
                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Order</button>
              </td>
+
+             <td class="text-center">
+              <a href="<?php echo url('review.php'); ?>"><i class="fa fa-star" aria-hidden="true"></i></a>
+            </td>
 
            </tr>
   </form>
@@ -188,6 +187,7 @@
           <?php endwhile; ?>
       </tbody>
     </table>
+  </div>
   <?php endif; ?>
     
 </div>
@@ -212,11 +212,5 @@
 
 </script>
 
-
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-
-  <script type="text/javascript" src="<?php echo url('js/bootstrap.js')?>"></script>
-  <script type="text/javascript" src="<?php echo url('js/cms.js')?>"></script>
-  <script type="text/javascript" src="<?php echo url('js/all.js')?>"></script>
- </body>
+<?php include 'templates/footer.php'; ?>
  </html>

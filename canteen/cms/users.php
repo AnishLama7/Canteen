@@ -10,7 +10,7 @@
  ?>
 
 <div class="col">
-	<div class="col-12 bg-light my-3">
+	<div class="col-12 my-3">
 		<div class="row">
 			<div class="col">
 				<h1 style="text-align: center;">Users</h1>
@@ -21,6 +21,7 @@
 		</div>
 		<div class="row">
 			<div class="col-12 mt-3">
+				<div class="table-responsive">
 				<table class="table table-stripped table-hover table-sm">
 					<thead>
 						<tr>
@@ -31,8 +32,10 @@
 							<th>Faculty</th>
 							<th>Phone</th>						
 							<th>Email</th>
-							<th>Request</th>
 							<th>Type</th>
+							<th>ID NO.</th>
+							<th>Batch</th>
+							<th>Request</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -43,7 +46,7 @@
 							$ret = db_fetch_assoc($result);
 							$total = $ret['total'];
 
-							$limit = 15;
+							$limit = 18;
 
 							$totalpages = ceil($total/$limit);
 
@@ -61,7 +64,7 @@
 							$offset = ($limit * $page) - $limit;
 
 
-							$sql = "SELECT * FROM users where type = 'student' OR type = 'staff' LIMIT {$offset}, {$limit} ";
+							$sql = "SELECT * FROM users where type = 'student' OR type = 'staff' OR type = 'guest' LIMIT {$offset}, {$limit} ";
 							$result = db_query($con, $sql);
 
 							$n = $offset + 1;
@@ -71,14 +74,16 @@
 
 						 	<tr>
 						 		<td><?php echo $n++; ?></td>
-						 		<td><?php echo $user['name'];?></td>
+						 		<td><?php echo ucfirst($user['name']);?></td>
 						 		<td><?php echo $user['username']; ?></td>
 						 		<td><?php echo $user['sex']; ?></td>
 						 		<td><?php echo $user['faculty']; ?></td>
 						 		<td><?php echo $user['phone']; ?></td>
 						 		<td><?php echo $user['email']; ?></td>
-						 		<td><?php echo ucfirst($user['request']); ?></td>
 						 		<td><?php echo ucfirst($user['type']); ?></td>
+						 		<td><?php echo $user['id_no'];?></td>
+						 		<td><?php echo $user['batch']; ?></td>
+						 		<td  id="req" class="request"><?php echo ucfirst($user['request']); ?></td>
 						 		
 						 		<td>
 						 			<a href="<?php echo url('cms/user_edit.php?username='.$user['username']); ?>"><i class="fas fa-edit mr-3"></i></a>
@@ -94,6 +99,7 @@
 						</tr>	
 						<?php endif; ?>
 				</table>
+			</div>
 			</div>
 			<?php if($totalpages > 1): ?>
 			<div class="col-12">

@@ -4,6 +4,7 @@
 	require_once 'includes/student_check.php';
 	require_once 'includes/user_check.php';
 	$title = 'My';
+	$active = '';
 
  ?>
  <!DOCTYPE html>
@@ -17,40 +18,44 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo url('css/cms.css')?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo url('css/all.css')?>">
 
-	<style type="text/css">
-		img{
-			height: 80px;
-			width: 130px;
-		}
-	</style>
-
 </head>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-2 side-nav">
+			<div class="col-lg-2 col-md-4 col p-4 side-navi">
 				<div class="row">
 					<div class="col-12 text-center ">
-						<div class="col my-4">
-							<img src="<?php echo url('images/newlogo.png'); ?>">
+						<div class="col text-center ">
+							<img src="<?php echo url('images/newlogo.png'); ?>" class="img-fluid my-4" alt="Responsive image">
 						</div>
-						<h1>Online College Canteen</h1>
-					</div>
-					<div class="col-12 text-center my-2">
-						<i class="fas fa-user mr-2"></i><?php echo $_SESSION['user']['name']; ?> <br>
-						 <small>
-						 <a href="<?php echo url('cms/profile_edit.php'); ?>" title="Edit Profile"><i class="fas fa-edit"></i></a>
 
-						 <a href="<?php echo url('cms/logout.php'); ?>" title="Logout" ><i class="fas fa-sign-out-alt"></i></a>
-						 </small>
+						<div class="col-12 text-center my-2">
+							<h6><i class="fas fa-user mr-2"></i><?php echo $_SESSION['user']['name'];?></h6> 
+						</div>
+
+					</div>
+
+					<div class="col-12 mt-5">
+						<ul class="side-menu">
+							
+
+							<li>
+								<a href="<?php echo url('cms/profile_edit.php'); ?>"><i class="fas fa-edit mr-2"></i>Edit Profile</a>
+							</li>
+
+							<li>
+								<a href="<?php echo url('cms/logout.php'); ?>"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
+
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
 
 	<div class="col">
-	<div class="col-12 bg-white my-3">
+	<div class="col-12 my-3">
 		<div class="row">
 			<div class="col">
-				<h1>My Profile</h1>
+				<h1 class="text-center">My Profile</h1>
 			</div>
 		</div>
 		<div class="row">
@@ -58,7 +63,8 @@
 		</div>
 		<div class="row">
 			<div class="col-12 mt-3">
-				<table class="table table-stripped table-hover table-sm">
+				<div class="table-responsives"></div>
+				<table class="table table-stripped table-hover table-lg">
 					<thead>
 						<tr class="text-center">
 							<th>#</th>
@@ -68,7 +74,8 @@
 							<th>Quantity</th>
 							<th>Price</th>
 							<th>SubTotal</th>
-						</tr>
+							<th>Rate</th>
+						</tr>	
 
 					</thead>
 					 <tbody>
@@ -78,7 +85,7 @@
 							$ret = db_fetch_assoc($result);
 							$total = $ret['total'];
 
-							$limit = 20;
+							$limit = 7;
 
 							$totalpages = ceil($total/$limit);
 
@@ -115,8 +122,6 @@
 									<?php endif; ?>	
 								</td>
 
-								<!-- <td><?php echo $std_order['food_image']; ?></td> -->
-
 								<td><?php echo $std_order['created_at']; ?></td>
 
 								<td><?php echo $std_order['quantity']; ?></td>
@@ -133,6 +138,8 @@
                                          echo "$subt";
 									 ?>
 								</td>
+
+								<td><a href="<?php echo url('rate.php'); ?>" class="btn btn-warning btn-sm" role="button" aria-disabled="true">Rate</a></td>
 						 	</tr>
 					</tbody>
 
