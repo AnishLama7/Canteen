@@ -22,7 +22,7 @@
 
 .rating-review td{
 	padding: 2rem;
-	width: 33.3%;
+
 }
 
 .tri{
@@ -83,6 +83,8 @@
  	font-weight: 700;
  	font-size: 1rem;
  }
+
+ 
 
  .rpb{
  	width: 100%;
