@@ -77,14 +77,25 @@
       ?>
       </select>
     </div>
+    
 
+    <!-- <div class="col-12">
+		<div class="alert alert-success ">
 
- <?php include 'notify.php'; ?>
- <br>
+    <?php 
+      $sql = "SELECT notify FROM can_order where notify = '1' AND order_no = '{$order_no}'";
+      $result = db_query($con, $sql);
+      echo "your Order is ready"
+      ?>
+		</div>
+	  </div> -->
+
+     
+
+ <?php include './cms/templates/message.php';?>
 
  <?php include 'recommend.php'; ?>
 
-  <hr>
 
   <div class="container-fluid">
   <h1 class="page-header text-center">Today's Menu</h1>

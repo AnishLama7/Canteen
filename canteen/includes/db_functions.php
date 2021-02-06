@@ -52,7 +52,7 @@
 
 	if(!function_exists('db_insert_id')) {
 		
-		function db_insert_id() {
+		function db_insert_id($con) {
 			return mysqli_insert_id($con);
 		}
 	}

@@ -58,9 +58,7 @@
 				<h1 class="text-center">My Profile</h1>
 			</div>
 		</div>
-		<div class="row">
-			<?php include_once 'cms/templates/message.php'; ?>
-		</div>
+		
 		<div class="row">
 			<div class="col-12 mt-3">
 				<div class="table-responsives"></div>
@@ -74,7 +72,6 @@
 							<th>Quantity</th>
 							<th>Price</th>
 							<th>SubTotal</th>
-							<th>Rate</th>
 						</tr>	
 
 					</thead>
@@ -139,7 +136,6 @@
 									 ?>
 								</td>
 
-								<td><a href="<?php echo url('rate.php'); ?>" class="btn btn-warning btn-sm" role="button" aria-disabled="true">Rate</a></td>
 						 	</tr>
 					</tbody>
 

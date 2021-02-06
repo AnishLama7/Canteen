@@ -9,15 +9,12 @@
 	if(!empty($_POST)){
     $can_order = $_POST;
     extract($_POST);
+	var_dump($can_order);
 
   	$now = date('Y-m-d H:i:s');
 
-    $qry = "UPDATE can_order SET updated_at = '{$now}', notify = '1' WHERE order_no = '{$can_order['order_no']}";
-
+    $qry = "UPDATE can_order SET updated_at = '{$now}', notify = '1' WHERE order_no = '{$can_order['order_no']}'";
     $result = db_query($con, $qry);
-
-    var_dump($qry); 
-    
 
     if($result) {
 			$_SESSION['message'] = [

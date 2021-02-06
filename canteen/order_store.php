@@ -28,7 +28,7 @@ if (isset($data)>=1) {
 
 		$now = date('Y-m-d H-i-s A');
 		$user_id = $_SESSION['user']['id'];
-
+		$menuId = $menu['order_id'];
         $sql1 = " INSERT INTO std_order SET order_name = '{$menu['name']}', food_image = '{$menu['image']}', order_price = '{$menu['price']}',  user_id = '{$user_id}', order_no = '{$menu['order_no']}',total_order = '{$menu['total']}', quantity = '{$menu['quantity']}', created_at = '{$now}',break_time = '{$break_time}', menu_id='{$menu['order_id']}'";
         $result = db_query($con, $sql1);
 
@@ -38,41 +38,59 @@ if (isset($data)>=1) {
         $result = db_query($con, $sql2);
 
 
-        $sql = "SELECT * FROM recommend where user_id = '{$user_id}'";
+		// recommend based on category
+        // $sql = "SELECT * FROM recommend where user_id = '{$user_id}'";
+        // $query = db_query($con,$sql);
+
+        // $data = (db_fetch_assoc($query));
+
+        // $nonVegCount = 0;
+        // $vegCount = 0;
+       
+
+		// if (isset($data)>=1) {
+		//  	$vegCount =($data['veg_count']);
+		//  	$nonVegCount =($data['nonveg_count']);
+		//  	if ($menu['type'] == 'non-veg') {
+		//  		$nonVegCount++;
+		//  	}else{
+		//  		$vegCount++;
+		//  	}
+		
+		// 	$query = "UPDATE recommend set veg_count = {$vegCount} , nonveg_count = {$nonVegCount} where user_id = '{$user_id}'";
+		// 	db_query($con,$query);
+		// }else{
+		// 	if ($menu['type'] == 'non-veg') {
+		//  		$nonVegCount = 1;
+		//  	}else{
+		//  		$vegCount = 1;
+		//  	}
+		// 	$query1 = " INSERT INTO recommend SET veg_count = '{$vegCount}', nonveg_count = '{$nonVegCount}', user_id = '{$user_id}'";
+        // 	$result = db_query($con, $query1);
+		// }
+
+
+		$sql = "SELECT * FROM food_recommend where user_id = '{$user_id}' AND menu_id = '{$menuId}'";
         $query = db_query($con,$sql);
 
         $data = (db_fetch_assoc($query));
 
-        $nonVegCount = 0;
-        $vegCount = 0;
-       
-
 		if (isset($data)>=1) {
-		 	$vegCount =($data['veg_count']);
-		 	$nonVegCount =($data['nonveg_count']);
-		 	if ($menu['type'] == 'non-veg') {
-		 		$nonVegCount++;
-		 	}else{
-		 		$vegCount++;
-		 	}
-		
-			$query = "UPDATE recommend set veg_count = {$vegCount} , nonveg_count = {$nonVegCount} where user_id = '{$user_id}'";
-			db_query($con,$query);
-		}else{
-			if ($menu['type'] == 'non-veg') {
-		 		$nonVegCount = 1;
-		 	}else{
-		 		$vegCount = 1;
-		 	}
-			$query1 = " INSERT INTO recommend SET veg_count = '{$vegCount}', nonveg_count = '{$nonVegCount}', user_id = '{$user_id}'";
-        	$result = db_query($con, $query1);
-		}
+			 	$count =($data['count'] + 1);
 
+				$query = "UPDATE food_recommend set count = '{$count}' where user_id = '{$user_id}' AND menu_id = '{$menuId}'";
+				$result = db_query($con,$query);
+			}else{
+				
+				$query1 = " INSERT INTO food_recommend SET count = 1, menu_id = '{$menuId}', user_id = '{$user_id}'";
+				$result = db_query($con, $query1);
+			}
+	
 
 
 		if($result) {
 			$_SESSION['message'] = [
-				'content' => 'Order added successfully.',
+				'content' => 'Your oder will be ready within 10 minutes according to your break time.',
 				'type' => 'success'
 			];
 
