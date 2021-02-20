@@ -111,11 +111,11 @@ span{
 </style>
 
 <div class="slideshow-container">
-  <h1>Recommended For You</h1>
+  <h3 class="text-center" style="font-weight: bold;">Recommended For You</h3>
 
 <?php 
       $ids = [];
-      $query = "SELECT * FROM food_recommend WHERE user_id = '{$_SESSION['user']['id']}' order by count desc LIMIT 0,3";
+      $query = "SELECT * FROM food_recommend WHERE user_id = '{$_SESSION['user']['id']}' order by count desc LIMIT 0,5";
       $result = db_query($con ,$query);
     
       if($result && db_num_rows($result) > 0 ){
@@ -123,19 +123,25 @@ span{
             $ids[]=$menu['menu_id'];
         }?>
     <?php foreach($ids as $id):?>
+      
     <?php
             $sql = "SELECT * FROM menu WHERE id = '{$id}'";
             $result = db_query($con,$sql);
             if($result && db_num_rows($result) > 0 ):?>
+
     <?php $menu = db_fetch_assoc($result);?>
+     <?php if ($menu['total'] > 0) {?>
 
     <div class="mySlides fade">
       <img src="<?php echo url('images/'.$menu['image']); ?>" style="width:100%">
       <div class="text"><span><?php echo $menu['name']; ?></span></div>
     </div>
+    <?php }?>
 
     <?php endif; ?>
+
     <?php endforeach?>
+
 
     <?php  
       

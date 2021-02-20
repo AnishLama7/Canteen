@@ -210,7 +210,7 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $("#typelist").on('Change', function(){
+    $("#typelist").On('change', function(){
       if($(this).val() == 0)
       {
         window.location = 'std_order.php';
@@ -225,7 +225,7 @@
 
 
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <?php include 'templates/footer.php'; ?>
  </html>
