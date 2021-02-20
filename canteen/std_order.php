@@ -77,6 +77,7 @@
       ?>
       </select>
     </div>
+
     
 
     <!-- <div class="col-12">
@@ -94,10 +95,10 @@
 
  <?php include './cms/templates/message.php';?>
 
- <?php include 'recommend.php'; ?>
-
 
   <div class="container-fluid">
+    <!-- ?php include 'recommend.php'; ?> -->
+    <?php include 'demo.php'; ?>
   <h1 class="page-header text-center">Today's Menu</h1>
 
   
@@ -110,7 +111,7 @@
         <th>Category</th>
         <th>Order No</th>
         <th>Available</th>
-        <th>DateTime</th>
+       <!--  <th>DateTime</th> -->
         <th>Quantity</th>
         <th>Break Time</th>
         <th>Action</th>
@@ -159,7 +160,8 @@
                   $res = db_query($con, $qry);
                   $Category = db_fetch_assoc($res);
                  ?>
-              <td><?php echo $Category['name']; ?>
+              <td>
+                <?php echo $Category['name']; ?>
                 <input type="hidden" name="type" value="<?php echo $menu['type']; ?>">
               </td>
               
@@ -173,7 +175,7 @@
                 <input type="number" class= "form-control" name="total" value="<?php echo $menu['total']; ?>" readonly>
               </td>
 
-               <td style="width:200px;"><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
+              <!--  <td style="width:200px;"><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td> -->
 
              <td>
                <input type="number" class="form-control" name="quantity" max="<?php echo $menu['total']; ?>" required>
@@ -208,7 +210,7 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $("#typelist").on('change', function(){
+    $("#typelist").on('Change', function(){
       if($(this).val() == 0)
       {
         window.location = 'std_order.php';
@@ -221,7 +223,9 @@
   });
 
 
-</script>
 
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
 <?php include 'templates/footer.php'; ?>
  </html>

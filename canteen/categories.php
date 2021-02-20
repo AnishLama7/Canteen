@@ -75,7 +75,7 @@
 
 
   <div class="container-fluid">
-  <h1 class="page-header text-center">ORDER</h1>
+  <h1 class="page-header text-center" style="color: black">Today's Menu</h1>
 
     <table class="table table-striped table-bordered table-responsive">
       <thead>
@@ -84,7 +84,7 @@
          <th>Price</th>
          <th>Order No</th>
          <th>Available</th>
-         <th>Time</th>
+        <!--  <th>Time</th> -->
          <th>Quantity</th>
          <th>Break Time</th>
          <th>Action</th>
@@ -154,7 +154,7 @@
                 <input type="number" class= "form-control" name="total" value="<?php echo $menu['total']; ?>" readonly>
               </td>
 
-               <td style="width: 200px;"><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td>
+              <!--  <td style="width: 200px;"><?php echo date('M d, Y h:i A', strtotime($menu['created_at'])) ?></td> -->
 
              <td>
                <input type="number" class="form-control" name="quantity" max="<?php echo $menu['total']; ?>" required>
