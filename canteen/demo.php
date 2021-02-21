@@ -146,7 +146,7 @@ span{
     <?php  
       
       }else{
-        $sql = "SELECT * FROM menu ORDER BY RAND() LIMIT 0,3";
+        $sql = "SELECT * FROM menu ORDER BY RAND() LIMIT 0,5";
         $result = db_query($con,$sql);
       }
 
@@ -154,7 +154,7 @@ span{
     <?php while( $menu = db_fetch_assoc($result)): ?>
       <div class="mySlides fade">
       <img src="<?php echo url('images/'.$menu['image']); ?>" style="width:100%">
-      <h1 class="text" ><?php echo $menu['name']; ?></h1>
+      <h1 class="text" ><span><?php echo $menu['name']; ?></span></h1>
     </div>
     <?php endwhile; ?>
     <?php endif; ?>

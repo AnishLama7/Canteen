@@ -5,8 +5,7 @@
   require_once 'includes/db_connection.php';
   $title = 'Review';
   include 'templates/header.php';
-  $mytime = getdate(date("U"));
-  $date = "$mytime[weekday], $mytime[month], $mytime[mday], $mytime[year]";
+  $now = date('Y-m-d H:i:s');
 
   require "db.rate.php";
 
@@ -73,7 +72,7 @@
                    <p class="rars"><?php if($numR == 0) {echo "No";}  else {echo $numR;} ?>&nbsp;Reviews</p>
                  </div>
                </td>
-               <td>
+              <!--  <td>
                  <div class="rpb">
                    <div class="rnpb">
                      <label>5 <i class="fa fa-star"></i></label>
@@ -111,7 +110,7 @@
                       <div class="label">(13)</div>
                    </div>
                  </div>
-               </td>
+               </td>  -->
                <td>
                  <div class="rrb">
                    <p>Please Review Our Food!!</p>
@@ -136,7 +135,7 @@
                   <i class="fa fa-star" data-index="5"></i>
                 </div>
                 <input type="hidden" value="" class="starRateV">
-                 <input type="hidden" value="<?php  echo $date; ?>" class="rateDate">
+                 <input type="hidden" value="<?php  echo $now; ?>" class="rateDate">
                  <div class="rptf" align="center">
                    <input type="text" class="rateName" placeholder="Enter Your Name"  >
                  </div>
@@ -202,10 +201,6 @@
    </div>
 
  </body>
-
-
-
-
  
   </html>
    

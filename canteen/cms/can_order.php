@@ -50,7 +50,7 @@
 							<th>Quantity</th>
 							<th>Created_at</th>
 							<th>Break Time</th>
-							<th>Notify</th>
+							<th>Ready</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -63,7 +63,7 @@
 							$ret = db_fetch_assoc($result);
 							$total = $ret['total'];
 
-							$limit = 11;
+							$limit = 10;
 
 							$totalpages = ceil($total/$limit);
 

@@ -215,16 +215,16 @@ body{
   cursor: pointer;
 }
 .rps {
-     padding: 20px;
-    color: #aeaeae;
-   
-
-}
-
-.rps i {
-    cursor: pointer;
     padding: 20px;
+    color: #aeaeae;
 }
+.rps i {
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 30px;
+}
+
+
 .rptf textarea, 
 .rptf input {
   width: 80%;

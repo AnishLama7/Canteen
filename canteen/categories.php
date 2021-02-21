@@ -75,7 +75,7 @@
 
 
   <div class="container-fluid">
-  <h1 class="page-header text-center" style="color: black">Today's Menu</h1>
+  <h1 class="page-header text-center">Today's Menu</h1>
 
     <table class="table table-striped table-bordered table-responsive">
       <thead>

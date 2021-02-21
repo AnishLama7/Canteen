@@ -43,7 +43,7 @@
 
       <ul class="nav navbar-nav navbar-right mr-5">
 
-        <li class="nav-item my-2 mr-3" style="color: white;"><a href=""></a><i class="fas fa-user-clock ml-3"></i><?php echo date('Y/m/d H-i-s A')?></li>
+        <li class="nav-item my-2 mr-3" style="color: white;"><a href=""></a><i class="fas fa-user-clock ml-3"></i><?php echo date('Y/m/d h-i A')?></li>
 
 
         <li class="nav-item dropdown">
@@ -79,18 +79,6 @@
     </div>
 
     
-
-    <!-- <div class="col-12">
-		<div class="alert alert-success ">
-
-    <?php 
-      $sql = "SELECT notify FROM can_order where notify = '1' AND order_no = '{$order_no}'";
-      $result = db_query($con, $sql);
-      echo "your Order is ready"
-      ?>
-		</div>
-	  </div> -->
-
      
 
  <?php include './cms/templates/message.php';?>
@@ -99,10 +87,16 @@
   <div class="container-fluid">
     <!-- ?php include 'recommend.php'; ?> -->
     <?php include 'demo.php'; ?>
+    <div>
+       <a href="<?php echo url('review.php'); ?>"><button class="btn btn-warning" style="float: right">Review Food</button></a>
+    </div>
   <h1 class="page-header text-center">Today's Menu</h1>
 
-  
-<div class="table-responsive-sm">
+   <script
+       src="https://code.jquery.com/jquery-3.5.1.js"
+       integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+       crossorigin="anonymous"></script>
+  <div class="table-responsive-sm">
     <table class="table table-striped table-bordered w-auto">
       <thead class="text-center">
         <th>Food Name</th>
@@ -115,7 +109,6 @@
         <th>Quantity</th>
         <th>Break Time</th>
         <th>Action</th>
-        <th>Review</th>
       </thead>
       <tbody>
          
@@ -189,9 +182,9 @@
                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Order</button>
              </td>
 
-             <td class="text-center">
+            <!--  <td class="text-center">
               <a href="<?php echo url('review.php'); ?>"><i class="fa fa-star" aria-hidden="true"></i></a>
-            </td>
+            </td> -->
 
            </tr>
   </form>
@@ -210,7 +203,7 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $("#typelist").On('change', function(){
+    $("#typelist").on('change', function(){
       if($(this).val() == 0)
       {
         window.location = 'std_order.php';

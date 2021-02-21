@@ -49,21 +49,19 @@
 						<input type="file" name="image" id="image" class="form-control" accept="image/*">
 						<div class="img-preview">
 							<?php if(!empty($menu['image'])): ?>
-								<img src="<?php echo url('images/'.$menu['image']); ?>" class = "img-fluid mt-3">
+								<img src="<?php echo url('images/'.$menu['image']); ?>" style="width:100px" class = "img-fluid mt-3">
 							<?php endif; ?>	
 						</div>
 					</div>
 						<input type="hidden" name="old_image" value="<?php echo $menu['image']; ?>">
 
-						<div class="form-group">
+					<div class="form-group">
 						<label for="type">Food Type</label>
 						<select name="type" id="type" class="form-control" required>
 							<?php if($_SESSION['menu']['type'] == 'veg') ?>
 							<option value="veg" <?php echo $menu['type'] == 'veg' ? 'selected': ''; ?>>Veg</option>
 							<?php if($_SESSION['menu']['type'] == 'non-veg') ?>
 							<option value="non-veg"  <?php echo $menu['type'] == 'non-veg' ? 'selected': ''; ?>>Non-Veg</option>
-							<?php if($_SESSION['menu']['type'] == 'drinks') ?>
-							<option value="drinks"  <?php echo $menu['type'] == 'drinks' ? 'selected': ''; ?>>Drinks</option>
 						</select>
 					</div>
 
